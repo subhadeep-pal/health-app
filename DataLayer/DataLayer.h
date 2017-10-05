@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 //! Project version number for DataLayer.
 FOUNDATION_EXPORT double DataLayerVersionNumber;
 

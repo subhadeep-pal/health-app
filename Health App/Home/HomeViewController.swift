@@ -1,24 +1,19 @@
 //
-//  ReminderViewController.swift
+//  HomeViewController.swift
 //  Health App
 //
-//  Created by Subhadeep Pal on 05/10/17.
+//  Created by Koushik Dutta on 07/10/17.
 //  Copyright © 2017 Virtual Elf LLC. All rights reserved.
 //
 
 import UIKit
 
-class ReminderViewController: UIViewController {
+class HomeViewController: UIViewController {
 
-    @IBOutlet weak var textView: UITextView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        textView.placeholder = "This is placeholder"
-        textView.placeholderColor = UIColor.gray
-
     }
 
     override func didReceiveMemoryWarning() {
