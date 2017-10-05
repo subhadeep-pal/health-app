@@ -18,6 +18,7 @@
 		1433ADF91F86A97D00C839AA /* UIViewControllerX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADEF1F86A97C00C839AA /* UIViewControllerX.swift */; };
 		1433ADFA1F86A97D00C839AA /* UISliderX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADF01F86A97D00C839AA /* UISliderX.swift */; };
 		1433ADFB1F86A97D00C839AA /* UIVisualEffectViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADF11F86A97D00C839AA /* UIVisualEffectViewX.swift */; };
+		1433ADFE1F86A9E700C839AA /* UIViewShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADFD1F86A9E700C839AA /* UIViewShadow.swift */; };
 		146C2EC11F83F39000E039AB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 146C2EBF1F83F39000E039AB /* Home.storyboard */; };
 		146C2EC21F83F39000E039AB /* Reminder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 146C2EC01F83F39000E039AB /* Reminder.storyboard */; };
 		146C2ECC1F83F3E800E039AB /* DataLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 146C2ECA1F83F3E800E039AB /* DataLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -67,6 +68,7 @@
 		1433ADEF1F86A97C00C839AA /* UIViewControllerX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerX.swift; sourceTree = "<group>"; };
 		1433ADF01F86A97D00C839AA /* UISliderX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISliderX.swift; sourceTree = "<group>"; };
 		1433ADF11F86A97D00C839AA /* UIVisualEffectViewX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVisualEffectViewX.swift; sourceTree = "<group>"; };
+		1433ADFD1F86A9E700C839AA /* UIViewShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewShadow.swift; sourceTree = "<group>"; };
 		146C2EBF1F83F39000E039AB /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		146C2EC01F83F39000E039AB /* Reminder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reminder.storyboard; sourceTree = "<group>"; };
 		146C2EC81F83F3E800E039AB /* DataLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +121,7 @@
 				1433ADE91F86A97C00C839AA /* UIViewX.swift */,
 				1433ADEA1F86A97C00C839AA /* UIViewXRadialGradient.swift */,
 				1433ADF11F86A97D00C839AA /* UIVisualEffectViewX.swift */,
+				1433ADFD1F86A9E700C839AA /* UIViewShadow.swift */,
 			);
 			path = Deisgnables;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				1433ADF41F86A97D00C839AA /* UIViewXRadialGradient.swift in Sources */,
 				1433ADF51F86A97D00C839AA /* UIButtonX.swift in Sources */,
 				14E2EDAE1F83E37800656014 /* AppDelegate.swift in Sources */,
+				1433ADFE1F86A9E700C839AA /* UIViewShadow.swift in Sources */,
 				1433ADF91F86A97D00C839AA /* UIViewControllerX.swift in Sources */,
 				1433ADF71F86A97D00C839AA /* UIImageViewX.swift in Sources */,
 				1433ADF81F86A97D00C839AA /* UILabelX.swift in Sources */,
