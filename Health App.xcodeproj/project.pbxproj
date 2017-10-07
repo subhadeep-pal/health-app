@@ -8,18 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E8229FE8219C417886E8F87 /* Pods_Health_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E51089DBAAC2F9B8E2FCFE4 /* Pods_Health_App.framework */; };
-		1433ADF21F86A97D00C839AA /* UITextFieldX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADE81F86A97C00C839AA /* UITextFieldX.swift */; };
-		1433ADF31F86A97D00C839AA /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADE91F86A97C00C839AA /* UIViewX.swift */; };
-		1433ADF41F86A97D00C839AA /* UIViewXRadialGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADEA1F86A97C00C839AA /* UIViewXRadialGradient.swift */; };
-		1433ADF51F86A97D00C839AA /* UIButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADEB1F86A97C00C839AA /* UIButtonX.swift */; };
-		1433ADF61F86A97D00C839AA /* UIViewAnchorPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADEC1F86A97C00C839AA /* UIViewAnchorPoint.swift */; };
-		1433ADF71F86A97D00C839AA /* UIImageViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADED1F86A97C00C839AA /* UIImageViewX.swift */; };
-		1433ADF81F86A97D00C839AA /* UILabelX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADEE1F86A97C00C839AA /* UILabelX.swift */; };
-		1433ADF91F86A97D00C839AA /* UIViewControllerX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADEF1F86A97C00C839AA /* UIViewControllerX.swift */; };
-		1433ADFA1F86A97D00C839AA /* UISliderX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADF01F86A97D00C839AA /* UISliderX.swift */; };
-		1433ADFB1F86A97D00C839AA /* UIVisualEffectViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADF11F86A97D00C839AA /* UIVisualEffectViewX.swift */; };
-		1433ADFE1F86A9E700C839AA /* UIViewShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADFD1F86A9E700C839AA /* UIViewShadow.swift */; };
-		1433AE041F86AED100C839AA /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433AE031F86AED100C839AA /* ReminderViewController.swift */; };
+		142E2F881F892B5100E2F7E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E2EDAD1F83E37800656014 /* AppDelegate.swift */; };
 		146C2EC11F83F39000E039AB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 146C2EBF1F83F39000E039AB /* Home.storyboard */; };
 		146C2EC21F83F39000E039AB /* Reminder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 146C2EC01F83F39000E039AB /* Reminder.storyboard */; };
 		146C2ECC1F83F3E800E039AB /* DataLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 146C2ECA1F83F3E800E039AB /* DataLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -389,6 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				142E2F881F892B5100E2F7E4 /* AppDelegate.swift in Sources */,
 				146C2ED61F83F3FD00E039AB /* DatabaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
