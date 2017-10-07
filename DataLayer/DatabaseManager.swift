@@ -13,7 +13,7 @@ open class DatabaseManager: NSObject {
     open static let shared : DatabaseManager = DatabaseManager()
     
     open func someFunction() {
-        
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
     }
 
 }

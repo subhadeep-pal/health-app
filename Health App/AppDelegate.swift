@@ -8,7 +8,6 @@
 
 import UIKit
 import CoreData
-import DataLayer
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
