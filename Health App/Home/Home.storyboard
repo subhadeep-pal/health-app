@@ -306,36 +306,13 @@
                     <navigationItem key="navigationItem" title="New Health Concern" id="VeF-eU-0zT"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="deleteButton" destination="p4G-ZA-HlR" id="jHq-hW-2PL"/>
                         <outlet property="noteTextView" destination="hPK-xH-mJ7" id="Bgh-mF-P0s"/>
-                        <outlet property="outerView" destination="GkL-wa-End" id="i2c-p5-LOy"/>
-                        <outlet property="statusPickerView" destination="xTm-5v-lnm" id="E98-YA-pVl"/>
                         <outlet property="statusTextField" destination="3Ml-k2-0GH" id="SHV-Vt-NpM"/>
                         <outlet property="titleTextField" destination="dpr-Fw-7BO" id="acv-Mv-zm5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sk5-K1-0sK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="GkL-wa-End">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xTm-5v-lnm">
-                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <outlet property="dataSource" destination="gkt-Ta-BNs" id="BnM-vX-QLT"/>
-                                <outlet property="delegate" destination="gkt-Ta-BNs" id="PnH-dd-yRt"/>
-                            </connections>
-                        </pickerView>
-                    </subviews>
-                    <color key="backgroundColor" red="0.80824092085546129" green="0.81758370229962707" blue="0.84561204663212441" alpha="0.910431338028169" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstItem="52H-ZH-bUd" firstAttribute="trailing" secondItem="xTm-5v-lnm" secondAttribute="trailing" id="9oI-sB-LAd"/>
-                        <constraint firstItem="xTm-5v-lnm" firstAttribute="leading" secondItem="52H-ZH-bUd" secondAttribute="leading" id="KQM-oD-lKO"/>
-                        <constraint firstItem="xTm-5v-lnm" firstAttribute="bottom" secondItem="52H-ZH-bUd" secondAttribute="bottom" id="m2h-QJ-eK3"/>
-                        <constraint firstItem="xTm-5v-lnm" firstAttribute="top" secondItem="52H-ZH-bUd" secondAttribute="top" id="nUl-Ei-xy2"/>
-                    </constraints>
-                    <viewLayoutGuide key="safeArea" id="52H-ZH-bUd"/>
-                </view>
             </objects>
             <point key="canvasLocation" x="4594" y="-200"/>
         </scene>

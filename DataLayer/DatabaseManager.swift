@@ -8,24 +8,24 @@
 
 import UIKit
 import CoreData
-import DataLayer
+
 open class DatabaseManager: NSObject {
     
     open static let shared : DatabaseManager = DatabaseManager()
     
-    func getContext() -> NSManagedObjectContext {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        return appDelegate.persistentContainer.viewContext
+    var getContect : NSManagedObjectContext {
+        get{
+            return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        }
     }
     
-    func saveContext() {
+    func saveContext(){
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
     }
     
     // ADD New Health Concern
     open func addNewHealthConcern(title: String, status: String, note: String){
-        let context = getContext()
-        let healthConcern = HealthConcern(context: context)
+        let healthConcern = HealthConcern(context: getContect)
         healthConcern.title = title
         healthConcern.status = status
         healthConcern.note = note
@@ -33,10 +33,9 @@ open class DatabaseManager: NSObject {
     }
     // FETCH All Health Concerns Saved In Core Data
     open func fetchHealthConcerns() -> [HealthConcern]{
-        let context = getContext()
         var healthConcerns : [HealthConcern] = []
         do{
-            healthConcerns = try context.fetch(HealthConcern.fetchRequest())
+            healthConcerns = try getContect.fetch(HealthConcern.fetchRequest())
         }catch{
             print("Failed to fetch data")
         }
@@ -45,12 +44,11 @@ open class DatabaseManager: NSObject {
     
     // UPDATE If Present Else ADD
     open func addOrUpdateHealthConcern(title: String, status: String, note: String){
-        let context = getContext()
         var healthConcern : HealthConcern?
         do {
             let fetchRequest : NSFetchRequest<HealthConcern> = HealthConcern.fetchRequest()
             fetchRequest.predicate = NSPredicate(format: "title == %@", title)
-            let fetchedResults = try context.fetch(fetchRequest)
+            let fetchedResults = try getContect.fetch(fetchRequest)
             healthConcern = fetchedResults.first
             }
         catch {
@@ -67,13 +65,12 @@ open class DatabaseManager: NSObject {
     
     // DELETE Health Concern From Core Data
     open func deleteHealthConcern(title: String){
-        let context = getContext()
         do{
         let fetchRequest : NSFetchRequest<HealthConcern> = HealthConcern.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "title == %@", title)
-        let fetchedResults = try context.fetch(fetchRequest)
+        let fetchedResults = try getContect.fetch(fetchRequest)
         for object in fetchedResults {
-            context.delete(object)
+            getContect.delete(object)
             }
         }catch{
             print("Can't find object")

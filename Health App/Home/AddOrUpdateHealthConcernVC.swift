@@ -10,21 +10,26 @@ import UIKit
 import DataLayer
 class AddOrUpdateHealthConcernVC: UIViewController {
     
-    @IBOutlet weak var statusPickerView: UIPickerView! = UIPickerView()
+    
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var statusTextField: UITextField!
     @IBOutlet weak var noteTextView: UITextView!
-    @IBOutlet weak var outerView: UIView!
-    weak var healthConcern : HealthConcern?
+    @IBOutlet weak var deleteButton: UIButton!
+    var statusPickerView: UIPickerView = UIPickerView()
+    var healthConcern : HealthConcern?
     let statusOptions = ["In Control","Not In Control","Resolved"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         customizedTextView()
+        statusPickerView.dataSource = self
+        statusPickerView.delegate = self
         self.statusTextField.inputView = statusPickerView
-        if let title = healthConcern?.title, !title.isEmpty {
+        if let  healthConcern = self.healthConcern {
            titleTextField.isUserInteractionEnabled = false
-            self.title = title
+            self.title = healthConcern.title
+        }else{
+            deleteButton.isEnabled = false
         }
         titleTextField.text = healthConcern?.title
         statusTextField.text = healthConcern?.status
