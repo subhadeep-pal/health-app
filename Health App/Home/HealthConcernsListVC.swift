@@ -10,8 +10,7 @@ import UIKit
 import DataLayer
 
 class HealthConcernsListVC: UIViewController {
-
-    var healthConcerns: [HealthConcern] = []
+    
     var inControlStatus: [HealthConcern] = []
     var notInControlStatus: [HealthConcern] = []
     var resolvedStatus: [HealthConcern] = []
@@ -24,24 +23,14 @@ class HealthConcernsListVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        healthConcerns = DatabaseManager.shared.fetchHealthConcerns()
-        divideBasedOnStatus()
+        fetchBasedOnStatus()
         healthConcernsTableView.reloadData()
     }
     
-    func divideBasedOnStatus(){
-        inControlStatus.removeAll()
-        notInControlStatus.removeAll()
-        resolvedStatus.removeAll()
-        for healthConcern in healthConcerns{
-            if (healthConcern.status == "In Control"){
-                inControlStatus.append(healthConcern)
-            }else if (healthConcern.status == "Not In Control"){
-                notInControlStatus.append(healthConcern)
-            }else if(healthConcern.status == "Resolved"){
-                resolvedStatus.append(healthConcern)
-            }
-        }
+    func fetchBasedOnStatus(){
+        inControlStatus = DatabaseManager.shared.fetchHealthConcernsBasedOnStatus(status: "In Control")
+        notInControlStatus = DatabaseManager.shared.fetchHealthConcernsBasedOnStatus(status: "Not In Control")
+        resolvedStatus = DatabaseManager.shared.fetchHealthConcernsBasedOnStatus(status: "Resolved")
     }
     
     @IBAction func addNewHealthConcernBarButtonClicked(_ sender: Any) {

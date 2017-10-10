@@ -21,7 +21,7 @@ class AddOrUpdateHealthConcernVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        customizedTextView()
+        noteTextView.customizeTextView(placeholderText: "Note", placeholderColor: UIColor.lightGray, borderWidth: 0.5, borderColor: UIColor.lightGray, cornerRadius: 8.0)
         statusPickerView.dataSource = self
         statusPickerView.delegate = self
         self.statusTextField.inputView = statusPickerView
@@ -35,14 +35,7 @@ class AddOrUpdateHealthConcernVC: UIViewController {
         statusTextField.text = healthConcern?.status
         noteTextView.text = healthConcern?.note
     }
-    
-    func customizedTextView(){
-        noteTextView.layer.borderWidth = 0.5
-        noteTextView.layer.borderColor = UIColor.lightGray.cgColor
-        noteTextView.layer.cornerRadius = 8.0
-        noteTextView.placeholder = "Note"
-        noteTextView.placeholderColor = UIColor.lightGray
-    }
+
     // SAVE Button
     @IBAction func saveButtonClicked(_ sender: UIButton) {
         if let title = titleTextField.text ,let status = statusTextField.text ,let note = noteTextView.text, !title.isEmpty, !status.isEmpty {

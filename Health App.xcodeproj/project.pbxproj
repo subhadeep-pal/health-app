@@ -19,6 +19,7 @@
 		14E2EDB81F83E37800656014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14E2EDB61F83E37800656014 /* LaunchScreen.storyboard */; };
 		14E49A121F83F12C0043C753 /* MasterSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E49A111F83F12C0043C753 /* MasterSideMenuViewController.swift */; };
 		7046FF771F89D78B00083EE3 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C2ED51F83F3FD00E039AB /* DatabaseManager.swift */; };
+		707496921F8D4B8000227953 /* UICustomisedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707496911F8D4B8000227953 /* UICustomisedTextView.swift */; };
 		709C2CAA1F8947490095D3E7 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433AE031F86AED100C839AA /* ReminderViewController.swift */; };
 		709C2CAD1F894AB20095D3E7 /* AddOrUpdateHealthConcernVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B60C4E1F88091900F83AA2 /* AddOrUpdateHealthConcernVC.swift */; };
 		709C2CB01F895FE30095D3E7 /* HealthConcernsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B60C4C1F8808DF00F83AA2 /* HealthConcernsListVC.swift */; };
@@ -81,6 +82,7 @@
 		14E49A111F83F12C0043C753 /* MasterSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterSideMenuViewController.swift; sourceTree = "<group>"; };
 		36E3B9CDB7BFD78DA266ECE9 /* Pods-Health App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Health App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Health App/Pods-Health App.debug.xcconfig"; sourceTree = "<group>"; };
 		594F0419DF66D98F7148AD60 /* Pods-Health App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Health App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Health App/Pods-Health App.release.xcconfig"; sourceTree = "<group>"; };
+		707496911F8D4B8000227953 /* UICustomisedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomisedTextView.swift; sourceTree = "<group>"; };
 		70B60C4A1F88089E00F83AA2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		70B60C4C1F8808DF00F83AA2 /* HealthConcernsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthConcernsListVC.swift; sourceTree = "<group>"; };
 		70B60C4E1F88091900F83AA2 /* AddOrUpdateHealthConcernVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrUpdateHealthConcernVC.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				1433ADEA1F86A97C00C839AA /* UIViewXRadialGradient.swift */,
 				1433ADF11F86A97D00C839AA /* UIVisualEffectViewX.swift */,
 				1433ADFD1F86A9E700C839AA /* UIViewShadow.swift */,
+				707496911F8D4B8000227953 /* UICustomisedTextView.swift */,
 			);
 			path = Deisgnables;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				709C2CAA1F8947490095D3E7 /* ReminderViewController.swift in Sources */,
 				14E49A121F83F12C0043C753 /* MasterSideMenuViewController.swift in Sources */,
 				709C2CB11F895FFF0095D3E7 /* HealthApp.xcdatamodeld in Sources */,
+				707496921F8D4B8000227953 /* UICustomisedTextView.swift in Sources */,
 				709C2CAD1F894AB20095D3E7 /* AddOrUpdateHealthConcernVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -59,6 +59,20 @@ open class DatabaseManager: NSObject {
         return healthConcerns
     }
     
+    open func fetchHealthConcernsBasedOnStatus(status: String) -> [HealthConcern]{
+        var healthConcerns : [HealthConcern] = []
+        do {
+            let fetchRequest : NSFetchRequest<HealthConcern> = HealthConcern.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "status == %@", status)
+            let fetchedResults = try getContect.fetch(fetchRequest)
+            healthConcerns = fetchedResults
+        }
+        catch {
+            print ("Failed to fetch data", error)
+        }
+        return healthConcerns
+    }
+    
     // UPDATE If Present Else ADD
     open func addOrUpdateHealthConcern(title: String, status: String, note: String){
         var healthConcern : HealthConcern?
