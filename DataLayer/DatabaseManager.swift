@@ -13,6 +13,23 @@ open class DatabaseManager: NSObject {
     
     open static let shared : DatabaseManager = DatabaseManager()
     
+    enum HealthConcernStatusType: Int {
+        case inControl = 0
+        case notInControl
+        case resolved
+        
+        static let values = [
+            inControl : "In Control",
+            notInControl: "Not In Control",
+            resolved: "Resolved"
+        ]
+        
+        func stringValue() -> String? {
+            guard let value = HealthConcernStatusType.values[self] else {return nil}
+            return value
+        }
+    }
+    
     var getContect : NSManagedObjectContext {
         get{
             return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext

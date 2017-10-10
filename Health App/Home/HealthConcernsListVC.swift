@@ -68,29 +68,24 @@ extension HealthConcernsListVC: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        switch section{
-        case 0:
-            if inControlStatus.count > 0{
-                return "In Control"
-            }
-        case 1:
-            if notInControlStatus.count > 0{
-                return "Not In Control"
-            }
-        default:
-            if resolvedStatus.count > 0{
-                return "Resolved"
-            }
+        guard let status = DatabaseManager.HealthConcernStatusType(rawValue: section) else {return nil}
+        switch status{
+        case .inControl:
+            return inControlStatus.count > 0 ? status.stringValue() : nil
+        case .notInControl:
+            return notInControlStatus.count > 0 ? status.stringValue() : nil
+        case .resolved:
+            return resolvedStatus.count > 0 ? status.stringValue() : nil
         }
-        return nil
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section{
-        case 0:
+        guard let status = DatabaseManager.HealthConcernStatusType(rawValue: section) else {return 0}
+        switch status{
+        case .inControl:
             return inControlStatus.count
-        case 1:
+        case .notInControl:
             return notInControlStatus.count
-        default:
+        case .resolved:
             return resolvedStatus.count
         }
     }
