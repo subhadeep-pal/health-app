@@ -66,7 +66,7 @@ open class DatabaseManager: NSObject {
         fetchRequest.predicate = NSPredicate(format: "title == %@", title)
         let fetchedResults : [HealthConcern]? = try? getContect.fetch(fetchRequest)
         
-        guard let healthConcern = fetchedResults.first else {
+        guard let healthConcern = fetchedResults?.first else {
             addNewHealthConcern(title: title, status: status, note: note)
             return
         }
@@ -79,15 +79,10 @@ open class DatabaseManager: NSObject {
     
     // DELETE Health Concern From Core Data
     open func deleteHealthConcern(title: String){
-        do{
         let fetchRequest : NSFetchRequest<HealthConcern> = HealthConcern.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "title == %@", title)
-        let fetchedResults = try getContect.fetch(fetchRequest)
-        for object in fetchedResults {
-            getContect.delete(object)
-            }
-        }catch{
-            print("Can't find object")
-        }
+        let fetchedResults : [HealthConcern]? = try? getContect.fetch(fetchRequest)
+        guard let healthConcern = fetchedResults?.first else{ return }
+        getContect.delete(healthConcern)
     }
 }
