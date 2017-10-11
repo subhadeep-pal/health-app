@@ -25,15 +25,22 @@ class AddOrUpdateHealthConcernVC: UIViewController {
         statusPickerView.dataSource = self
         statusPickerView.delegate = self
         self.statusTextField.inputView = statusPickerView
-        if let  healthConcern = self.healthConcern {
-           titleTextField.isUserInteractionEnabled = false
-            self.title = healthConcern.title
-        }else{
+        
+        fillData()
+    }
+    
+    
+    private func fillData() {
+        guard let healthConcern = self.healthConcern else {
             deleteButton.isEnabled = false
+            return
         }
-        titleTextField.text = healthConcern?.title
-        statusTextField.text = healthConcern?.status
-        noteTextView.text = healthConcern?.note
+        
+        titleTextField.isUserInteractionEnabled = false
+        self.title = healthConcern.title
+        titleTextField.text = healthConcern.title
+        statusTextField.text = healthConcern.status
+        noteTextView.text = healthConcern.note
     }
 
     // SAVE Button

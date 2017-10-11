@@ -46,8 +46,8 @@ class HealthConcernsListVC: UIViewController {
 // MARK: - Navigation
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "AddOrUpdateConcern" {
-            let destinationViewController = segue.destination as! AddOrUpdateHealthConcernVC
+        if segue.identifier == "AddOrUpdateConcern",
+            let destinationViewController = segue.destination as? AddOrUpdateHealthConcernVC {
             destinationViewController.healthConcern = sender as? HealthConcern
         }
     }

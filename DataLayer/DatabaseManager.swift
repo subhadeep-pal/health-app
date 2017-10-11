@@ -27,10 +27,9 @@ open class DatabaseManager: NSObject {
         }
     }
     var getContect : NSManagedObjectContext {
-        get{
-            return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        }
+        return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
+    
     func saveContext(){
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
     }
@@ -62,24 +61,22 @@ open class DatabaseManager: NSObject {
     
     // UPDATE If Present Else ADD
     open func addOrUpdateHealthConcern(title: String, status: String, note: String){
-        var healthConcern : HealthConcern?
-        do {
-            let fetchRequest : NSFetchRequest<HealthConcern> = HealthConcern.fetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "title == %@", title)
-            let fetchedResults = try getContect.fetch(fetchRequest)
-            healthConcern = fetchedResults.first
-            }
-        catch {
-            print ("Failed to fetch data", error)
-        }
-        if(healthConcern != nil){
-            healthConcern?.title = title
-            healthConcern?.status = status
-            healthConcern?.note = note
-        }else{
+        
+        let fetchRequest : NSFetchRequest<HealthConcern> = HealthConcern.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "title == %@", title)
+        let fetchedResults : [HealthConcern]? = try? getContect.fetch(fetchRequest)
+        
+        guard let healthConcern = fetchedResults.first else {
             addNewHealthConcern(title: title, status: status, note: note)
+            return
         }
+        healthConcern.title = title
+        healthConcern.status = status
+        healthConcern.note = note
+        
+        // Is there need to saveContext() ?
     }
+    
     // DELETE Health Concern From Core Data
     open func deleteHealthConcern(title: String){
         do{
