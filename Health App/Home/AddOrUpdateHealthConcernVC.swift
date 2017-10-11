@@ -17,16 +17,8 @@ class AddOrUpdateHealthConcernVC: UIViewController {
     @IBOutlet weak var deleteButton: UIButton!
     var statusPickerView: UIPickerView = UIPickerView()
     var healthConcern : HealthConcern?
-    var statusOptions : [String]{
-        get{
-            var statusArray : [String] = []
-            for rawValue in 0...2{
-                guard let status = DatabaseManager.HealthConcernStatusType(rawValue: rawValue) else {return []}
-                statusArray.append(status.stringValue()!)
-            }
-            return statusArray
-        }
-    }
+    var statusOptions : [DatabaseManager.HealthConcernStatusType] = [.inControl, .notInControl, .resolved]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         noteTextView.customizeTextView(placeholderText:"Note", placeholderColor: UIColor.lightGray, borderWidth: 0.5, borderColor: UIColor.lightGray, cornerRadius: 8.0)
@@ -91,10 +83,10 @@ extension AddOrUpdateHealthConcernVC: UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return statusOptions[row]
+        return statusOptions[row].stringValue()
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        statusTextField.text = statusOptions[row]
+        statusTextField.text = statusOptions[row].stringValue()
     }
 }
 

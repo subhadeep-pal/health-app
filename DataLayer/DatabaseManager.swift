@@ -12,7 +12,7 @@ import CoreData
 open class DatabaseManager: NSObject {
     open static let shared : DatabaseManager = DatabaseManager()
    
-    enum HealthConcernStatusType: Int {
+    public enum HealthConcernStatusType: Int {
         case inControl = 0
         case notInControl
         case resolved
@@ -21,8 +21,8 @@ open class DatabaseManager: NSObject {
             notInControl: "Not In Control",
             resolved: "Resolved"
         ]
-        func stringValue() -> String? {
-            guard let value = HealthConcernStatusType.values[self] else {return nil}
+        func stringValue() -> String {
+            guard let value = HealthConcernStatusType.values[self] else {return ""}
             return value
         }
     }
@@ -43,30 +43,23 @@ open class DatabaseManager: NSObject {
         healthConcern.note = note
         saveContext()
     }
+    
     // FETCH All Health Concerns Saved In Core Data
     open func fetchHealthConcerns() -> [HealthConcern]{
-        var healthConcerns : [HealthConcern] = []
-        do{
-            healthConcerns = try getContect.fetch(HealthConcern.fetchRequest())
-        }catch{
-            print("Failed to fetch data")
-        }
-        return healthConcerns
+        let healthConcerns: [HealthConcern]? = try? getContect.fetch(HealthConcern.fetchRequest())
+        return healthConcerns ?? []
     }
+    
+    
     // FETCH Health Concerns Based On Status
-    open func fetchHealthConcernsBasedOnStatus(status: String) -> [HealthConcern]{
-        var healthConcerns : [HealthConcern] = []
-        do {
-            let fetchRequest : NSFetchRequest<HealthConcern> = HealthConcern.fetchRequest()
-            fetchRequest.predicate = NSPredicate(format: "status == %@", status)
-            let fetchedResults = try getContect.fetch(fetchRequest)
-            healthConcerns = fetchedResults
-        }
-        catch {
-            print ("Failed to fetch data", error)
-        }
-        return healthConcerns
+    open func fetchHealthConcernsBasedOnStatus(status: HealthConcernStatusType) -> [HealthConcern]{
+        let fetchRequest : NSFetchRequest<HealthConcern> = HealthConcern.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "status == %@", status.stringValue())
+        let healthConcerns: [HealthConcern]? = try? getContect.fetch(fetchRequest)
+        return healthConcerns ?? []
     }
+    
+    
     // UPDATE If Present Else ADD
     open func addOrUpdateHealthConcern(title: String, status: String, note: String){
         var healthConcern : HealthConcern?

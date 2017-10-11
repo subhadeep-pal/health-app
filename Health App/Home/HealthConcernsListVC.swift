@@ -11,9 +11,18 @@ import DataLayer
 
 class HealthConcernsListVC: UIViewController {
     
-    var inControlStatus: [HealthConcern] = []
-    var notInControlStatus: [HealthConcern] = []
-    var resolvedStatus: [HealthConcern] = []
+    var inControlStatus: [HealthConcern] {
+        return DatabaseManager.shared.fetchHealthConcernsBasedOnStatus(status: .inControl)
+    }
+    
+    var notInControlStatus: [HealthConcern] {
+        return DatabaseManager.shared.fetchHealthConcernsBasedOnStatus(status: .notInControl)
+    }
+    
+    var resolvedStatus: [HealthConcern] {
+        return DatabaseManager.shared.fetchHealthConcernsBasedOnStatus(status: .resolved)
+    }
+    
     @IBOutlet weak var healthConcernsTableView: UITableView!
     @IBOutlet weak var addNewHealthConcernBarButton: UIBarButtonItem!
     
@@ -28,17 +37,7 @@ class HealthConcernsListVC: UIViewController {
     }
     
     func fetchBasedOnStatus(){
-        for rawValue in 0...2{
-            guard let status = DatabaseManager.HealthConcernStatusType(rawValue: rawValue) else {return}
-            switch status{
-            case .inControl:
-                inControlStatus = DatabaseManager.shared.fetchHealthConcernsBasedOnStatus(status: status.stringValue()!)
-            case .notInControl:
-                notInControlStatus = DatabaseManager.shared.fetchHealthConcernsBasedOnStatus(status: status.stringValue()!)
-            case .resolved:
-                resolvedStatus = DatabaseManager.shared.fetchHealthConcernsBasedOnStatus(status: status.stringValue()!)
-            }
-        }
+        
     }
     
     @IBAction func addNewHealthConcernBarButtonClicked(_ sender: Any) {
