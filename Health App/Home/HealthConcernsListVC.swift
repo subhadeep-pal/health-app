@@ -28,18 +28,23 @@ class HealthConcernsListVC: UIViewController {
     }
     
     func fetchBasedOnStatus(){
-        inControlStatus = DatabaseManager.shared.fetchHealthConcernsBasedOnStatus(status: "In Control")
-        notInControlStatus = DatabaseManager.shared.fetchHealthConcernsBasedOnStatus(status: "Not In Control")
-        resolvedStatus = DatabaseManager.shared.fetchHealthConcernsBasedOnStatus(status: "Resolved")
+        for rawValue in 0...2{
+            guard let status = DatabaseManager.HealthConcernStatusType(rawValue: rawValue) else {return}
+            switch status{
+            case .inControl:
+                inControlStatus = DatabaseManager.shared.fetchHealthConcernsBasedOnStatus(status: status.stringValue()!)
+            case .notInControl:
+                notInControlStatus = DatabaseManager.shared.fetchHealthConcernsBasedOnStatus(status: status.stringValue()!)
+            case .resolved:
+                resolvedStatus = DatabaseManager.shared.fetchHealthConcernsBasedOnStatus(status: status.stringValue()!)
+            }
+        }
     }
     
     @IBAction func addNewHealthConcernBarButtonClicked(_ sender: Any) {
         performSegue(withIdentifier: "AddOrUpdateConcern", sender: sender)
     }
-    
-    
 // MARK: - Navigation
-
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "AddOrUpdateConcern" {
@@ -47,8 +52,8 @@ class HealthConcernsListVC: UIViewController {
             destinationViewController.healthConcern = sender as? HealthConcern
         }
     }
-
 }
+
 // MARK: - TableView DataSource
 extension HealthConcernsListVC: UITableViewDataSource{
     
@@ -79,28 +84,31 @@ extension HealthConcernsListVC: UITableViewDataSource{
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "healthConcernCell")
-        switch indexPath.section{
-        case 0:
-            cell?.textLabel?.text = inControlStatus[indexPath.row].title
-        case 1:
-            cell?.textLabel?.text = notInControlStatus[indexPath.row].title
-        default:
-            cell?.textLabel?.text = resolvedStatus[indexPath.row].title
+        let cell = tableView.dequeueReusableCell(withIdentifier: "healthConcernCell", for: indexPath)
+        guard let status = DatabaseManager.HealthConcernStatusType(rawValue: indexPath.section) else {return cell}
+        switch status{
+        case .inControl:
+            cell.textLabel?.text = inControlStatus[indexPath.row].title
+        case .notInControl:
+            cell.textLabel?.text = notInControlStatus[indexPath.row].title
+        case .resolved:
+            cell.textLabel?.text = resolvedStatus[indexPath.row].title
         }
-        return cell!
+        return cell
     }
 }
+
 // MARK: - TableView Delegate
 extension HealthConcernsListVC: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var healthConcern: HealthConcern?
-        switch indexPath.section{
-        case 0:
+        guard let status = DatabaseManager.HealthConcernStatusType(rawValue: indexPath.section) else {return}
+        switch status{
+        case .inControl:
             healthConcern = inControlStatus[indexPath.row]
-        case 1:
+        case .notInControl:
             healthConcern = notInControlStatus[indexPath.row]
-        default:
+        case .resolved:
             healthConcern = resolvedStatus[indexPath.row]
         }
         performSegue(withIdentifier: "AddOrUpdateConcern", sender: healthConcern)

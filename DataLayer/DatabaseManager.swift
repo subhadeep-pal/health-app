@@ -10,32 +10,27 @@ import UIKit
 import CoreData
 
 open class DatabaseManager: NSObject {
-    
     open static let shared : DatabaseManager = DatabaseManager()
-    
+   
     enum HealthConcernStatusType: Int {
         case inControl = 0
         case notInControl
         case resolved
-        
         static let values = [
             inControl : "In Control",
             notInControl: "Not In Control",
             resolved: "Resolved"
         ]
-        
         func stringValue() -> String? {
             guard let value = HealthConcernStatusType.values[self] else {return nil}
             return value
         }
     }
-    
     var getContect : NSManagedObjectContext {
         get{
             return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         }
     }
-    
     func saveContext(){
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
     }
@@ -58,7 +53,7 @@ open class DatabaseManager: NSObject {
         }
         return healthConcerns
     }
-    
+    // FETCH Health Concerns Based On Status
     open func fetchHealthConcernsBasedOnStatus(status: String) -> [HealthConcern]{
         var healthConcerns : [HealthConcern] = []
         do {
@@ -72,7 +67,6 @@ open class DatabaseManager: NSObject {
         }
         return healthConcerns
     }
-    
     // UPDATE If Present Else ADD
     open func addOrUpdateHealthConcern(title: String, status: String, note: String){
         var healthConcern : HealthConcern?
@@ -93,7 +87,6 @@ open class DatabaseManager: NSObject {
             addNewHealthConcern(title: title, status: status, note: note)
         }
     }
-    
     // DELETE Health Concern From Core Data
     open func deleteHealthConcern(title: String){
         do{

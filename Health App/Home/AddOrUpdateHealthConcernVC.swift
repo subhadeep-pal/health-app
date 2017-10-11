@@ -17,11 +17,19 @@ class AddOrUpdateHealthConcernVC: UIViewController {
     @IBOutlet weak var deleteButton: UIButton!
     var statusPickerView: UIPickerView = UIPickerView()
     var healthConcern : HealthConcern?
-    let statusOptions = ["In Control","Not In Control","Resolved"]
-    
+    var statusOptions : [String]{
+        get{
+            var statusArray : [String] = []
+            for rawValue in 0...2{
+                guard let status = DatabaseManager.HealthConcernStatusType(rawValue: rawValue) else {return []}
+                statusArray.append(status.stringValue()!)
+            }
+            return statusArray
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        noteTextView.customizeTextView(placeholderText: "Note", placeholderColor: UIColor.lightGray, borderWidth: 0.5, borderColor: UIColor.lightGray, cornerRadius: 8.0)
+        noteTextView.customizeTextView(placeholderText:"Note", placeholderColor: UIColor.lightGray, borderWidth: 0.5, borderColor: UIColor.lightGray, cornerRadius: 8.0)
         statusPickerView.dataSource = self
         statusPickerView.delegate = self
         self.statusTextField.inputView = statusPickerView
