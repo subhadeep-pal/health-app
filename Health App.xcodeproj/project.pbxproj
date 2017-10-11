@@ -11,16 +11,21 @@
 		142E2F881F892B5100E2F7E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E2EDAD1F83E37800656014 /* AppDelegate.swift */; };
 		146C2EC11F83F39000E039AB /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 146C2EBF1F83F39000E039AB /* Home.storyboard */; };
 		146C2EC21F83F39000E039AB /* Reminder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 146C2EC01F83F39000E039AB /* Reminder.storyboard */; };
-		146C2ECC1F83F3E800E039AB /* DataLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 146C2ECA1F83F3E800E039AB /* DataLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		146C2ECF1F83F3E800E039AB /* DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 146C2EC81F83F3E800E039AB /* DataLayer.framework */; };
 		146C2ED01F83F3E800E039AB /* DataLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 146C2EC81F83F3E800E039AB /* DataLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		146C2ED61F83F3FD00E039AB /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C2ED51F83F3FD00E039AB /* DatabaseManager.swift */; };
-		146C2EDA1F83F60700E039AB /* HealthApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 146C2ED71F83F4F900E039AB /* HealthApp.xcdatamodeld */; };
 		14E2EDAE1F83E37800656014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E2EDAD1F83E37800656014 /* AppDelegate.swift */; };
 		14E2EDB31F83E37800656014 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14E2EDB11F83E37800656014 /* Main.storyboard */; };
 		14E2EDB51F83E37800656014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14E2EDB41F83E37800656014 /* Assets.xcassets */; };
 		14E2EDB81F83E37800656014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14E2EDB61F83E37800656014 /* LaunchScreen.storyboard */; };
 		14E49A121F83F12C0043C753 /* MasterSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E49A111F83F12C0043C753 /* MasterSideMenuViewController.swift */; };
+		7046FF771F89D78B00083EE3 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C2ED51F83F3FD00E039AB /* DatabaseManager.swift */; };
+		707496921F8D4B8000227953 /* UICustomisedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707496911F8D4B8000227953 /* UICustomisedTextView.swift */; };
+		709C2CAA1F8947490095D3E7 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433AE031F86AED100C839AA /* ReminderViewController.swift */; };
+		709C2CAD1F894AB20095D3E7 /* AddOrUpdateHealthConcernVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B60C4E1F88091900F83AA2 /* AddOrUpdateHealthConcernVC.swift */; };
+		709C2CB01F895FE30095D3E7 /* HealthConcernsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B60C4C1F8808DF00F83AA2 /* HealthConcernsListVC.swift */; };
+		709C2CB11F895FFF0095D3E7 /* HealthApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 146C2ED71F83F4F900E039AB /* HealthApp.xcdatamodeld */; };
+		70B60C4B1F88089F00F83AA2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B60C4A1F88089E00F83AA2 /* HomeViewController.swift */; };
+		70D14C9B1F8928E800CDBA21 /* DataLayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 146C2ECA1F83F3E800E039AB /* DataLayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +82,10 @@
 		14E49A111F83F12C0043C753 /* MasterSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterSideMenuViewController.swift; sourceTree = "<group>"; };
 		36E3B9CDB7BFD78DA266ECE9 /* Pods-Health App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Health App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Health App/Pods-Health App.debug.xcconfig"; sourceTree = "<group>"; };
 		594F0419DF66D98F7148AD60 /* Pods-Health App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Health App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Health App/Pods-Health App.release.xcconfig"; sourceTree = "<group>"; };
+		707496911F8D4B8000227953 /* UICustomisedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomisedTextView.swift; sourceTree = "<group>"; };
+		70B60C4A1F88089E00F83AA2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		70B60C4C1F8808DF00F83AA2 /* HealthConcernsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthConcernsListVC.swift; sourceTree = "<group>"; };
+		70B60C4E1F88091900F83AA2 /* AddOrUpdateHealthConcernVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrUpdateHealthConcernVC.swift; sourceTree = "<group>"; };
 		8E51089DBAAC2F9B8E2FCFE4 /* Pods_Health_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Health_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -114,6 +123,7 @@
 				1433ADEA1F86A97C00C839AA /* UIViewXRadialGradient.swift */,
 				1433ADF11F86A97D00C839AA /* UIVisualEffectViewX.swift */,
 				1433ADFD1F86A9E700C839AA /* UIViewShadow.swift */,
+				707496911F8D4B8000227953 /* UICustomisedTextView.swift */,
 			);
 			path = Deisgnables;
 			sourceTree = "<group>";
@@ -131,6 +141,9 @@
 			isa = PBXGroup;
 			children = (
 				146C2EBF1F83F39000E039AB /* Home.storyboard */,
+				70B60C4E1F88091900F83AA2 /* AddOrUpdateHealthConcernVC.swift */,
+				70B60C4C1F8808DF00F83AA2 /* HealthConcernsListVC.swift */,
+				70B60C4A1F88089E00F83AA2 /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -207,7 +220,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				146C2ECC1F83F3E800E039AB /* DataLayer.h in Headers */,
+				70D14C9B1F8928E800CDBA21 /* DataLayer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,7 +392,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				142E2F881F892B5100E2F7E4 /* AppDelegate.swift in Sources */,
-				146C2ED61F83F3FD00E039AB /* DatabaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,21 +399,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1433ADFB1F86A97D00C839AA /* UIVisualEffectViewX.swift in Sources */,
-				1433ADF61F86A97D00C839AA /* UIViewAnchorPoint.swift in Sources */,
-				1433AE041F86AED100C839AA /* ReminderViewController.swift in Sources */,
-				1433ADF21F86A97D00C839AA /* UITextFieldX.swift in Sources */,
-				146C2EDA1F83F60700E039AB /* HealthApp.xcdatamodeld in Sources */,
-				1433ADFA1F86A97D00C839AA /* UISliderX.swift in Sources */,
-				1433ADF41F86A97D00C839AA /* UIViewXRadialGradient.swift in Sources */,
-				1433ADF51F86A97D00C839AA /* UIButtonX.swift in Sources */,
+				7046FF771F89D78B00083EE3 /* DatabaseManager.swift in Sources */,
+				709C2CB01F895FE30095D3E7 /* HealthConcernsListVC.swift in Sources */,
 				14E2EDAE1F83E37800656014 /* AppDelegate.swift in Sources */,
-				1433ADFE1F86A9E700C839AA /* UIViewShadow.swift in Sources */,
-				1433ADF91F86A97D00C839AA /* UIViewControllerX.swift in Sources */,
-				1433ADF71F86A97D00C839AA /* UIImageViewX.swift in Sources */,
-				1433ADF81F86A97D00C839AA /* UILabelX.swift in Sources */,
-				1433ADF31F86A97D00C839AA /* UIViewX.swift in Sources */,
+				70B60C4B1F88089F00F83AA2 /* HomeViewController.swift in Sources */,
+				709C2CAA1F8947490095D3E7 /* ReminderViewController.swift in Sources */,
 				14E49A121F83F12C0043C753 /* MasterSideMenuViewController.swift in Sources */,
+				709C2CB11F895FFF0095D3E7 /* HealthApp.xcdatamodeld in Sources */,
+				707496921F8D4B8000227953 /* UICustomisedTextView.swift in Sources */,
+				709C2CAD1F894AB20095D3E7 /* AddOrUpdateHealthConcernVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
