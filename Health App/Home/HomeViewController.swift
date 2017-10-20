@@ -32,4 +32,7 @@ class HomeViewController: UIViewController {
     }
     */
 
+    @IBAction func actionPlanTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "actionPlan", sender: nil)
+    }
 }

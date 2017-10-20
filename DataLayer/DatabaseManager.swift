@@ -21,11 +21,26 @@ open class DatabaseManager: NSObject {
             notInControl: "Not In Control",
             resolved: "Resolved"
         ]
-        func stringValue() -> String {
-            guard let value = HealthConcernStatusType.values[self] else {return ""}
-            return value
+        public func stringValue() -> String {
+            return HealthConcernStatusType.values[self] ?? ""
         }
     }
+    
+    
+    public enum ActionPlansType: Int {
+        case MedicalIntervention = 0
+        case LifestyleChanges
+        case Habits
+        static let values = [
+            MedicalIntervention : "Medical Intervention",
+            LifestyleChanges: "Lifestyle Changes",
+            Habits: "Habits"
+        ]
+        public func stringValue() -> String {
+            return ActionPlansType.values[self] ?? ""
+        }
+    }
+    
     var getContect : NSManagedObjectContext {
         return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
