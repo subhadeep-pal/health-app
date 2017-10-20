@@ -1,15 +1,24 @@
 PODS:
+  - IQDropDownTextField (1.1.1)
+  - IQKeyboardManagerSwift (5.0.4)
   - LGSideMenuController (2.1.1)
   - UITextView+Placeholder (1.2.0)
+  - YYText (1.0.7)
 
 DEPENDENCIES:
+  - IQDropDownTextField
+  - IQKeyboardManagerSwift
   - LGSideMenuController
   - UITextView+Placeholder (~> 1.2)
+  - YYText
 
 SPEC CHECKSUMS:
+  IQDropDownTextField: 3d2e5728a2b83ff5dbb14cb9b497a80005124cbe
+  IQKeyboardManagerSwift: a0592bb636b10a9a1cf75d2b2c61144226226c84
   LGSideMenuController: ae40c80983ab8b8801c7cef0a6804d43aaa72d45
   UITextView+Placeholder: 77680995fcdd07c3f52ec92fe1150874a2ac89ff
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 7fe1f46e9f4a9a4e44623f97422d61843f29e0fe
+PODFILE CHECKSUM: 4721704440ed562fe64b1ada710832122c5ae14f
 
 COCOAPODS: 1.3.1
