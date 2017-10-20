@@ -10,11 +10,13 @@ import UIKit
 import DataLayer
 class AddOrUpdateHealthConcernVC: UIViewController {
     
-    
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var statusTextField: UITextField!
     @IBOutlet weak var noteTextView: UITextView!
     @IBOutlet weak var deleteButton: UIButton!
+    
+    @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
     var statusPickerView: UIPickerView = UIPickerView()
     var healthConcern : HealthConcern?
     var statusOptions : [DatabaseManager.HealthConcernStatusType] = [.inControl, .notInControl, .resolved]
@@ -25,24 +27,24 @@ class AddOrUpdateHealthConcernVC: UIViewController {
         statusPickerView.dataSource = self
         statusPickerView.delegate = self
         self.statusTextField.inputView = statusPickerView
-        
         fillData()
     }
-    
     
     private func fillData() {
         guard let healthConcern = self.healthConcern else {
             deleteButton.isEnabled = false
             return
         }
-        
         titleTextField.isUserInteractionEnabled = false
         self.title = healthConcern.title
         titleTextField.text = healthConcern.title
         statusTextField.text = healthConcern.status
         noteTextView.text = healthConcern.note
     }
-
+    // Tap Gesture On Scroll View
+    @IBAction func tappedGesture(_ sender: Any) {
+        self.view.endEditing(true)
+    }
     // SAVE Button
     @IBAction func saveButtonClicked(_ sender: UIButton) {
         if let title = titleTextField.text ,let status = statusTextField.text ,let note = noteTextView.text, !title.isEmpty, !status.isEmpty {
@@ -71,13 +73,12 @@ class AddOrUpdateHealthConcernVC: UIViewController {
             alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
-        
     }
     // CANCEL Button
     @IBAction func cancelButtonClicked(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
-
+    
 }
 // MARK: Picker View
 extension AddOrUpdateHealthConcernVC: UIPickerViewDelegate, UIPickerViewDataSource{
@@ -94,6 +95,13 @@ extension AddOrUpdateHealthConcernVC: UIPickerViewDelegate, UIPickerViewDataSour
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         statusTextField.text = statusOptions[row].stringValue()
+    }
+}
+// MARK: Text Field
+extension AddOrUpdateHealthConcernVC: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
     }
 }
 
