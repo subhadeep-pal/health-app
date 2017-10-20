@@ -18,10 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
         // Override point for customization after application launch.
         IQKeyboardManager.sharedManager().enable = true
         IQKeyboardManager.sharedManager().previousNextDisplayMode = .alwaysHide
         UIApplication.shared.statusBarStyle = .lightContent
+        
+        DatabaseManager.shared.dataSource = self
+        
         return true
     }
 
@@ -82,6 +86,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+}
+
+extension AppDelegate: DatabaseManagerProtocol {
+    var context : NSManagedObjectContext {
+        get {
+            return self.persistentContainer.viewContext
+        }
+    }
+    func save() {
+        self.saveContext()
     }
 }
 

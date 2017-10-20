@@ -9,7 +9,13 @@
 import UIKit
 import CoreData
 
+public protocol DatabaseManagerProtocol {
+    var context : NSManagedObjectContext {get}
+    func save()
+}
+
 open class DatabaseManager: NSObject {
+    
     open static let shared : DatabaseManager = DatabaseManager()
    
     public enum HealthConcernStatusType: Int {
@@ -26,26 +32,20 @@ open class DatabaseManager: NSObject {
         }
     }
     
-    var getContect : NSManagedObjectContext {
-        return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    }
-    
-    func saveContext(){
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
-    }
+    public var dataSource : DatabaseManagerProtocol!
     
     // ADD New Health Concern
     open func addNewHealthConcern(title: String, status: String, note: String){
-        let healthConcern = HealthConcern(context: getContect)
+        let healthConcern = HealthConcern(context: dataSource.context)
         healthConcern.title = title
         healthConcern.status = status
         healthConcern.note = note
-        saveContext()
+        dataSource.save()
     }
     
     // FETCH All Health Concerns Saved In Core Data
     open func fetchHealthConcerns() -> [HealthConcern]{
-        let healthConcerns: [HealthConcern]? = try? getContect.fetch(HealthConcern.fetchRequest())
+        let healthConcerns: [HealthConcern]? = try? dataSource.context.fetch(HealthConcern.fetchRequest())
         return healthConcerns ?? []
     }
     
@@ -54,7 +54,7 @@ open class DatabaseManager: NSObject {
     open func fetchHealthConcernsBasedOnStatus(status: HealthConcernStatusType) -> [HealthConcern]{
         let fetchRequest : NSFetchRequest<HealthConcern> = HealthConcern.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "status == %@", status.stringValue())
-        let healthConcerns: [HealthConcern]? = try? getContect.fetch(fetchRequest)
+        let healthConcerns: [HealthConcern]? = try? dataSource.context.fetch(fetchRequest)
         return healthConcerns ?? []
     }
     
@@ -64,7 +64,7 @@ open class DatabaseManager: NSObject {
         
         let fetchRequest : NSFetchRequest<HealthConcern> = HealthConcern.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "title == %@", title)
-        let fetchedResults : [HealthConcern]? = try? getContect.fetch(fetchRequest)
+        let fetchedResults : [HealthConcern]? = try? dataSource.context.fetch(fetchRequest)
         
         guard let healthConcern = fetchedResults?.first else {
             addNewHealthConcern(title: title, status: status, note: note)
@@ -81,8 +81,8 @@ open class DatabaseManager: NSObject {
     open func deleteHealthConcern(title: String){
         let fetchRequest : NSFetchRequest<HealthConcern> = HealthConcern.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "title == %@", title)
-        let fetchedResults : [HealthConcern]? = try? getContect.fetch(fetchRequest)
+        let fetchedResults : [HealthConcern]? = try? dataSource.context.fetch(fetchRequest)
         guard let healthConcern = fetchedResults?.first else{ return }
-        getContect.delete(healthConcern)
+        dataSource.context.delete(healthConcern)
     }
 }
