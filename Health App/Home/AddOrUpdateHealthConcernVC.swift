@@ -13,8 +13,11 @@ class AddOrUpdateHealthConcernVC: UIViewController {
     
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var statusTextField: UITextField!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var noteTextView: UITextView!
     @IBOutlet weak var deleteButton: UIButton!
+    
+    
     var statusPickerView: UIPickerView = UIPickerView()
     var healthConcern : HealthConcern?
     var statusOptions : [DatabaseManager.HealthConcernStatusType] = [.inControl, .notInControl, .resolved]
@@ -25,6 +28,7 @@ class AddOrUpdateHealthConcernVC: UIViewController {
         statusPickerView.dataSource = self
         statusPickerView.delegate = self
         self.statusTextField.inputView = statusPickerView
+        self.scrollView.keyboardDismissMode = .onDrag
         
         fillData()
     }
@@ -78,6 +82,9 @@ class AddOrUpdateHealthConcernVC: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 
+    @IBAction func emptyTapped(_ sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
 }
 // MARK: Picker View
 extension AddOrUpdateHealthConcernVC: UIPickerViewDelegate, UIPickerViewDataSource{
