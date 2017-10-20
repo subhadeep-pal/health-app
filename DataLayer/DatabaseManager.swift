@@ -26,21 +26,6 @@ open class DatabaseManager: NSObject {
         }
     }
     
-    
-    public enum ActionPlansType: Int {
-        case MedicalIntervention = 0
-        case LifestyleChanges
-        case Habits
-        static let values = [
-            MedicalIntervention : "Medical Intervention",
-            LifestyleChanges: "Lifestyle Changes",
-            Habits: "Habits"
-        ]
-        public func stringValue() -> String {
-            return ActionPlansType.values[self] ?? ""
-        }
-    }
-    
     var getContect : NSManagedObjectContext {
         return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }

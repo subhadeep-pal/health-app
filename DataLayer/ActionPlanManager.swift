@@ -14,6 +14,20 @@ public struct ActionPlanCategory {
 
 open class ActionPlanManager: NSObject {
     
+    public enum ActionPlansType: Int {
+        case MedicalIntervention = 0
+        case LifestyleChanges
+        case Habits
+        static let values = [
+            MedicalIntervention : "Medical Intervention",
+            LifestyleChanges: "Lifestyle Changes",
+            Habits: "Habits"
+        ]
+        public func stringValue() -> String {
+            return ActionPlansType.values[self] ?? ""
+        }
+    }
+    
     public override init() {
     }
     
@@ -26,7 +40,7 @@ open class ActionPlanManager: NSObject {
         return dict
     } ()
     
-    public func getActionPlanCategories(forType type: DatabaseManager.ActionPlansType) -> [ActionPlanCategory] {
+    public func getActionPlanCategories(forType type: ActionPlansType) -> [ActionPlanCategory] {
         guard let dictionary = self.dictionary else {return []}
         guard let arrayOfCategories = dictionary[type.stringValue()] else {return []}
         

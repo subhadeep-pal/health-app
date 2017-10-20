@@ -38,7 +38,7 @@ class ActionPlansTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private func categories(forType type: DatabaseManager.ActionPlansType) -> [ActionPlanCategory] {
+    private func categories(forType type: ActionPlanManager.ActionPlansType) -> [ActionPlanCategory] {
         switch type {
         case .MedicalIntervention:
             return self.medicalInterventionCategories
@@ -58,14 +58,14 @@ class ActionPlansTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        guard let sectionType = DatabaseManager.ActionPlansType.init(rawValue: section) else {return 0}
+        guard let sectionType = ActionPlanManager.ActionPlansType.init(rawValue: section) else {return 0}
         return categories(forType: sectionType).count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ActionPlanCategoryCell", for: indexPath)
-        guard let sectionType = DatabaseManager.ActionPlansType.init(rawValue: indexPath.section) else {return cell}
+        guard let sectionType = ActionPlanManager.ActionPlansType.init(rawValue: indexPath.section) else {return cell}
         
         cell.textLabel?.text = categories(forType: sectionType)[indexPath.row].name
 
@@ -73,7 +73,7 @@ class ActionPlansTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        guard let sectionType = DatabaseManager.ActionPlansType.init(rawValue: section) else {return nil}
+        guard let sectionType = ActionPlanManager.ActionPlansType.init(rawValue: section) else {return nil}
         return sectionType.stringValue()
     }
     
