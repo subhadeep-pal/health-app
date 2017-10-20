@@ -158,6 +158,7 @@
 		146C2EC91F83F3E800E039AB /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
+				146C2ED71F83F4F900E039AB /* HealthApp.xcdatamodeld */,
 				146C2ECA1F83F3E800E039AB /* DataLayer.h */,
 				146C2ECB1F83F3E800E039AB /* Info.plist */,
 				14A9F89B1F9A06FA0023451D /* ActionPlanManager.swift */,
@@ -208,7 +209,6 @@
 				14E2EDB91F83E37800656014 /* Info.plist */,
 				14E49A111F83F12C0043C753 /* MasterSideMenuViewController.swift */,
 				1433ADFF1F86AC9B00C839AA /* Health App-Bridging-Header.h */,
-				146C2ED71F83F4F900E039AB /* HealthApp.xcdatamodeld */,
 			);
 			path = "Health App";
 			sourceTree = "<group>";
