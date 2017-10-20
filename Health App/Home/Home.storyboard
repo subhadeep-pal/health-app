@@ -209,99 +209,112 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="O3b-IA-3gj">
-                                <rect key="frame" x="20" y="84" width="280" height="464"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kup-nv-gRf">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Health Concern" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dpr-Fw-7BO">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="gkt-Ta-BNs" id="M3r-xG-wyv"/>
-                                        </connections>
-                                    </textField>
-                                    <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Status" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Ml-k2-0GH">
-                                        <rect key="frame" x="0.0" y="50" width="280" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="gkt-Ta-BNs" id="SEJ-7i-FSo"/>
-                                        </connections>
-                                    </textField>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hPK-xH-mJ7">
-                                        <rect key="frame" x="0.0" y="100" width="280" height="254"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="gkt-Ta-BNs" id="V6C-HG-osq"/>
-                                        </connections>
-                                    </textView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="seH-bZ-pBJ">
-                                        <rect key="frame" x="0.0" y="374" width="280" height="35"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="oUb-x6-Dmu">
+                                        <rect key="frame" x="20" y="20" width="280" height="464"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TqN-lv-VjH">
-                                                <rect key="frame" x="0.0" y="0.0" width="86.5" height="35"/>
-                                                <color key="backgroundColor" red="0.93178397417068481" green="0.32511234283447266" blue="0.39398199319839478" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <state key="normal" title="Save">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Health Concern" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dpr-Fw-7BO">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="saveButtonClicked:" destination="gkt-Ta-BNs" eventType="touchUpInside" id="YNV-b9-E0r"/>
+                                                    <outlet property="delegate" destination="gkt-Ta-BNs" id="M3r-xG-wyv"/>
                                                 </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4G-ZA-HlR">
-                                                <rect key="frame" x="96.5" y="0.0" width="87" height="35"/>
+                                            </textField>
+                                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Status" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Ml-k2-0GH">
+                                                <rect key="frame" x="0.0" y="50" width="280" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="gkt-Ta-BNs" id="SEJ-7i-FSo"/>
+                                                </connections>
+                                            </textField>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hPK-xH-mJ7">
+                                                <rect key="frame" x="0.0" y="100" width="280" height="260"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="gkt-Ta-BNs" id="V6C-HG-osq"/>
+                                                </connections>
+                                            </textView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="seH-bZ-pBJ">
+                                                <rect key="frame" x="0.0" y="380" width="280" height="32"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TqN-lv-VjH">
+                                                        <rect key="frame" x="0.0" y="0.0" width="87" height="32"/>
+                                                        <color key="backgroundColor" red="0.93178397417068481" green="0.32511234283447266" blue="0.39398199319839478" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                        <state key="normal" title="Save">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="saveButtonClicked:" destination="gkt-Ta-BNs" eventType="touchUpInside" id="YNV-b9-E0r"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4G-ZA-HlR">
+                                                        <rect key="frame" x="97" y="0.0" width="86.5" height="32"/>
+                                                        <color key="backgroundColor" red="0.931804358959198" green="0.32485836744308472" blue="0.39084601402282715" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                        <state key="normal" title="Delete">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="deleteButtonClicked:" destination="gkt-Ta-BNs" eventType="touchUpInside" id="jmf-sS-xjI"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpU-hD-LKb">
+                                                        <rect key="frame" x="193.5" y="0.0" width="86.5" height="32"/>
+                                                        <color key="backgroundColor" red="0.931804358959198" green="0.32485836744308472" blue="0.39084601402282715" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                        <state key="normal" title="Cancel">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="cancelButtonClicked:" destination="gkt-Ta-BNs" eventType="touchUpInside" id="2sg-kd-cOn"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="TqN-lv-VjH" firstAttribute="width" secondItem="p4G-ZA-HlR" secondAttribute="width" id="SR9-Gx-TSW"/>
+                                                    <constraint firstItem="p4G-ZA-HlR" firstAttribute="width" secondItem="dpU-hD-LKb" secondAttribute="width" id="vvT-n4-oNv"/>
+                                                </constraints>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pf0-FT-adh">
+                                                <rect key="frame" x="0.0" y="432" width="280" height="32"/>
                                                 <color key="backgroundColor" red="0.931804358959198" green="0.32485836744308472" blue="0.39084601402282715" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <state key="normal" title="Delete">
+                                                <state key="normal" title="Add Action Plan">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="deleteButtonClicked:" destination="gkt-Ta-BNs" eventType="touchUpInside" id="jmf-sS-xjI"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpU-hD-LKb">
-                                                <rect key="frame" x="193.5" y="0.0" width="86.5" height="35"/>
-                                                <color key="backgroundColor" red="0.931804358959198" green="0.32485836744308472" blue="0.39084601402282715" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <state key="normal" title="Cancel">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="cancelButtonClicked:" destination="gkt-Ta-BNs" eventType="touchUpInside" id="2sg-kd-cOn"/>
-                                                </connections>
                                             </button>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="1um-Bd-AxK"/>
-                                            <constraint firstItem="TqN-lv-VjH" firstAttribute="width" secondItem="p4G-ZA-HlR" secondAttribute="width" id="SR9-Gx-TSW"/>
-                                            <constraint firstItem="p4G-ZA-HlR" firstAttribute="width" secondItem="dpU-hD-LKb" secondAttribute="width" id="vvT-n4-oNv"/>
-                                        </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pf0-FT-adh">
-                                        <rect key="frame" x="0.0" y="429" width="280" height="35"/>
-                                        <color key="backgroundColor" red="0.931804358959198" green="0.32485836744308472" blue="0.39084601402282715" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="rkV-oo-HF0"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                        <state key="normal" title="Add Action Plan">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                 </subviews>
-                            </stackView>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="oUb-x6-Dmu" firstAttribute="leading" secondItem="Kup-nv-gRf" secondAttribute="leading" constant="20" id="FuS-fu-oOt"/>
+                                    <constraint firstItem="oUb-x6-Dmu" firstAttribute="top" secondItem="Kup-nv-gRf" secondAttribute="top" constant="20" id="ZRZ-hV-In8"/>
+                                    <constraint firstItem="oUb-x6-Dmu" firstAttribute="centerX" secondItem="Kup-nv-gRf" secondAttribute="centerX" id="clT-gw-efN"/>
+                                    <constraint firstAttribute="trailing" secondItem="oUb-x6-Dmu" secondAttribute="trailing" constant="20" id="eX3-tY-K7P"/>
+                                    <constraint firstItem="oUb-x6-Dmu" firstAttribute="centerY" secondItem="Kup-nv-gRf" secondAttribute="centerY" id="g0d-D9-u6Y"/>
+                                    <constraint firstAttribute="bottom" secondItem="oUb-x6-Dmu" secondAttribute="bottom" constant="20" id="zer-L2-LtH"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="FwH-c9-KCc" appends="YES" id="kZv-yK-nay"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="k9i-Vk-DUL" firstAttribute="bottom" secondItem="O3b-IA-3gj" secondAttribute="bottom" constant="20" id="MX8-qy-73u"/>
-                            <constraint firstItem="k9i-Vk-DUL" firstAttribute="trailing" secondItem="O3b-IA-3gj" secondAttribute="trailing" constant="20" id="esz-6R-Vha"/>
-                            <constraint firstItem="O3b-IA-3gj" firstAttribute="leading" secondItem="k9i-Vk-DUL" secondAttribute="leading" constant="20" id="pXK-om-PRA"/>
-                            <constraint firstItem="O3b-IA-3gj" firstAttribute="top" secondItem="k9i-Vk-DUL" secondAttribute="top" constant="20" id="tur-zj-GeC"/>
+                            <constraint firstItem="Kup-nv-gRf" firstAttribute="leading" secondItem="k9i-Vk-DUL" secondAttribute="leading" id="4pg-Ut-kaa"/>
+                            <constraint firstItem="k9i-Vk-DUL" firstAttribute="trailing" secondItem="Kup-nv-gRf" secondAttribute="trailing" id="SYo-hA-Vge"/>
+                            <constraint firstItem="Kup-nv-gRf" firstAttribute="top" secondItem="k9i-Vk-DUL" secondAttribute="top" id="WeC-fZ-9Oj"/>
+                            <constraint firstItem="k9i-Vk-DUL" firstAttribute="bottom" secondItem="Kup-nv-gRf" secondAttribute="bottom" id="f8l-eg-yQI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="k9i-Vk-DUL"/>
                     </view>
@@ -309,13 +322,20 @@
                     <connections>
                         <outlet property="deleteButton" destination="p4G-ZA-HlR" id="jHq-hW-2PL"/>
                         <outlet property="noteTextView" destination="hPK-xH-mJ7" id="Bgh-mF-P0s"/>
+                        <outlet property="scrollView" destination="Kup-nv-gRf" id="cvH-df-K0I"/>
                         <outlet property="statusTextField" destination="3Ml-k2-0GH" id="SHV-Vt-NpM"/>
+                        <outlet property="tapGestureRecognizer" destination="FwH-c9-KCc" id="5Zg-6D-CyL"/>
                         <outlet property="titleTextField" destination="dpr-Fw-7BO" id="acv-Mv-zm5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sk5-K1-0sK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="FwH-c9-KCc">
+                    <connections>
+                        <action selector="tappedGesture:" destination="gkt-Ta-BNs" id="pG2-Mv-21k"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4671" y="-201"/>
+            <point key="canvasLocation" x="4670.625" y="-201.7605633802817"/>
         </scene>
     </scenes>
     <resources>
