@@ -54,7 +54,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     lazy var persistentContainer: NSPersistentContainer = {
         
-        let container = NSPersistentContainer(name: "HealthApp")
+//        let container = NSPersistentContainer(name: "HealthApp")
+        
+        let momdName = "HealthApp"
+        
+        guard let modelURL = Bundle(identifier: "com.virtual-elf.DataLayer")?.url(forResource: momdName, withExtension:"momd") else {
+            fatalError("Error loading model from bundle")
+        }
+        
+        guard let mom = NSManagedObjectModel(contentsOf: modelURL) else {
+            fatalError("Error initializing mom from: \(modelURL)")
+        }
+        
+        let container = NSPersistentContainer(name: momdName, managedObjectModel: mom)
+        
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.

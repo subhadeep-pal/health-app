@@ -17,6 +17,7 @@ class AddOrUpdateHealthConcernVC: UIViewController {
     @IBOutlet weak var noteTextView: UITextView!
     @IBOutlet weak var deleteButton: UIButton!
     
+    var type: DatabaseManager.ConcernType!
     
     var statusPickerView: UIPickerView = UIPickerView()
     var healthConcern : HealthConcern?
@@ -50,7 +51,7 @@ class AddOrUpdateHealthConcernVC: UIViewController {
     // SAVE Button
     @IBAction func saveButtonClicked(_ sender: UIButton) {
         if let title = titleTextField.text ,let status = statusTextField.text ,let note = noteTextView.text, !title.isEmpty, !status.isEmpty {
-        DatabaseManager.shared.addOrUpdateHealthConcern(title: title, status: status, note: note)
+            DatabaseManager.shared.addOrUpdateHealthConcern(title: title, status: status, note: note, type: type)
         let alert = UIAlertController(title: "", message: "Saved Successfully", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default){UIAlertAction in
                 self.navigationController?.popViewController(animated: true)

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import DataLayer
 
 class HomeViewController: UIViewController {
 
@@ -22,15 +23,30 @@ class HomeViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "concerns" {
+            guard let destinationVC = segue.destination as? HealthConcernsListVC,
+                let concertnType = sender as? DatabaseManager.ConcernType  else {return}
+            destinationVC.type = concertnType
+        }
+        
     }
-    */
+    
+    @IBAction func fitnessGoalsTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "concerns", sender: DatabaseManager.ConcernType.fitnessGoals)
+    }
+    
+    @IBAction func healthConcernTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "concerns", sender: DatabaseManager.ConcernType.healthConcern)
+    }
+    
 
     @IBAction func actionPlanTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "actionPlan", sender: nil)

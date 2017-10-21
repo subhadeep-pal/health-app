@@ -11,6 +11,8 @@ import DataLayer
 
 class ActionPlansTableViewController: UITableViewController {
     
+    @IBOutlet var headerView: UIView!
+    
     lazy var medicalInterventionCategories : [ActionPlanCategory] = {
         return ActionPlanManager.shared.getActionPlanCategories(forType: .MedicalIntervention)
     }()
@@ -31,6 +33,7 @@ class ActionPlansTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.tableView.tableHeaderView = headerView
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,6 +80,11 @@ class ActionPlansTableViewController: UITableViewController {
         return sectionType.stringValue()
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let sectionType = ActionPlanManager.ActionPlansType.init(rawValue: indexPath.section) else {return}
+        performSegue(withIdentifier: "ActionPlanCategorySelected", sender: categories(forType: sectionType)[indexPath.row])
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -113,14 +121,20 @@ class ActionPlansTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "ActionPlanCategorySelected" {
+            guard let destinationVC = segue.destination as? ActionPlanCategoryTableViewController,
+                let category = sender as? ActionPlanCategory else {return}
+            destinationVC.category = category
+        }
     }
-    */
+    
 
 }

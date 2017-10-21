@@ -11,16 +11,18 @@ import DataLayer
 
 class HealthConcernsListVC: UIViewController {
     
+    var type: DatabaseManager.ConcernType!
+    
     var inControlStatus: [HealthConcern] {
-        return DatabaseManager.shared.fetchHealthConcernsBasedOnStatus(status: .inControl)
+        return DatabaseManager.shared.fetchHealthConcerns(basedOnStatus: .inControl, andType: type)
     }
     
     var notInControlStatus: [HealthConcern] {
-        return DatabaseManager.shared.fetchHealthConcernsBasedOnStatus(status: .notInControl)
+        return DatabaseManager.shared.fetchHealthConcerns(basedOnStatus: .notInControl, andType: type)
     }
     
     var resolvedStatus: [HealthConcern] {
-        return DatabaseManager.shared.fetchHealthConcernsBasedOnStatus(status: .resolved)
+        return DatabaseManager.shared.fetchHealthConcerns(basedOnStatus: .resolved, andType: type)
     }
     
     @IBOutlet weak var healthConcernsTableView: UITableView!
@@ -28,7 +30,7 @@ class HealthConcernsListVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = type.stringValue().capitalized
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +51,7 @@ class HealthConcernsListVC: UIViewController {
         if segue.identifier == "AddOrUpdateConcern",
             let destinationViewController = segue.destination as? AddOrUpdateHealthConcernVC {
             destinationViewController.healthConcern = sender as? HealthConcern
+            destinationViewController.type = type
         }
     }
 }
