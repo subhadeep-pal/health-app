@@ -82,6 +82,12 @@ open class DatabaseManager: NSObject {
     }
     
     
+    // Update Health Concern
+    open func update(healthConcern: HealthConcern) {
+        dataSource.save()
+    }
+    
+    
     // UPDATE If Present Else ADD
     open func addOrUpdateHealthConcern(title: String, status: String, note: String, type: ConcernType){
         
