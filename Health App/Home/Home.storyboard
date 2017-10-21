@@ -216,6 +216,11 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="BSE-NY-VOO">
                         <barButtonItem key="backBarButtonItem" title=" " id="hvz-Ne-f89"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1Ue-yv-gOd">
+                            <connections>
+                                <action selector="addTapped:" destination="dKA-jj-6XV" id="7ye-Ua-wsO"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="headerView" destination="ngG-s8-Fgy" id="hAa-j5-giw"/>
@@ -287,6 +292,7 @@
                                             </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstItem="w2C-wm-mBP" firstAttribute="leading" secondItem="uvy-X1-7BY" secondAttribute="leading" constant="20" id="4sj-SS-drb"/>
                                             <constraint firstAttribute="trailing" secondItem="SH8-lA-oya" secondAttribute="trailing" constant="20" id="5q8-1W-9ia"/>
@@ -302,6 +308,9 @@
                                             <constraint firstItem="w2C-wm-mBP" firstAttribute="top" secondItem="SH8-lA-oya" secondAttribute="bottom" constant="20" id="vcv-ie-h1q"/>
                                             <constraint firstItem="SH8-lA-oya" firstAttribute="top" secondItem="uvy-X1-7BY" secondAttribute="top" constant="8" id="xbF-xW-Gto"/>
                                         </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="tUr-dg-rBu" appends="YES" id="fHw-we-OXA"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -423,8 +432,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6z2-Bg-pfR"/>
                     </view>
+                    <connections>
+                        <outlet property="categoryTextField" destination="Vfn-eG-zqC" id="ddN-34-3qe"/>
+                        <outlet property="concernTextField" destination="w2C-wm-mBP" id="Zti-Xd-FPF"/>
+                        <outlet property="emptyView" destination="uvy-X1-7BY" id="fKI-2k-VPm"/>
+                        <outlet property="noteTextView" destination="laE-DQ-SEq" id="nRG-dp-ynw"/>
+                        <outlet property="scrollView" destination="PKH-YX-aGQ" id="sZl-Ad-3Q9"/>
+                        <outlet property="titleTextField" destination="SH8-lA-oya" id="vFS-hy-VYY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PpP-ha-bLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="tUr-dg-rBu">
+                    <connections>
+                        <action selector="emptyTapped:" destination="lw8-Ql-0Jy" id="z0S-xr-XYy"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4670.625" y="598.94366197183103"/>
         </scene>
@@ -627,6 +649,9 @@
                                                             <real key="value" value="8"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="addActionPlanTapped:" destination="gkt-Ta-BNs" eventType="touchUpInside" id="baW-RZ-G38"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -711,6 +736,6 @@
         <image name="icon_slide_down" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="D2i-pa-lso"/>
+        <segue reference="3S1-Ci-XAJ"/>
     </inferredMetricsTieBreakers>
 </document>

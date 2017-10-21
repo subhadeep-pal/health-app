@@ -82,9 +82,21 @@ class AddOrUpdateHealthConcernVC: UIViewController {
     @IBAction func cancelButtonClicked(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
-
+    
+    @IBAction func addActionPlanTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "createActionPlan", sender: healthConcern)
+    }
+    
     @IBAction func emptyTapped(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "createActionPlan" {
+            guard let destinationVC = segue.destination as? AddActionPlanViewController,
+                let concern = sender as? HealthConcern else {return}
+            destinationVC.healthConcern = concern
+        }
     }
 }
 // MARK: Picker View

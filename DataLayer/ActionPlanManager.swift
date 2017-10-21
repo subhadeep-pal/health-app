@@ -10,6 +10,7 @@ import UIKit
 
 public struct ActionPlanCategory {
     public var name: String
+    public var type: ActionPlanManager.ActionPlansType
 }
 
 open class ActionPlanManager: NSObject {
@@ -46,7 +47,7 @@ open class ActionPlanManager: NSObject {
         
         var returnArray = [ActionPlanCategory]()
         for item in arrayOfCategories {
-            let category = ActionPlanCategory(name: item)
+            let category = ActionPlanCategory(name: item, type: type)
             returnArray.append(category)
         }
         return returnArray
