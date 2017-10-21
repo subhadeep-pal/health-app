@@ -32,14 +32,27 @@ open class DatabaseManager: NSObject {
         }
     }
     
+    public enum ConcernType: Int {
+        case healthConcern = 0
+        case fitnessGoals
+        static let values = [
+            healthConcern : "Health Concern",
+            fitnessGoals: "Fitness Goals"
+        ]
+        public func stringValue() -> String {
+            return ConcernType.values[self] ?? ""
+        }
+    }
+    
     public var dataSource : DatabaseManagerProtocol!
     
     // ADD New Health Concern
-    open func addNewHealthConcern(title: String, status: String, note: String){
+    open func addNewHealthConcern(title: String, status: String, note: String, type: ConcernType){
         let healthConcern = HealthConcern(context: dataSource.context)
         healthConcern.title = title
         healthConcern.status = status
         healthConcern.note = note
+        healthConcern.concernType = type.stringValue()
         dataSource.save()
     }
     
@@ -51,30 +64,31 @@ open class DatabaseManager: NSObject {
     
     
     // FETCH Health Concerns Based On Status
-    open func fetchHealthConcernsBasedOnStatus(status: HealthConcernStatusType) -> [HealthConcern]{
+    open func fetchHealthConcerns(basedOnStatus status: HealthConcernStatusType, andType type:ConcernType) -> [HealthConcern]{
         let fetchRequest : NSFetchRequest<HealthConcern> = HealthConcern.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "status == %@", status.stringValue())
+        let concernTypePredicate = NSPredicate(format: "concernType == %@", type.stringValue())
+        let statuspredicate = NSPredicate(format: "status == %@", status.stringValue())
+        fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [concernTypePredicate,statuspredicate])
         let healthConcerns: [HealthConcern]? = try? dataSource.context.fetch(fetchRequest)
         return healthConcerns ?? []
     }
     
     
     // UPDATE If Present Else ADD
-    open func addOrUpdateHealthConcern(title: String, status: String, note: String){
+    open func addOrUpdateHealthConcern(title: String, status: String, note: String, type: ConcernType){
         
         let fetchRequest : NSFetchRequest<HealthConcern> = HealthConcern.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "title == %@", title)
         let fetchedResults : [HealthConcern]? = try? dataSource.context.fetch(fetchRequest)
         
         guard let healthConcern = fetchedResults?.first else {
-            addNewHealthConcern(title: title, status: status, note: note)
+            addNewHealthConcern(title: title, status: status, note: note, type: type)
             return
         }
         healthConcern.title = title
         healthConcern.status = status
         healthConcern.note = note
-        
-        // Is there need to saveContext() ?
+        healthConcern.concernType = type.stringValue()
     }
     
     // DELETE Health Concern From Core Data
