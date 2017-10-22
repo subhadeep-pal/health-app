@@ -40,8 +40,6 @@ class AddOrUpdateHealthConcernVC: UIViewController {
             deleteButton.isEnabled = false
             return
         }
-        
-        titleTextField.isUserInteractionEnabled = false
         self.title = healthConcern.title
         titleTextField.text = healthConcern.title
         statusTextField.text = healthConcern.status
@@ -50,15 +48,19 @@ class AddOrUpdateHealthConcernVC: UIViewController {
 
     // SAVE Button
     @IBAction func saveButtonClicked(_ sender: UIButton) {
-        if let title = titleTextField.text ,let status = statusTextField.text ,let note = noteTextView.text, !title.isEmpty, !status.isEmpty {
-            DatabaseManager.shared.addOrUpdateHealthConcern(title: title, status: status, note: note, type: type)
-        let alert = UIAlertController(title: "", message: "Saved Successfully", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default){UIAlertAction in
-                self.navigationController?.popViewController(animated: true)
-            })
-            self.present(alert, animated: true, completion: nil)
-        }else{
-            
+        
+        if let title = titleTextField.text,
+        let status = statusTextField.text,
+        let note = noteTextView.text,
+            !title.isEmpty, !status.isEmpty {
+            if let healthConcern = healthConcern {
+                update(healthConern: healthConcern, title: title, status: status, note: note)
+                
+            } else {
+                createNewHealthConcern(title: title, status: status, note: note)
+            }
+            showSuccessMessage()
+        } else{
             let alert = UIAlertController(title: "Required", message: "Please enter the values to save", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
@@ -82,9 +84,41 @@ class AddOrUpdateHealthConcernVC: UIViewController {
     @IBAction func cancelButtonClicked(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
-
+    
+    @IBAction func addActionPlanTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "createActionPlan", sender: healthConcern)
+    }
+    
     @IBAction func emptyTapped(_ sender: UITapGestureRecognizer) {
         self.view.endEditing(true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "createActionPlan" {
+            guard let destinationVC = segue.destination as? AddActionPlanViewController,
+                let concern = sender as? HealthConcern else {return}
+            destinationVC.healthConcern = concern
+        }
+    }
+    
+    
+    private func update(healthConern: HealthConcern, title: String, status: String, note: String) {
+        healthConern.title = title
+        healthConern.status = status
+        healthConern.note = note
+        DatabaseManager.shared.update(healthConcern: healthConern)
+    }
+    
+    private func createNewHealthConcern(title: String, status: String, note: String) {
+        DatabaseManager.shared.addNewHealthConcern(title: title, status: status, note: note, type: type)
+    }
+    
+    private func showSuccessMessage() {
+        let alert = UIAlertController(title: "", message: "Saved Successfully", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default){UIAlertAction in
+            self.navigationController?.popViewController(animated: true)
+        })
+        self.present(alert, animated: true, completion: nil)
     }
 }
 // MARK: Picker View

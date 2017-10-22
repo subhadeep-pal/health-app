@@ -52,7 +52,7 @@ open class DatabaseManager: NSObject {
         healthConcern.title = title
         healthConcern.status = status
         healthConcern.note = note
-        healthConcern.concernType = type.stringValue()
+        healthConcern.concernType = Int16(type.rawValue)
         dataSource.save()
     }
     
@@ -66,11 +66,25 @@ open class DatabaseManager: NSObject {
     // FETCH Health Concerns Based On Status
     open func fetchHealthConcerns(basedOnStatus status: HealthConcernStatusType, andType type:ConcernType) -> [HealthConcern]{
         let fetchRequest : NSFetchRequest<HealthConcern> = HealthConcern.fetchRequest()
-        let concernTypePredicate = NSPredicate(format: "concernType == %@", type.stringValue())
+        let concernTypePredicate = NSPredicate(format: "concernType == %d", Int16(type.rawValue))
         let statuspredicate = NSPredicate(format: "status == %@", status.stringValue())
         fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [concernTypePredicate,statuspredicate])
         let healthConcerns: [HealthConcern]? = try? dataSource.context.fetch(fetchRequest)
         return healthConcerns ?? []
+    }
+    
+    open func fetchHealthConcerns(basedOnType type:ConcernType) -> [HealthConcern]{
+        let fetchRequest : NSFetchRequest<HealthConcern> = HealthConcern.fetchRequest()
+        let concernTypePredicate = NSPredicate(format: "concernType == %d", Int16(type.rawValue))
+        fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [concernTypePredicate])
+        let healthConcerns: [HealthConcern]? = try? dataSource.context.fetch(fetchRequest)
+        return healthConcerns ?? []
+    }
+    
+    
+    // Update Health Concern
+    open func update(healthConcern: HealthConcern) {
+        dataSource.save()
     }
     
     
@@ -88,7 +102,7 @@ open class DatabaseManager: NSObject {
         healthConcern.title = title
         healthConcern.status = status
         healthConcern.note = note
-        healthConcern.concernType = type.stringValue()
+        healthConcern.concernType = Int16(type.rawValue)
     }
     
     // DELETE Health Concern From Core Data
