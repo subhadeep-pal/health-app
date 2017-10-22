@@ -25,11 +25,11 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manage your health in three easy steps" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzN-Vm-Zft">
                                         <rect key="frame" x="50" y="10" width="220" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.38734155893325806" green="0.85318702459335327" blue="0.61332988739013672" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.58431372549019611" green="0.58823529411764708" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="wzN-Vm-Zft" firstAttribute="leading" secondItem="c3U-Lc-S1A" secondAttribute="leading" constant="50" id="EmW-DX-rog"/>
                                     <constraint firstItem="wzN-Vm-Zft" firstAttribute="top" secondItem="c3U-Lc-S1A" secondAttribute="top" constant="10" id="K4L-ga-TJo"/>
@@ -44,23 +44,23 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="fR2-mG-Wa9">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="46"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7v-Ou-C3g">
+                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7v-Ou-C3g" customClass="UIButtonX">
                                                 <rect key="frame" x="0.0" y="0.0" width="132.5" height="46"/>
-                                                <color key="backgroundColor" red="0.931804358959198" green="0.32485836744308472" blue="0.39084601402282715" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.94901960784313721" green="0.38431372549019605" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                 <state key="normal" title="Health Concern">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="healthConcernTapped:" destination="Tw7-ZO-niC" eventType="touchUpInside" id="N2E-kZ-Vdv"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YT6-LC-cHl">
+                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YT6-LC-cHl" customClass="UIButtonX">
                                                 <rect key="frame" x="147.5" y="0.0" width="132.5" height="46"/>
-                                                <color key="backgroundColor" red="0.93180435900000003" green="0.32485836740000001" blue="0.39084601400000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.94901960780000005" green="0.38431372549999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                 <state key="normal" title="Fitness Goals">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="fitnessGoalsTapped:" destination="Tw7-ZO-niC" eventType="touchUpInside" id="g1o-SW-t7S"/>
@@ -74,12 +74,12 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_slide_down" translatesAutoresizingMaskIntoConstraints="NO" id="l7n-Ib-yU2">
                                         <rect key="frame" x="0.0" y="61" width="280" height="46"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6m-M5-yR1">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E6m-M5-yR1" customClass="UIButtonX">
                                         <rect key="frame" x="0.0" y="122" width="280" height="46"/>
-                                        <color key="backgroundColor" red="0.93180435900000003" green="0.32485836740000001" blue="0.39084601400000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.94901960780000005" green="0.38431372549999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                         <state key="normal" title="Create Your Action Plan">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="actionPlanTapped:" destination="Tw7-ZO-niC" eventType="touchUpInside" id="wvU-6V-cg6"/>
@@ -88,26 +88,26 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_slide_down" translatesAutoresizingMaskIntoConstraints="NO" id="gnr-pU-vXx">
                                         <rect key="frame" x="0.0" y="183" width="280" height="46"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heV-m4-OGr">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="heV-m4-OGr" customClass="UIButtonX">
                                         <rect key="frame" x="0.0" y="244" width="280" height="46"/>
-                                        <color key="backgroundColor" red="0.93180435900000003" green="0.32485836740000001" blue="0.39084601400000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.94901960780000005" green="0.38431372549999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                         <state key="normal" title="Set Your Reminders">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNj-Ma-6NK">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNj-Ma-6NK" customClass="UIButtonX">
                                         <rect key="frame" x="0.0" y="305" width="280" height="46"/>
-                                        <color key="backgroundColor" red="0.93180435900000003" green="0.32485836740000001" blue="0.39084601400000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.94901960780000005" green="0.38431372549999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                         <state key="normal" title="Go">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ulf-5m-NEh" firstAttribute="trailing" secondItem="Mk4-WP-caQ" secondAttribute="trailing" constant="20" id="3Js-9e-GY6"/>
                             <constraint firstItem="Mk4-WP-caQ" firstAttribute="leading" secondItem="ulf-5m-NEh" secondAttribute="leading" constant="20" id="4Pp-WV-Jqc"/>
@@ -472,7 +472,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nwg-92-b18">
                                 <rect key="frame" x="0.0" y="64" width="320" height="64"/>
-                                <color key="backgroundColor" red="0.3886349201" green="0.85672360660000002" blue="0.61011546849999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.58431372550000005" green="0.58823529409999997" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="3zC-nb-N9X"/>
                                 </constraints>
@@ -480,12 +480,12 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List your health issues and track their status" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WL8-1b-ZD8">
                                 <rect key="frame" x="40" y="74" width="240" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.99989491699999999" green="1" blue="0.99987143280000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VXy-ne-tmA">
                                 <rect key="frame" x="0.0" y="128" width="320" height="391"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="healthConcernCell" id="Cue-2C-5IS">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
@@ -616,10 +616,10 @@
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4G-ZA-HlR" customClass="UIButtonX">
                                             <rect key="frame" x="112" y="8" width="96" height="28"/>
-                                            <color key="backgroundColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.94901960780000005" green="0.38431372549999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                             <state key="normal" title="DELETE">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -632,10 +632,10 @@
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpU-hD-LKb" customClass="UIButtonX">
                                             <rect key="frame" x="216" y="8" width="96" height="28"/>
-                                            <color key="backgroundColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.94901960780000005" green="0.38431372549999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                             <state key="normal" title="CANCEL">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -651,10 +651,10 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pf0-FT-adh" customClass="UIButtonX">
                                                     <rect key="frame" x="0.0" y="0.0" width="304" height="28"/>
-                                                    <color key="backgroundColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.94901960780000005" green="0.38431372549999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                     <state key="normal" title="ADD ACTION PLAN">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -676,10 +676,10 @@
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TqN-lv-VjH" customClass="UIButtonX">
                                             <rect key="frame" x="8" y="8" width="96" height="28"/>
-                                            <color key="backgroundColor" red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.94901960780000005" green="0.38431372549999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                             <state key="normal" title="SAVE">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -707,10 +707,10 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="dpU-hD-LKb" secondAttribute="trailing" id="whZ-XF-sdg"/>
                                     </constraints>
                                 </view>
-                                <blurEffect style="dark"/>
+                                <blurEffect style="light"/>
                             </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ygd-EF-Iti" firstAttribute="leading" secondItem="k9i-Vk-DUL" secondAttribute="leading" id="6wb-sq-mDz"/>
                             <constraint firstItem="ygd-EF-Iti" firstAttribute="bottom" secondItem="k9i-Vk-DUL" secondAttribute="bottom" id="9ZK-l1-9a1"/>
@@ -748,6 +748,6 @@
         <image name="icon_slide_down" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="D2i-pa-lso"/>
+        <segue reference="3S1-Ci-XAJ"/>
     </inferredMetricsTieBreakers>
 </document>

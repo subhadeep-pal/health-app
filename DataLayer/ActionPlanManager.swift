@@ -35,7 +35,7 @@ open class ActionPlanManager: NSObject {
     public static var shared : ActionPlanManager = ActionPlanManager()
     
     private lazy var dictionary : Dictionary<String, Array<String>>? = {
-        guard let bundle = Bundle(identifier: "com.virtual-elf.DataLayer") else {return nil}
+        guard let bundle = Bundle(identifier: "com.always.wired.DataLayer") else {return nil}
         guard let pathString = bundle.path(forResource: "ActionPlanTypes", ofType: "plist") else {return nil}
         guard let dict = NSDictionary(contentsOfFile: pathString) as? Dictionary<String, Array<String>> else {return nil}
         return dict
