@@ -11,6 +11,7 @@ import DataLayer
 
 class AddActionPlanViewController: UIViewController {
     
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var concernTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
@@ -26,6 +27,8 @@ class AddActionPlanViewController: UIViewController {
     
     var dataForCategoryPicker: [ActionPlanCategory]?
     var dataForConcernPicker: [HealthConcern]?
+    
+    var actionPlan: ActionPlan?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +54,7 @@ class AddActionPlanViewController: UIViewController {
     
     
     private func initView() {
+        
         if let healthConcern = healthConcern {
             //set health concern text field
             concernTextField.text = healthConcern.title
@@ -87,8 +91,17 @@ class AddActionPlanViewController: UIViewController {
                 concernTextField.placeholder = "Not Applicable"
             }
             
+        }
+        
+        if let actionPlan = actionPlan{
+            self.title = actionPlan.title
+            self.titleTextField.text = actionPlan.title
+            self.concernTextField.text = actionPlan.concern?.title
+            self.noteTextView.text = actionPlan.notes
+            self.healthConcern = actionPlan.concern
+            self.deleteButton.isEnabled = true
         } else {
-            
+            self.deleteButton.isEnabled = false
         }
     }
 
@@ -103,6 +116,58 @@ class AddActionPlanViewController: UIViewController {
     */
     @IBAction func emptyTapped(_ sender: Any) {
         self.view.endEditing(true)
+    }
+    
+    @IBAction func saveTapped(_ sender: UIButton) {
+        guard let title = titleTextField.text,
+            !title.isEmpty else {
+            // show error on titleTextField
+            return
+        }
+        guard let category = category else {
+            //show error
+            return
+        }
+        
+        var selectedconcern: HealthConcern? = nil
+        if category.type != .Habits {
+            guard let concern = healthConcern else {
+                // show error in concern
+                return
+            }
+            selectedconcern = concern
+        } else {
+            selectedconcern = nil
+        }
+        
+        if let actionPlan = actionPlan {
+            // update
+            actionPlan.category = category.name
+            actionPlan.title = title
+            actionPlan.concern = selectedconcern
+            actionPlan.notes = noteTextView.text
+            DatabaseManager.shared.update(actionPlan: actionPlan)
+        } else {
+            // create new
+            DatabaseManager.shared.createNewActionPlan(title: title, concern: selectedconcern, category: category, note: noteTextView.text)
+        }
+        showSuccessMessage()
+    }
+    @IBAction func deleteTapped(_ sender: UIButton) {
+        DatabaseManager.shared.delete(actionPlan: self.actionPlan!)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func cancelTapped(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func showSuccessMessage() {
+        let alert = UIAlertController(title: "", message: "Saved Successfully", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default){UIAlertAction in
+            self.navigationController?.popViewController(animated: true)
+        })
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
@@ -138,8 +203,10 @@ extension AddActionPlanViewController : UIPickerViewDataSource, UIPickerViewDele
         switch pickerView {
         case healthConcernPicker:
             concernTextField.text = dataForConcernPicker?[row].title
+            healthConcern = dataForConcernPicker?[row]
         case categoryPicker:
             categoryTextField.text = dataForCategoryPicker?[row].name
+            category = dataForCategoryPicker?[row]
         default:
             return
         }

@@ -195,17 +195,26 @@
         <scene sceneID="9QZ-fK-N6A">
             <objects>
                 <tableViewController id="dKA-jj-6XV" customClass="ActionPlanCategoryTableViewController" customModule="Health_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="CK0-M7-Xzg">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="1" id="CK0-M7-Xzg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="j1k-8r-vWB">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="actionPlanCell" textLabel="3Ta-cJ-Nps" style="IBUITableViewCellStyleDefault" id="j1k-8r-vWB">
                                 <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="j1k-8r-vWB" id="5nK-aB-ktv">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3Ta-cJ-Nps">
+                                            <rect key="frame" x="16" y="0.0" width="289" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -229,11 +238,11 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cfv-Oz-URZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="ngG-s8-Fgy">
-                    <rect key="frame" x="0.0" y="0.0" width="315" height="69"/>
+                    <rect key="frame" x="0.0" y="0.0" width="315" height="111"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text, Text, Text, Text, Text, Text, Text, Text, Text, Text, Text, Text, Text, Text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8r5-mz-j9E">
-                            <rect key="frame" x="20" y="8" width="275" height="53"/>
+                            <rect key="frame" x="20" y="8" width="275" height="95"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -340,7 +349,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
-                                                <action selector="deleteButtonClicked:" destination="gkt-Ta-BNs" eventType="touchUpInside" id="Kqh-C9-rM3"/>
+                                                <action selector="deleteTapped:" destination="lw8-Ql-0Jy" eventType="touchUpInside" id="Brr-B9-DUK"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEP-f9-ohY" customClass="UIButtonX">
@@ -357,6 +366,7 @@
                                             </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="cancelButtonClicked:" destination="gkt-Ta-BNs" eventType="touchUpInside" id="eCD-8D-w6p"/>
+                                                <action selector="cancelTapped:" destination="lw8-Ql-0Jy" eventType="touchUpInside" id="3sp-ny-PvU"/>
                                             </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsc-xg-Hui">
@@ -398,6 +408,7 @@
                                             </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="saveButtonClicked:" destination="gkt-Ta-BNs" eventType="touchUpInside" id="lZ0-GZ-Su7"/>
+                                                <action selector="saveTapped:" destination="lw8-Ql-0Jy" eventType="touchUpInside" id="sZI-fp-aXF"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -435,6 +446,7 @@
                     <connections>
                         <outlet property="categoryTextField" destination="Vfn-eG-zqC" id="ddN-34-3qe"/>
                         <outlet property="concernTextField" destination="w2C-wm-mBP" id="Zti-Xd-FPF"/>
+                        <outlet property="deleteButton" destination="0gq-si-Ra3" id="faY-mQ-iby"/>
                         <outlet property="emptyView" destination="uvy-X1-7BY" id="fKI-2k-VPm"/>
                         <outlet property="noteTextView" destination="laE-DQ-SEq" id="nRG-dp-ynw"/>
                         <outlet property="scrollView" destination="PKH-YX-aGQ" id="sZl-Ad-3Q9"/>
@@ -736,6 +748,6 @@
         <image name="icon_slide_down" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3S1-Ci-XAJ"/>
+        <segue reference="D2i-pa-lso"/>
     </inferredMetricsTieBreakers>
 </document>
