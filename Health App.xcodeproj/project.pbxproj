@@ -21,6 +21,14 @@
 		14A9F8A11F9A0CB30023451D /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C2ED51F83F3FD00E039AB /* DatabaseManager.swift */; };
 		14C2DAC71F9B2B8600D6CDD3 /* HealthConcern+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C2DAC51F9B2B8600D6CDD3 /* HealthConcern+CoreDataClass.swift */; };
 		14C2DAC81F9B2B8600D6CDD3 /* HealthConcern+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C2DAC61F9B2B8600D6CDD3 /* HealthConcern+CoreDataProperties.swift */; };
+		14CF8B691FA45EEB0090FDA6 /* UIView+Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CF8B681FA45EEB0090FDA6 /* UIView+Designable.swift */; };
+		14CF8B6B1FA45FDA0090FDA6 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CF8B6A1FA45FDA0090FDA6 /* CheckBox.swift */; };
+		14CF8B6D1FA468660090FDA6 /* RecurrenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CF8B6C1FA468660090FDA6 /* RecurrenceView.swift */; };
+		14CF8B6F1FA468FE0090FDA6 /* RecurranceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CF8B6E1FA468FE0090FDA6 /* RecurranceManager.swift */; };
+		14CF8B711FA46C4A0090FDA6 /* MonthlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CF8B701FA46C4A0090FDA6 /* MonthlyView.swift */; };
+		14CF8B731FA46C550090FDA6 /* WeeklyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CF8B721FA46C550090FDA6 /* WeeklyView.swift */; };
+		14CF8B751FA46C630090FDA6 /* OneTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CF8B741FA46C630090FDA6 /* OneTimeView.swift */; };
+		14CF8B7B1FA4773F0090FDA6 /* RecurranceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CF8B7A1FA4773F0090FDA6 /* RecurranceViewController.swift */; };
 		14E2EDAE1F83E37800656014 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E2EDAD1F83E37800656014 /* AppDelegate.swift */; };
 		14E2EDB31F83E37800656014 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14E2EDB11F83E37800656014 /* Main.storyboard */; };
 		14E2EDB51F83E37800656014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14E2EDB41F83E37800656014 /* Assets.xcassets */; };
@@ -86,6 +94,14 @@
 		14A9F89B1F9A06FA0023451D /* ActionPlanManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionPlanManager.swift; sourceTree = "<group>"; };
 		14C2DAC51F9B2B8600D6CDD3 /* HealthConcern+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthConcern+CoreDataClass.swift"; sourceTree = "<group>"; };
 		14C2DAC61F9B2B8600D6CDD3 /* HealthConcern+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthConcern+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		14CF8B681FA45EEB0090FDA6 /* UIView+Designable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Designable.swift"; sourceTree = "<group>"; };
+		14CF8B6A1FA45FDA0090FDA6 /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		14CF8B6C1FA468660090FDA6 /* RecurrenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurrenceView.swift; sourceTree = "<group>"; };
+		14CF8B6E1FA468FE0090FDA6 /* RecurranceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurranceManager.swift; sourceTree = "<group>"; };
+		14CF8B701FA46C4A0090FDA6 /* MonthlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyView.swift; sourceTree = "<group>"; };
+		14CF8B721FA46C550090FDA6 /* WeeklyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklyView.swift; sourceTree = "<group>"; };
+		14CF8B741FA46C630090FDA6 /* OneTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneTimeView.swift; sourceTree = "<group>"; };
+		14CF8B7A1FA4773F0090FDA6 /* RecurranceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecurranceViewController.swift; sourceTree = "<group>"; };
 		14E2EDAA1F83E37800656014 /* Health App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Health App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		14E2EDAD1F83E37800656014 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14E2EDB21F83E37800656014 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -125,6 +141,7 @@
 		1433ADFC1F86A98500C839AA /* Deisgnables */ = {
 			isa = PBXGroup;
 			children = (
+				14CF8B681FA45EEB0090FDA6 /* UIView+Designable.swift */,
 				1433ADEB1F86A97C00C839AA /* UIButtonX.swift */,
 				1433ADED1F86A97C00C839AA /* UIImageViewX.swift */,
 				1433ADEE1F86A97C00C839AA /* UILabelX.swift */,
@@ -158,6 +175,7 @@
 				70B60C4C1F8808DF00F83AA2 /* HealthConcernsListVC.swift */,
 				70B60C4A1F88089E00F83AA2 /* HomeViewController.swift */,
 				14A9F8981F9A03120023451D /* Action Plan */,
+				14CF8B761FA46C6B0090FDA6 /* Reminders */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -173,6 +191,7 @@
 				14A9F89B1F9A06FA0023451D /* ActionPlanManager.swift */,
 				146C2ED51F83F3FD00E039AB /* DatabaseManager.swift */,
 				14A9F8991F9A06160023451D /* ActionPlanTypes.plist */,
+				14CF8B6E1FA468FE0090FDA6 /* RecurranceManager.swift */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
@@ -201,6 +220,27 @@
 				14A2D5601F9B003C000D4314 /* AddActionPlanViewController.swift */,
 			);
 			path = "Action Plan";
+			sourceTree = "<group>";
+		};
+		14CF8B761FA46C6B0090FDA6 /* Reminders */ = {
+			isa = PBXGroup;
+			children = (
+				14CF8B771FA46C740090FDA6 /* Recurrance Views */,
+				14CF8B7A1FA4773F0090FDA6 /* RecurranceViewController.swift */,
+			);
+			path = Reminders;
+			sourceTree = "<group>";
+		};
+		14CF8B771FA46C740090FDA6 /* Recurrance Views */ = {
+			isa = PBXGroup;
+			children = (
+				14CF8B6A1FA45FDA0090FDA6 /* CheckBox.swift */,
+				14CF8B6C1FA468660090FDA6 /* RecurrenceView.swift */,
+				14CF8B701FA46C4A0090FDA6 /* MonthlyView.swift */,
+				14CF8B721FA46C550090FDA6 /* WeeklyView.swift */,
+				14CF8B741FA46C630090FDA6 /* OneTimeView.swift */,
+			);
+			path = "Recurrance Views";
 			sourceTree = "<group>";
 		};
 		14E2EDA11F83E37800656014 = {
@@ -443,6 +483,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14A9F89E1F9A0C8D0023451D /* ActionPlanManager.swift in Sources */,
+				14CF8B6F1FA468FE0090FDA6 /* RecurranceManager.swift in Sources */,
 				14A9F8A11F9A0CB30023451D /* DatabaseManager.swift in Sources */,
 				14C2DAC71F9B2B8600D6CDD3 /* HealthConcern+CoreDataClass.swift in Sources */,
 				14A2D5641F9B1009000D4314 /* HealthApp.xcdatamodeld in Sources */,
@@ -454,13 +495,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14CF8B6D1FA468660090FDA6 /* RecurrenceView.swift in Sources */,
 				709C2CB01F895FE30095D3E7 /* HealthConcernsListVC.swift in Sources */,
+				14CF8B731FA46C550090FDA6 /* WeeklyView.swift in Sources */,
 				14A2D5611F9B003C000D4314 /* AddActionPlanViewController.swift in Sources */,
 				14E2EDAE1F83E37800656014 /* AppDelegate.swift in Sources */,
+				14CF8B7B1FA4773F0090FDA6 /* RecurranceViewController.swift in Sources */,
 				70B60C4B1F88089F00F83AA2 /* HomeViewController.swift in Sources */,
+				14CF8B691FA45EEB0090FDA6 /* UIView+Designable.swift in Sources */,
 				14A9F8971F9A030D0023451D /* ActionPlansTableViewController.swift in Sources */,
+				14CF8B751FA46C630090FDA6 /* OneTimeView.swift in Sources */,
 				14A2D55D1F9A6FD2000D4314 /* ActionPlanCategoryTableViewController.swift in Sources */,
 				709C2CAA1F8947490095D3E7 /* ReminderViewController.swift in Sources */,
+				14CF8B6B1FA45FDA0090FDA6 /* CheckBox.swift in Sources */,
+				14CF8B711FA46C4A0090FDA6 /* MonthlyView.swift in Sources */,
 				14E49A121F83F12C0043C753 /* MasterSideMenuViewController.swift in Sources */,
 				707496921F8D4B8000227953 /* UICustomisedTextView.swift in Sources */,
 				709C2CAD1F894AB20095D3E7 /* AddOrUpdateHealthConcernVC.swift in Sources */,
