@@ -15,7 +15,15 @@ class ActionPlanCategoryTableViewController: UITableViewController {
     
     
     var category : ActionPlanCategory!
+    
+    var actionPlans : [ActionPlan] {
+        return DatabaseManager.shared.fetchActionPlans(basedOnCategory:self.category)
+    }
+    
+    var dataKeys : [HealthConcern] = []
 
+    var data : Dictionary<HealthConcern, [ActionPlan]>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,6 +33,7 @@ class ActionPlanCategoryTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.title = category.name
+        headerView.sizeToFit()
         self.tableView.tableHeaderView = headerView
     }
 
@@ -32,28 +41,60 @@ class ActionPlanCategoryTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    override func viewDidAppear(_ animated: Bool) {
+        parseData()
+        self.tableView.reloadData()
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return dataKeys.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        let concernKey = dataKeys[section]
+        return data[concernKey]?.count ?? 0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "actionPlanCell", for: indexPath)
+        let concernKey = dataKeys[indexPath.section]
+        guard let actionPlan = data[concernKey]?[indexPath.row] else {return cell}
+        
+        cell.textLabel?.text = actionPlan.title
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let concernKey = dataKeys[indexPath.section]
+        guard let actionPlan = data[concernKey]?[indexPath.row] else {return}
+        self.performSegue(withIdentifier: "createActionPlan", sender: actionPlan)
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let concernKey = dataKeys[section]
+        return concernKey.title
+    }
+    
+    func parseData() {
+        self.data = [:]
+        self.dataKeys = []
+        var setConcern : Set<HealthConcern> = []
+        for item in actionPlans {
+            setConcern.insert(item.concern!)
+        }
+        var returnDict : Dictionary<HealthConcern, [ActionPlan]> = [:]
+        for concern in setConcern {
+            returnDict[concern] = DatabaseManager.shared.fetchActionPlans(basedOnCategory: self.category, andConcern: concern)
+            dataKeys.append(concern)
+        }
+        self.data = returnDict
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -100,6 +141,7 @@ class ActionPlanCategoryTableViewController: UITableViewController {
         if segue.identifier == "createActionPlan" {
             guard let destinavtionVC = segue.destination as? AddActionPlanViewController else {return}
             destinavtionVC.category = self.category
+            destinavtionVC.actionPlan = sender as? ActionPlan
         }
     }
     

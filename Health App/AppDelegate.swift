@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let momdName = "HealthApp"
         
-        guard let modelURL = Bundle(identifier: "com.virtual-elf.DataLayer")?.url(forResource: momdName, withExtension:"momd") else {
+        guard let modelURL = Bundle(identifier: "com.always.wired.DataLayer")?.url(forResource: momdName, withExtension:"momd") else {
             fatalError("Error loading model from bundle")
         }
         
