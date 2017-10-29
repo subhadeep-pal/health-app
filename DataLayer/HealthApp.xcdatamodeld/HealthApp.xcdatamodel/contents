@@ -12,8 +12,14 @@
         <attribute name="status" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Reminder" representedClassName="Reminder" syncable="YES" codeGenerationType="class">
+        <attribute name="note" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" attributeType="String" syncable="YES"/>
+        <relationship name="actionPlan" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActionPlan" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="HealthConcern" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="ActionPlan" positionX="-63" positionY="9" width="128" height="105"/>
+        <element name="HealthConcern" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Reminder" positionX="-54" positionY="36" width="128" height="90"/>
     </elements>
 </model>

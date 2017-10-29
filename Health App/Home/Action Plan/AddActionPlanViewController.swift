@@ -105,15 +105,20 @@ class AddActionPlanViewController: UIViewController {
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func createReminderTapped(_ sender: UIButton) {
+        saveTapped(sender)
+        performSegue(withIdentifier: "addReminder", sender: actionPlan)
     }
-    */
+
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addReminder" {
+            guard let destinationVC = segue.destination as? AddReminderViewController,
+                let actionPlan = sender as? ActionPlan else {return}
+            destinationVC.actionPlan = actionPlan
+        }
+    }
+
     @IBAction func emptyTapped(_ sender: Any) {
         self.view.endEditing(true)
     }

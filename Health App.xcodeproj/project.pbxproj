@@ -34,8 +34,9 @@
 		14E2EDB51F83E37800656014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14E2EDB41F83E37800656014 /* Assets.xcassets */; };
 		14E2EDB81F83E37800656014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14E2EDB61F83E37800656014 /* LaunchScreen.storyboard */; };
 		14E49A121F83F12C0043C753 /* MasterSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E49A111F83F12C0043C753 /* MasterSideMenuViewController.swift */; };
+		701088EE1FA626B70036557E /* SetReminderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701088ED1FA626B70036557E /* SetReminderTableViewController.swift */; };
+		701088F01FA626F00036557E /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701088EF1FA626F00036557E /* AddReminderViewController.swift */; };
 		707496921F8D4B8000227953 /* UICustomisedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707496911F8D4B8000227953 /* UICustomisedTextView.swift */; };
-		709C2CAA1F8947490095D3E7 /* ReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433AE031F86AED100C839AA /* ReminderViewController.swift */; };
 		709C2CAD1F894AB20095D3E7 /* AddOrUpdateHealthConcernVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B60C4E1F88091900F83AA2 /* AddOrUpdateHealthConcernVC.swift */; };
 		709C2CB01F895FE30095D3E7 /* HealthConcernsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B60C4C1F8808DF00F83AA2 /* HealthConcernsListVC.swift */; };
 		70B60C4B1F88089F00F83AA2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B60C4A1F88089E00F83AA2 /* HomeViewController.swift */; };
@@ -79,7 +80,6 @@
 		1433ADF11F86A97D00C839AA /* UIVisualEffectViewX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIVisualEffectViewX.swift; sourceTree = "<group>"; };
 		1433ADFD1F86A9E700C839AA /* UIViewShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewShadow.swift; sourceTree = "<group>"; };
 		1433ADFF1F86AC9B00C839AA /* Health App-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Health App-Bridging-Header.h"; sourceTree = "<group>"; };
-		1433AE031F86AED100C839AA /* ReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderViewController.swift; sourceTree = "<group>"; };
 		146C2EBF1F83F39000E039AB /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		146C2EC01F83F39000E039AB /* Reminder.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Reminder.storyboard; sourceTree = "<group>"; };
 		146C2EC81F83F3E800E039AB /* DataLayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DataLayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +111,8 @@
 		14E49A111F83F12C0043C753 /* MasterSideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterSideMenuViewController.swift; sourceTree = "<group>"; };
 		36E3B9CDB7BFD78DA266ECE9 /* Pods-Health App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Health App.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Health App/Pods-Health App.debug.xcconfig"; sourceTree = "<group>"; };
 		594F0419DF66D98F7148AD60 /* Pods-Health App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Health App.release.xcconfig"; path = "Pods/Target Support Files/Pods-Health App/Pods-Health App.release.xcconfig"; sourceTree = "<group>"; };
+		701088ED1FA626B70036557E /* SetReminderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetReminderTableViewController.swift; sourceTree = "<group>"; };
+		701088EF1FA626F00036557E /* AddReminderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddReminderViewController.swift; sourceTree = "<group>"; };
 		707496911F8D4B8000227953 /* UICustomisedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICustomisedTextView.swift; sourceTree = "<group>"; };
 		70B60C4A1F88089E00F83AA2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		70B60C4C1F8808DF00F83AA2 /* HealthConcernsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthConcernsListVC.swift; sourceTree = "<group>"; };
@@ -162,7 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				146C2EC01F83F39000E039AB /* Reminder.storyboard */,
-				1433AE031F86AED100C839AA /* ReminderViewController.swift */,
+				701088EF1FA626F00036557E /* AddReminderViewController.swift */,
+				701088ED1FA626B70036557E /* SetReminderTableViewController.swift */,
 			);
 			path = Reminder;
 			sourceTree = "<group>";
@@ -503,14 +506,15 @@
 				14CF8B7B1FA4773F0090FDA6 /* RecurranceViewController.swift in Sources */,
 				70B60C4B1F88089F00F83AA2 /* HomeViewController.swift in Sources */,
 				14CF8B691FA45EEB0090FDA6 /* UIView+Designable.swift in Sources */,
+				701088EE1FA626B70036557E /* SetReminderTableViewController.swift in Sources */,
 				14A9F8971F9A030D0023451D /* ActionPlansTableViewController.swift in Sources */,
 				14CF8B751FA46C630090FDA6 /* OneTimeView.swift in Sources */,
 				14A2D55D1F9A6FD2000D4314 /* ActionPlanCategoryTableViewController.swift in Sources */,
-				709C2CAA1F8947490095D3E7 /* ReminderViewController.swift in Sources */,
 				14CF8B6B1FA45FDA0090FDA6 /* CheckBox.swift in Sources */,
 				14CF8B711FA46C4A0090FDA6 /* MonthlyView.swift in Sources */,
 				14E49A121F83F12C0043C753 /* MasterSideMenuViewController.swift in Sources */,
 				707496921F8D4B8000227953 /* UICustomisedTextView.swift in Sources */,
+				701088F01FA626F00036557E /* AddReminderViewController.swift in Sources */,
 				709C2CAD1F894AB20095D3E7 /* AddOrUpdateHealthConcernVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

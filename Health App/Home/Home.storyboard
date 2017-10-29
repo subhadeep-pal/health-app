@@ -11,6 +11,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--SetReminderTVC-->
+        <scene sceneID="wW2-TL-HuC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Reminder" referencedIdentifier="SetReminderTVC" id="Hna-jZ-mVg" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="05q-oG-3HG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2268" y="31"/>
+        </scene>
         <!--Home-->
         <scene sceneID="iPV-jb-NuX">
             <objects>
@@ -95,6 +103,9 @@
                                         <state key="normal" title="Set Your Reminders">
                                             <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="setReminderTapped:" destination="Tw7-ZO-niC" eventType="touchUpInside" id="mkR-rV-tMQ"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNj-Ma-6NK" customClass="UIButtonX">
                                         <rect key="frame" x="0.0" y="305" width="280" height="46"/>
@@ -132,6 +143,7 @@
                     <connections>
                         <segue destination="3jf-dF-Rze" kind="show" identifier="actionPlan" id="Wmc-Uh-A56"/>
                         <segue destination="Pt1-5I-1T8" kind="show" identifier="concerns" id="fsb-jB-KYK"/>
+                        <segue destination="Hna-jZ-mVg" kind="show" identifier="reminder" id="cVz-yP-3Tu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2KL-g5-5fD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -161,7 +173,9 @@
                             <outlet property="delegate" destination="3jf-dF-Rze" id="oxi-g8-bIT"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Action Plans" id="ceZ-Aq-lfF"/>
+                    <navigationItem key="navigationItem" title="Action Plans" id="ceZ-Aq-lfF">
+                        <barButtonItem key="backBarButtonItem" title="  " id="ssk-pv-8GR"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="headerView" destination="Yi5-xO-702" id="I3P-Er-aQa"/>
                         <segue destination="dKA-jj-6XV" kind="show" identifier="ActionPlanCategorySelected" id="Sca-Wk-h68"/>
@@ -191,7 +205,7 @@
             </objects>
             <point key="canvasLocation" x="3169" y="599"/>
         </scene>
-        <!--Title-->
+        <!--Action Plan Category Table View Controller-->
         <scene sceneID="9QZ-fK-N6A">
             <objects>
                 <tableViewController id="dKA-jj-6XV" customClass="ActionPlanCategoryTableViewController" customModule="Health_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -223,7 +237,7 @@
                             <outlet property="delegate" destination="dKA-jj-6XV" id="XSv-mq-Vxy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="BSE-NY-VOO">
+                    <navigationItem key="navigationItem" id="BSE-NY-VOO">
                         <barButtonItem key="backBarButtonItem" title=" " id="hvz-Ne-f89"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="1Ue-yv-gOd">
                             <connections>
@@ -384,6 +398,9 @@
                                                             <real key="value" value="8"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="createReminderTapped:" destination="lw8-Ql-0Jy" eventType="touchUpInside" id="jAS-x6-Us1"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -443,6 +460,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6z2-Bg-pfR"/>
                     </view>
+                    <navigationItem key="navigationItem" id="ArL-Y8-ufo">
+                        <barButtonItem key="backBarButtonItem" title="  " id="Yf0-yn-avd"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="categoryTextField" destination="Vfn-eG-zqC" id="ddN-34-3qe"/>
                         <outlet property="concernTextField" destination="w2C-wm-mBP" id="Zti-Xd-FPF"/>
@@ -451,6 +471,7 @@
                         <outlet property="noteTextView" destination="laE-DQ-SEq" id="nRG-dp-ynw"/>
                         <outlet property="scrollView" destination="PKH-YX-aGQ" id="sZl-Ad-3Q9"/>
                         <outlet property="titleTextField" destination="SH8-lA-oya" id="vFS-hy-VYY"/>
+                        <segue destination="zxm-ZE-7mg" kind="show" identifier="addReminder" id="YDw-6r-DXS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PpP-ha-bLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -461,6 +482,14 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="4670.625" y="598.94366197183103"/>
+        </scene>
+        <!--AddReminderVC-->
+        <scene sceneID="Pfy-D6-WiQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Reminder" referencedIdentifier="AddReminderVC" id="zxm-ZE-7mg" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D11-tE-WtZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5328" y="489"/>
         </scene>
         <!--Health Concerns-->
         <scene sceneID="EFQ-Ai-lhh">
@@ -748,6 +777,6 @@
         <image name="icon_slide_down" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3S1-Ci-XAJ"/>
+        <segue reference="D2i-pa-lso"/>
     </inferredMetricsTieBreakers>
 </document>

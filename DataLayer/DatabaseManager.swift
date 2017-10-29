@@ -133,8 +133,48 @@ open class DatabaseManager: NSObject {
         return actionPlans ?? []
     }
     
+    open func fetchAllActionPlans() -> [ActionPlan]{
+        let fetchReq : NSFetchRequest<ActionPlan> = ActionPlan.fetchRequest()
+        let actionPlans : [ActionPlan]? = try? dataSource.context.fetch(fetchReq)
+        return actionPlans ?? []
+    }
+
     // DELETE Action Plan
     open func delete(actionPlan: ActionPlan) {
         dataSource.context.delete(actionPlan)
+        dataSource.save()
     }
+    
+    // MARK: - Reminder
+    open func createNewReminder(title: String, note: String, actionPlan: ActionPlan){
+        let reminder = Reminder(context: dataSource.context)
+        reminder.title = title
+        reminder.note = note
+        reminder.actionPlan = actionPlan
+        dataSource.save()
+    }
+    
+    open func update(reminder: Reminder){
+        dataSource.save()
+    }
+    
+    open func delete(reminder: Reminder) {
+        dataSource.context.delete(reminder)
+        dataSource.save()
+    }
+    
+    open func fetchAllReminders() -> [Reminder]{
+        let fetchReq : NSFetchRequest<Reminder> = Reminder.fetchRequest()
+        let reminders : [Reminder]? = try? dataSource.context.fetch(fetchReq)
+        return reminders ?? []
+    }
+    
+    open func fetchReminderBasedOnActionPlanCategory(category: String) -> [Reminder]{
+        let fetchReq : NSFetchRequest<Reminder> = Reminder.fetchRequest()
+        let predicate = NSPredicate(format: "actionPlan.category == %@", category)
+        fetchReq.predicate = predicate
+        let reminders : [Reminder]? = try? dataSource.context.fetch(fetchReq)
+        return reminders ?? []
+    }
+
 }
