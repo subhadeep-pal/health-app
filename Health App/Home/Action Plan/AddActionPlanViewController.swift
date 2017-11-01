@@ -18,6 +18,7 @@ class AddActionPlanViewController: UIViewController {
     @IBOutlet weak var noteTextView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var createReminderViewHeightConstraint: NSLayoutConstraint!
     
     var healthConcern : HealthConcern?
     var category: ActionPlanCategory?
@@ -100,8 +101,11 @@ class AddActionPlanViewController: UIViewController {
             self.noteTextView.text = actionPlan.notes
             self.healthConcern = actionPlan.concern
             self.deleteButton.isEnabled = true
+            createReminderViewHeightConstraint.constant = 36
         } else {
             self.deleteButton.isEnabled = false
+            createReminderViewHeightConstraint.constant = 0
+            self.title = "New Action Plan"
         }
     }
 

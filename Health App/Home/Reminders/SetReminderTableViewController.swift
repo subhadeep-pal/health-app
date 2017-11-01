@@ -95,6 +95,5 @@ class SetReminderTableViewController: UITableViewController {
             destinationVC.reminder = reminder
         }
     }
-    
 }
 

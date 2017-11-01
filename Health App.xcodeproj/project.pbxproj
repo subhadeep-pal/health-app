@@ -19,6 +19,7 @@
 		14A9F89A1F9A06160023451D /* ActionPlanTypes.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14A9F8991F9A06160023451D /* ActionPlanTypes.plist */; };
 		14A9F89E1F9A0C8D0023451D /* ActionPlanManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A9F89B1F9A06FA0023451D /* ActionPlanManager.swift */; };
 		14A9F8A11F9A0CB30023451D /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146C2ED51F83F3FD00E039AB /* DatabaseManager.swift */; };
+		14AE60B11FA9FE62008A71FC /* TodaysRemindersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE60B01FA9FE62008A71FC /* TodaysRemindersTableViewController.swift */; };
 		14C2DAC71F9B2B8600D6CDD3 /* HealthConcern+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C2DAC51F9B2B8600D6CDD3 /* HealthConcern+CoreDataClass.swift */; };
 		14C2DAC81F9B2B8600D6CDD3 /* HealthConcern+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C2DAC61F9B2B8600D6CDD3 /* HealthConcern+CoreDataProperties.swift */; };
 		14CF8B691FA45EEB0090FDA6 /* UIView+Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14CF8B681FA45EEB0090FDA6 /* UIView+Designable.swift */; };
@@ -92,6 +93,7 @@
 		14A9F8961F9A030D0023451D /* ActionPlansTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionPlansTableViewController.swift; sourceTree = "<group>"; };
 		14A9F8991F9A06160023451D /* ActionPlanTypes.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ActionPlanTypes.plist; sourceTree = "<group>"; };
 		14A9F89B1F9A06FA0023451D /* ActionPlanManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionPlanManager.swift; sourceTree = "<group>"; };
+		14AE60B01FA9FE62008A71FC /* TodaysRemindersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodaysRemindersTableViewController.swift; sourceTree = "<group>"; };
 		14C2DAC51F9B2B8600D6CDD3 /* HealthConcern+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthConcern+CoreDataClass.swift"; sourceTree = "<group>"; };
 		14C2DAC61F9B2B8600D6CDD3 /* HealthConcern+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HealthConcern+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		14CF8B681FA45EEB0090FDA6 /* UIView+Designable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Designable.swift"; sourceTree = "<group>"; };
@@ -164,8 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				146C2EC01F83F39000E039AB /* Reminder.storyboard */,
-				701088EF1FA626F00036557E /* AddReminderViewController.swift */,
-				701088ED1FA626B70036557E /* SetReminderTableViewController.swift */,
+				14AE60B01FA9FE62008A71FC /* TodaysRemindersTableViewController.swift */,
 			);
 			path = Reminder;
 			sourceTree = "<group>";
@@ -228,8 +229,10 @@
 		14CF8B761FA46C6B0090FDA6 /* Reminders */ = {
 			isa = PBXGroup;
 			children = (
-				14CF8B771FA46C740090FDA6 /* Recurrance Views */,
+				701088ED1FA626B70036557E /* SetReminderTableViewController.swift */,
+				701088EF1FA626F00036557E /* AddReminderViewController.swift */,
 				14CF8B7A1FA4773F0090FDA6 /* RecurranceViewController.swift */,
+				14CF8B771FA46C740090FDA6 /* Recurrance Views */,
 			);
 			path = Reminders;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				70B60C4B1F88089F00F83AA2 /* HomeViewController.swift in Sources */,
 				14CF8B691FA45EEB0090FDA6 /* UIView+Designable.swift in Sources */,
 				701088EE1FA626B70036557E /* SetReminderTableViewController.swift in Sources */,
+				14AE60B11FA9FE62008A71FC /* TodaysRemindersTableViewController.swift in Sources */,
 				14A9F8971F9A030D0023451D /* ActionPlansTableViewController.swift in Sources */,
 				14CF8B751FA46C630090FDA6 /* OneTimeView.swift in Sources */,
 				14A2D55D1F9A6FD2000D4314 /* ActionPlanCategoryTableViewController.swift in Sources */,

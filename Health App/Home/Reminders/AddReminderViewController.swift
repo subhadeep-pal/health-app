@@ -95,15 +95,19 @@ class AddReminderViewController: UIViewController {
         })
         self.present(alert, animated: true, completion: nil)
     }
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
+        if segue.identifier == "recurrence" {
+            guard let destinationVC = segue.destination as? RecurranceViewController else {return}
+            destinationVC.delegate = self
+        }
      }
-     */
+    
     
 }
 extension AddReminderViewController: UIPickerViewDataSource, UIPickerViewDelegate {
@@ -120,5 +124,18 @@ extension AddReminderViewController: UIPickerViewDataSource, UIPickerViewDelegat
         actionPlanTextField.text = dataForActionPlanPicker?[row].title
         actionPlan = dataForActionPlanPicker?[row]
     }
+}
+
+extension AddReminderViewController: RecurranceSelectionProtocol {
+    func selectedRecurrance(type: RecurranceManager.RecurranceType, startDate: Date, monthly: [RecurranceManager.Month]?, weekly: [RecurranceManager.Day]?) {
+        
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func cancelTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
 }
 
