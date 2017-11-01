@@ -110,7 +110,6 @@ class AddActionPlanViewController: UIViewController {
     }
 
     @IBAction func createReminderTapped(_ sender: UIButton) {
-        saveTapped(sender)
         performSegue(withIdentifier: "addReminder", sender: actionPlan)
     }
 

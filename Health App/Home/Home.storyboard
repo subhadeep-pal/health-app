@@ -391,7 +391,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="createReminderTapped:" destination="lw8-Ql-0Jy" eventType="touchUpInside" id="jAS-x6-Us1"/>
+                                                        <action selector="createReminderTapped:" destination="lw8-Ql-0Jy" eventType="touchUpInside" id="7Ji-yM-tqo"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -465,7 +465,7 @@
                         <outlet property="noteTextView" destination="laE-DQ-SEq" id="nRG-dp-ynw"/>
                         <outlet property="scrollView" destination="PKH-YX-aGQ" id="sZl-Ad-3Q9"/>
                         <outlet property="titleTextField" destination="SH8-lA-oya" id="vFS-hy-VYY"/>
-                        <segue destination="ial-z5-tbK" kind="show" identifier="addReminder" id="RCW-vN-gha"/>
+                        <segue destination="CGl-WT-bVl" kind="show" identifier="addReminder" id="wxo-JG-x2V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PpP-ha-bLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1221,16 +1221,16 @@
                                                         <rect key="frame" x="40" y="94" width="311" height="164"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Fu-aN-Wzd">
-                                                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="164"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="99" height="164"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xh0-Hm-rDZ" customClass="CheckBox" customModule="Health_App" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="98.5" height="35"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="99" height="35"/>
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="251" image="ic_check_box_outline_blank" translatesAutoresizingMaskIntoConstraints="NO" id="6gh-gq-MNt">
                                                                                 <rect key="frame" x="0.0" y="5.5" width="24" height="24"/>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="lQQ-aT-wgI">
-                                                                                <rect key="frame" x="32" y="0.0" width="66.5" height="35"/>
+                                                                                <rect key="frame" x="32" y="0.0" width="67" height="35"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1249,13 +1249,13 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvq-U0-bUn" customClass="CheckBox" customModule="Health_App" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="43" width="98" height="35"/>
+                                                                        <rect key="frame" x="0.0" y="43" width="98.5" height="35"/>
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="251" image="ic_check_box_outline_blank" translatesAutoresizingMaskIntoConstraints="NO" id="5nI-yS-bPX">
                                                                                 <rect key="frame" x="0.0" y="5.5" width="24" height="24"/>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="7sf-R0-RYH">
-                                                                                <rect key="frame" x="32" y="0.0" width="66" height="35"/>
+                                                                                <rect key="frame" x="32" y="0.0" width="66.5" height="35"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1274,13 +1274,13 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view tag="6" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QDv-pb-ZpR" customClass="CheckBox" customModule="Health_App" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="86" width="98" height="35"/>
+                                                                        <rect key="frame" x="0.0" y="86" width="98.5" height="35"/>
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="251" image="ic_check_box_outline_blank" translatesAutoresizingMaskIntoConstraints="NO" id="VrZ-I9-dr9">
                                                                                 <rect key="frame" x="0.0" y="5.5" width="24" height="24"/>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="July" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="On1-9L-ChK">
-                                                                                <rect key="frame" x="32" y="0.0" width="66" height="35"/>
+                                                                                <rect key="frame" x="32" y="0.0" width="66.5" height="35"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1299,13 +1299,13 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view tag="9" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4AU-84-Flw" customClass="CheckBox" customModule="Health_App" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="129" width="98" height="35"/>
+                                                                        <rect key="frame" x="0.0" y="129" width="98.5" height="35"/>
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="251" image="ic_check_box_outline_blank" translatesAutoresizingMaskIntoConstraints="NO" id="wBb-Y6-tdS">
                                                                                 <rect key="frame" x="0.0" y="5.5" width="24" height="24"/>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oct" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="c6S-Zf-nNu">
-                                                                                <rect key="frame" x="32" y="0.0" width="66" height="35"/>
+                                                                                <rect key="frame" x="32" y="0.0" width="66.5" height="35"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1342,7 +1342,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nho-Q3-P5L">
-                                                                <rect key="frame" x="106" y="0.0" width="98" height="164"/>
+                                                                <rect key="frame" x="106.5" y="0.0" width="98" height="164"/>
                                                                 <subviews>
                                                                     <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CJW-5d-GnE" customClass="CheckBox" customModule="Health_App" customModuleProvider="target">
                                                                         <rect key="frame" x="-0.5" y="0.0" width="98.5" height="35"/>
@@ -1463,16 +1463,16 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGU-Nq-SXq">
-                                                                <rect key="frame" x="212" y="0.0" width="99" height="164"/>
+                                                                <rect key="frame" x="212.5" y="0.0" width="98.5" height="164"/>
                                                                 <subviews>
                                                                     <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3sT-4K-fHy" customClass="CheckBox" customModule="Health_App" customModuleProvider="target">
-                                                                        <rect key="frame" x="-0.5" y="0.0" width="99.5" height="35"/>
+                                                                        <rect key="frame" x="-0.5" y="0.0" width="99" height="35"/>
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="251" image="ic_check_box_outline_blank" translatesAutoresizingMaskIntoConstraints="NO" id="rCf-dr-8gb">
                                                                                 <rect key="frame" x="0.0" y="5.5" width="24" height="24"/>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="H6A-CT-H4B">
-                                                                                <rect key="frame" x="32" y="0.0" width="67.5" height="35"/>
+                                                                                <rect key="frame" x="32" y="0.0" width="67" height="35"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1491,13 +1491,13 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKW-5L-x7J" customClass="CheckBox" customModule="Health_App" customModuleProvider="target">
-                                                                        <rect key="frame" x="-0.5" y="43" width="100" height="35"/>
+                                                                        <rect key="frame" x="-0.5" y="43" width="99.5" height="35"/>
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="251" image="ic_check_box_outline_blank" translatesAutoresizingMaskIntoConstraints="NO" id="psg-jA-BOb">
                                                                                 <rect key="frame" x="0.0" y="5.5" width="24" height="24"/>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="2pP-hh-AoI">
-                                                                                <rect key="frame" x="32" y="0.0" width="68" height="35"/>
+                                                                                <rect key="frame" x="32" y="0.0" width="67.5" height="35"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1516,13 +1516,13 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view tag="8" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fN9-AT-baR" customClass="CheckBox" customModule="Health_App" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="86" width="99" height="35"/>
+                                                                        <rect key="frame" x="0.0" y="86" width="98.5" height="35"/>
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="251" image="ic_check_box_outline_blank" translatesAutoresizingMaskIntoConstraints="NO" id="244-YO-Uhf">
                                                                                 <rect key="frame" x="0.0" y="5.5" width="24" height="24"/>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3lh-oT-Nld">
-                                                                                <rect key="frame" x="32" y="0.0" width="67" height="35"/>
+                                                                                <rect key="frame" x="32" y="0.0" width="66.5" height="35"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1541,13 +1541,13 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view tag="11" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L9A-hm-2xS" customClass="CheckBox" customModule="Health_App" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="129" width="99" height="35"/>
+                                                                        <rect key="frame" x="0.0" y="129" width="98.5" height="35"/>
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="251" image="ic_check_box_outline_blank" translatesAutoresizingMaskIntoConstraints="NO" id="heZ-tW-Sml">
                                                                                 <rect key="frame" x="0.0" y="5.5" width="24" height="24"/>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dec" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="5uz-7b-E4p">
-                                                                                <rect key="frame" x="32" y="0.0" width="67" height="35"/>
+                                                                                <rect key="frame" x="32" y="0.0" width="66.5" height="35"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1790,7 +1790,7 @@
                     <viewLayoutGuide key="safeArea" id="lKe-uC-jMe"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="5554" y="599"/>
+            <point key="canvasLocation" x="4337" y="1508"/>
         </scene>
         <!--Add Reminder View Controller-->
         <scene sceneID="SDR-BO-rOW">
@@ -1982,7 +1982,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5uJ-Bh-Hnc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6433" y="599"/>
+            <point key="canvasLocation" x="5173" y="1507"/>
         </scene>
     </scenes>
     <resources>
@@ -1991,7 +1991,7 @@
         <image name="icon_slide_down" width="64" height="64"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RCW-vN-gha"/>
+        <segue reference="wxo-JG-x2V"/>
         <segue reference="3S1-Ci-XAJ"/>
     </inferredMetricsTieBreakers>
 </document>
