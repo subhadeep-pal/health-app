@@ -18,6 +18,7 @@ class AddActionPlanViewController: UIViewController {
     @IBOutlet weak var noteTextView: UITextView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var emptyView: UIView!
+    @IBOutlet weak var createReminderViewHeightConstraint: NSLayoutConstraint!
     
     var healthConcern : HealthConcern?
     var category: ActionPlanCategory?
@@ -100,20 +101,27 @@ class AddActionPlanViewController: UIViewController {
             self.noteTextView.text = actionPlan.notes
             self.healthConcern = actionPlan.concern
             self.deleteButton.isEnabled = true
+            createReminderViewHeightConstraint.constant = 36
         } else {
             self.deleteButton.isEnabled = false
+            createReminderViewHeightConstraint.constant = 0
+            self.title = "New Action Plan"
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func createReminderTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "addReminder", sender: actionPlan)
     }
-    */
+
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addReminder" {
+            guard let destinationVC = segue.destination as? AddReminderViewController,
+                let actionPlan = sender as? ActionPlan else {return}
+            destinationVC.actionPlan = actionPlan
+        }
+    }
+
     @IBAction func emptyTapped(_ sender: Any) {
         self.view.endEditing(true)
     }
@@ -143,6 +151,7 @@ class AddActionPlanViewController: UIViewController {
         if let actionPlan = actionPlan {
             // update
             actionPlan.category = category.name
+            actionPlan.categoryType = category.type.stringValue()
             actionPlan.title = title
             actionPlan.concern = selectedconcern
             actionPlan.notes = noteTextView.text

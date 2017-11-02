@@ -16,6 +16,8 @@ class AddOrUpdateHealthConcernVC: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var noteTextView: UITextView!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var createActionPlanViewHeightConstraint: NSLayoutConstraint!
+    
     
     var type: DatabaseManager.ConcernType!
     
@@ -38,12 +40,14 @@ class AddOrUpdateHealthConcernVC: UIViewController {
     private func fillData() {
         guard let healthConcern = self.healthConcern else {
             deleteButton.isEnabled = false
+            createActionPlanViewHeightConstraint.constant = 0
             return
         }
         self.title = healthConcern.title
         titleTextField.text = healthConcern.title
         statusTextField.text = healthConcern.status
         noteTextView.text = healthConcern.note
+        createActionPlanViewHeightConstraint.constant = 36
     }
 
     // SAVE Button

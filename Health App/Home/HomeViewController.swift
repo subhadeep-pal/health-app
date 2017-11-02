@@ -43,6 +43,9 @@ class HomeViewController: UIViewController {
         performSegue(withIdentifier: "concerns", sender: DatabaseManager.ConcernType.fitnessGoals)
     }
     
+    @IBAction func setReminderTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "reminder", sender: nil)
+    }
     @IBAction func healthConcernTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "concerns", sender: DatabaseManager.ConcernType.healthConcern)
     }

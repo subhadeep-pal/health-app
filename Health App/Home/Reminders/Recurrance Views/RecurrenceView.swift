@@ -10,7 +10,7 @@ import UIKit
 import DataLayer
 
 
-class RecurrenceView: UIView {
+class RecurrenceView: UIView, UITextFieldDelegate {
     
     @IBOutlet weak var radioButtonImageView: UIImageView!
     
@@ -48,6 +48,19 @@ class RecurrenceView: UIView {
     func loadDatePicker() {
         datePicker.datePickerMode = .date
         datePicker.minimumDate = Date()
+        datePicker.addTarget(self, action: #selector(datePickerValueChanged(sender:)), for: .valueChanged)
         startDateField.inputView = datePicker
+        startDateField.delegate = self
+    }
+    
+    @objc func datePickerValueChanged(sender: UIDatePicker) {
+        selectedDate = datePicker.date
+        startDateField.text = Utilities.shared.stringFromDate(date: datePicker.date)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        guard (textField.text != nil) else {return}
+        selectedDate = Date()
+        startDateField.text = Utilities.shared.stringFromDate(date: Date())
     }
 }

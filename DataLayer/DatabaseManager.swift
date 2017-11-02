@@ -48,7 +48,18 @@ open class DatabaseManager: NSObject {
         }
     }
     
-    
+    public enum ReminderType: Int {
+        case medicalReminder = 0
+        case lifestyleReminder
+        
+        static let value = [
+            medicalReminder : "Medical Reminders for today",
+            lifestyleReminder : "Lifestyle Reminders for today"
+        ]
+        public func stringValue() -> String {
+            return ReminderType.value[self] ?? ""
+        }
+    }
     
     // ADD New Health Concern
     open func addNewHealthConcern(title: String, status: String, note: String, type: ConcernType){
@@ -109,6 +120,7 @@ open class DatabaseManager: NSObject {
         actionPlan.notes = note
         actionPlan.concern = concern
         actionPlan.category = category.name
+        actionPlan.categoryType = category.type.stringValue()
         dataSource.save()
     }
     
@@ -133,8 +145,70 @@ open class DatabaseManager: NSObject {
         return actionPlans ?? []
     }
     
+    open func fetchAllActionPlans() -> [ActionPlan]{
+        let fetchReq : NSFetchRequest<ActionPlan> = ActionPlan.fetchRequest()
+        let actionPlans : [ActionPlan]? = try? dataSource.context.fetch(fetchReq)
+        return actionPlans ?? []
+    }
+
     // DELETE Action Plan
     open func delete(actionPlan: ActionPlan) {
         dataSource.context.delete(actionPlan)
+        dataSource.save()
     }
+    
+    // MARK: - Reminder
+    open func createNewReminder(title: String, note: String, startDate: Date, recurranceType : RecurranceManager.RecurranceType, actionPlan: ActionPlan){
+        let reminder = Reminder(context: dataSource.context)
+        reminder.title = title
+        reminder.note = note
+        reminder.startDate = startDate
+        reminder.recurranceType = Int16(recurranceType.rawValue)
+        reminder.actionPlan = actionPlan
+        dataSource.save()
+    }
+    
+    open func update(reminder: Reminder){
+        dataSource.save()
+    }
+    
+    open func delete(reminder: Reminder) {
+        dataSource.context.delete(reminder)
+        dataSource.save()
+    }
+    
+    open func fetchAllReminders() -> [Reminder]{
+        let fetchReq : NSFetchRequest<Reminder> = Reminder.fetchRequest()
+        let reminders : [Reminder]? = try? dataSource.context.fetch(fetchReq)
+        return reminders ?? []
+    }
+    
+    open func fetchReminderBasedOnActionPlanCategory(category: String) -> [Reminder]{
+        let fetchReq : NSFetchRequest<Reminder> = Reminder.fetchRequest()
+        let predicate = NSPredicate(format: "actionPlan.category == %@", category)
+        fetchReq.predicate = predicate
+        let reminders : [Reminder]? = try? dataSource.context.fetch(fetchReq)
+        return reminders ?? []
+    }
+    open func fetchReminderBasedOnCurrentDate(andActionPlanType type: String) -> [Reminder]{
+        let fetchReq : NSFetchRequest<Reminder> = Reminder.fetchRequest()
+        // Get the current calendar with local time zone
+        var calendar = Calendar.current
+        calendar.timeZone = NSTimeZone.local
+        
+        // Get today's beginning & end
+        let dateFrom = calendar.startOfDay(for: Date()) // eg. 2016-10-10 00:00:00
+        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute],from: dateFrom)
+        components.day! += 1
+        let dateTo = calendar.date(from: components)! // eg. 2016-10-11 00:00:00
+        // Note: Times are printed in UTC. Depending on where you live it won't print 00:00:00 but it will work with UTC times which can be converted to local time
+        
+        // Set predicate as date being today's date
+        let datePredicate = NSPredicate(format: "(%@ <= startDate) AND (startDate < %@)", argumentArray: [dateFrom, dateTo])
+        let typePredicate = NSPredicate(format: "actionPlan.categoryType == %@", type )
+        fetchReq.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [datePredicate, typePredicate])
+        let reminders : [Reminder]? = try? dataSource.context.fetch(fetchReq)
+        return reminders ?? []
+    }
+
 }

@@ -9,9 +9,17 @@
 import UIKit
 import DataLayer
 
+protocol RecurranceSelectionProtocol: class {
+    func selectedRecurrance(type: RecurranceManager.RecurranceType, startDate: Date, monthly: [RecurranceManager.Month]?, weekly: [RecurranceManager.Day]?)
+    
+    func cancelTapped()
+}
+
 class RecurranceViewController: UIViewController {
 
     @IBOutlet var recurranceViews: [RecurrenceView]!
+    
+    weak var delegate : RecurranceSelectionProtocol?
     
     var selectedRecurrance : RecurrenceView? {
         didSet {
@@ -49,6 +57,7 @@ class RecurranceViewController: UIViewController {
                 //show error
                 return
             }
+            self.delegate?.selectedRecurrance(type: .Once, startDate: date, monthly: nil, weekly: nil)
         case .Monthly:
             guard let date = recurranceView.selectedDate else {
                 //show error
@@ -60,6 +69,7 @@ class RecurranceViewController: UIViewController {
                 // show error
                     return
             }
+            self.delegate?.selectedRecurrance(type: .Monthly, startDate: date, monthly: months, weekly: nil)
         case .Weekly:
             guard let date = recurranceView.selectedDate else {
                 //show error
@@ -71,6 +81,7 @@ class RecurranceViewController: UIViewController {
                     // show error
                     return
             }
+            self.delegate?.selectedRecurrance(type: .Monthly, startDate: date, monthly: nil, weekly: days)
         case .none:
             // show error
             return
@@ -81,7 +92,7 @@ class RecurranceViewController: UIViewController {
     }
     
     @IBAction func cancelTapped(_ sender: UIButton) {
-        
+        self.delegate?.cancelTapped()
     }
     
     @IBAction func radioButtonTapped(_ sender: UIButton) {
