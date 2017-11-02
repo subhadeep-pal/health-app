@@ -5,20 +5,21 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Todays Reminders Table View Controller-->
+        <!--Daily Reminder-->
         <scene sceneID="7kk-pf-pkH">
             <objects>
                 <tableViewController id="rKL-sc-2ZD" customClass="TodaysRemindersTableViewController" customModule="Health_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="jrA-Bw-0qB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="3u5-3d-GI7">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="currentReminder" id="3u5-3d-GI7">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3u5-3d-GI7" id="txG-sd-NxU">
@@ -32,8 +33,34 @@
                             <outlet property="delegate" destination="rKL-sc-2ZD" id="8fz-qS-0iy"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Daily Reminder" id="nH6-oJ-g8g"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <connections>
+                        <outlet property="headerView" destination="BCD-t3-5vn" id="YZV-wU-xyv"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GVt-Vr-Bl4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="BCD-t3-5vn">
+                    <rect key="frame" x="0.0" y="0.0" width="366" height="64"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check the tasks completed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMX-GI-r4w">
+                            <rect key="frame" x="20" y="8" width="326" height="48"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.58431372549019611" green="0.58823529411764708" blue="0.63137254901960782" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="WMX-GI-r4w" firstAttribute="leading" secondItem="dAb-au-Qv6" secondAttribute="leading" constant="20" id="27u-tk-leA"/>
+                        <constraint firstItem="dAb-au-Qv6" firstAttribute="bottom" secondItem="WMX-GI-r4w" secondAttribute="bottom" constant="8" id="DcP-Uj-JqG"/>
+                        <constraint firstItem="WMX-GI-r4w" firstAttribute="top" secondItem="dAb-au-Qv6" secondAttribute="top" constant="8" id="fp1-ky-43s"/>
+                        <constraint firstItem="dAb-au-Qv6" firstAttribute="trailing" secondItem="WMX-GI-r4w" secondAttribute="trailing" constant="20" id="xcm-ym-4Q3"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="dAb-au-Qv6"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="905" y="-32"/>
         </scene>

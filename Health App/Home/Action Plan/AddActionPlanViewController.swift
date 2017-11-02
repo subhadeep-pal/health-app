@@ -151,6 +151,7 @@ class AddActionPlanViewController: UIViewController {
         if let actionPlan = actionPlan {
             // update
             actionPlan.category = category.name
+            actionPlan.categoryType = category.type.stringValue()
             actionPlan.title = title
             actionPlan.concern = selectedconcern
             actionPlan.notes = noteTextView.text

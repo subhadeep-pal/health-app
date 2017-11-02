@@ -20,6 +20,8 @@ class AddReminderViewController: UIViewController {
     var dataForActionPlanPicker : [ActionPlan]?
     var actionPlan: ActionPlan?
     var reminder : Reminder?
+    var recurranceType : RecurranceManager.RecurranceType?
+    var startDate : Date?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -65,12 +67,20 @@ class AddReminderViewController: UIViewController {
             // show error
             return
         }
+        guard let startDate = startDate else{
+            return
+        }
+        guard let recurranceType = recurranceType else{
+            return
+        }
         if let reminder = reminder{
             reminder.title = titleTextField.text
             reminder.note = noteTextView.text
+            reminder.startDate = startDate
+            reminder.recurranceType = Int16(recurranceType.rawValue)
             DatabaseManager.shared.update(reminder: reminder)
         }else{
-            DatabaseManager.shared.createNewReminder(title: title, note: noteTextView.text, actionPlan: actionPlan)
+            DatabaseManager.shared.createNewReminder(title: title, note: noteTextView.text, startDate: startDate, recurranceType: recurranceType, actionPlan: actionPlan)
         }
         showSuccessMessage()
     }
@@ -128,7 +138,8 @@ extension AddReminderViewController: UIPickerViewDataSource, UIPickerViewDelegat
 
 extension AddReminderViewController: RecurranceSelectionProtocol {
     func selectedRecurrance(type: RecurranceManager.RecurranceType, startDate: Date, monthly: [RecurranceManager.Month]?, weekly: [RecurranceManager.Day]?) {
-        
+        self.startDate = startDate
+        self.recurranceType = type
         self.navigationController?.popViewController(animated: true)
     }
     
