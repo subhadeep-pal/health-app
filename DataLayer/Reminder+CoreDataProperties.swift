@@ -48,10 +48,10 @@ extension Reminder {
             var returnString = ""
             for item in days {
                 if item == days[days.count - 1]{
-                   returnString += "\(item)"
+                   returnString += "\(item.rawValue)"
                     continue
                 }
-                returnString += "\(item)-"
+                returnString += "\(item.rawValue)-"
             }
             self.days = returnString
         }
@@ -80,10 +80,10 @@ extension Reminder {
             var returnString = ""
             for item in months {
                 if item == months[months.count - 1]{
-                    returnString += "\(item)"
+                    returnString += "\(item.rawValue)"
                     continue
                 }
-                returnString += "\(item)-"
+                returnString += "\(item.rawValue)-"
             }
             self.months = returnString
         }
