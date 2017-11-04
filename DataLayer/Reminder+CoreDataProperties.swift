@@ -21,6 +21,7 @@ extension Reminder {
     @NSManaged public var recurranceType: Int16
     @NSManaged public var startDate: NSDate?
     @NSManaged public var title: String?
+    @NSManaged public var identifierText: String?
     @NSManaged public var days: String?
     @NSManaged public var months: String?
     @NSManaged public var actionPlan: ActionPlan?
