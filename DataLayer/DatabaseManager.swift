@@ -158,13 +158,16 @@ open class DatabaseManager: NSObject {
     }
     
     // MARK: - Reminder
-    open func createNewReminder(title: String, note: String, startDate: Date, recurranceType : RecurranceManager.RecurranceType, actionPlan: ActionPlan){
+    open func createNewReminder(title: String, note: String, startDate: Date, recurranceType : RecurranceManager.RecurranceType, actionPlan: ActionPlan, days: [RecurranceManager.Day]?, months: [RecurranceManager.Month]?){
         let reminder = Reminder(context: dataSource.context)
         reminder.title = title
         reminder.note = note
-        reminder.startDate = startDate
-        reminder.recurranceType = Int16(recurranceType.rawValue)
+        reminder.startDate = startDate as NSDate
+        reminder.type = recurranceType
         reminder.actionPlan = actionPlan
+        reminder.weeklyDays = days
+        reminder.yearlyMonths = months
+        
         dataSource.save()
     }
     
