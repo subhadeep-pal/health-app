@@ -167,7 +167,7 @@ open class DatabaseManager: NSObject {
         reminder.actionPlan = actionPlan
         reminder.weeklyDays = days
         reminder.yearlyMonths = months
-        
+        reminder.identifierText = "\(Date())"
         dataSource.save()
     }
     
