@@ -27,6 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         DatabaseManager.shared.dataSource = self
 //        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+        UNUserNotificationCenter.current().getPendingNotificationRequests { (requests) in
+            for item in requests{
+                print(item.content.title)
+                print((item.trigger as? UNCalendarNotificationTrigger)?.dateComponents)
+            }
+        }
         return true
     }
     
@@ -36,7 +42,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             switch notificationSettings.authorizationStatus {
             case .notDetermined:
                 self.requestAuthorization(completionHandler: { (success) in
-                    guard success else { return }
+                    guard success else {
+                        print("Error in permission")
+                        return
+                    }
                     // Schedule Local Notification
                 })
             case .authorized:

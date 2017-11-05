@@ -118,7 +118,7 @@ open class RecurranceManager: NSObject {
             
             let unitFlags : Set<Calendar.Component> = [.day, .month, .year]
             let components = Calendar.current.dateComponents(unitFlags, from: date)
-            
+
             var dateComponent = DateComponents()
             dateComponent.day = components.day
             dateComponent.month = components.month
@@ -130,7 +130,7 @@ open class RecurranceManager: NSObject {
             
             let notificationTrigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
             
-            let req = UNNotificationRequest(identifier: "\(identifierText)_\(components.day!)_\(components.month!)_\(components.year!)", content: notificationContent, trigger: notificationTrigger)
+            let req = UNNotificationRequest(identifier: "\(identifierText)_\(components.day!)_\(components.month!)_\(components.year!)_\(i)", content: notificationContent, trigger: notificationTrigger)
             UNUserNotificationCenter.current().add(req, withCompletionHandler: nil)
         }
     }
@@ -152,7 +152,9 @@ open class RecurranceManager: NSObject {
         let unitFlags : Set<Calendar.Component> = [.day, .month, .year]
         let components = Calendar.current.dateComponents(unitFlags, from: date)
         
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(identifierText)_\(components.day!)_\(components.month!)_\(components.year!)"])
+        for i in stride(from: 0, to: 23, by: 1) {
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(identifierText)_\(components.day!)_\(components.month!)_\(components.year!)_\(i)"])
+        }
     }
     
 }
