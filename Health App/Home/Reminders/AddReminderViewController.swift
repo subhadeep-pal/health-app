@@ -101,7 +101,7 @@ class AddReminderViewController: UIViewController {
     }
     
     @IBAction func recurrenceTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "recurrence", sender: nil)
+        performSegue(withIdentifier: "recurrence", sender: reminder)
     }
     
     private func showSuccessMessage() {
@@ -121,6 +121,7 @@ class AddReminderViewController: UIViewController {
         if segue.identifier == "recurrence" {
             guard let destinationVC = segue.destination as? RecurranceViewController else {return}
             destinationVC.delegate = self
+            destinationVC.reminder = sender as? Reminder
         }
      }
     

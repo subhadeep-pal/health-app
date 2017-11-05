@@ -39,6 +39,11 @@ class WeeklyView: RecurrenceView, CheckBoxProtocol {
         super.draw(rect)
         titleTextLabel.text = recurranceType.stringValue()
         loadCheckBoxes()
+        if let selectedDays = self.selectedDays {
+            for days in selectedDays{
+                checkBoxes[days.rawValue].isSelected = true
+            }
+        }
     }
     
     func loadCheckBoxes() {
