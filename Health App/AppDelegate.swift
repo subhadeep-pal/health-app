@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarStyle = .lightContent
         
         DatabaseManager.shared.dataSource = self
-        
+//        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         return true
     }
     

@@ -109,11 +109,12 @@ open class RecurranceManager: NSObject {
     }
     
     func scheduleNotificationOnceType(title: String, messsage: String, identifierText: String, date: Date) {
-        for i in stride(from: 0, to: 23, by: 2) {
+        for i in stride(from: 0, to: 23, by: 1) {
             let notificationContent = UNMutableNotificationContent()
             
             notificationContent.body = messsage
-            notificationContent.title = "\(title) \(i)"
+            notificationContent.title = "\(title)"
+            notificationContent.sound = UNNotificationSound.default()
             
             let unitFlags : Set<Calendar.Component> = [.day, .month, .year]
             let components = Calendar.current.dateComponents(unitFlags, from: date)
@@ -123,8 +124,6 @@ open class RecurranceManager: NSObject {
             dateComponent.month = components.month
             dateComponent.year = components.year
             dateComponent.hour = i
-            dateComponent.minute = 0
-            dateComponent.second = 0
             
             dateComponent.calendar = Calendar(identifier: .gregorian)
             dateComponent.timeZone = NSTimeZone.default
@@ -132,7 +131,6 @@ open class RecurranceManager: NSObject {
             let notificationTrigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
             
             let req = UNNotificationRequest(identifier: "\(identifierText)_\(components.day!)_\(components.month!)_\(components.year!)", content: notificationContent, trigger: notificationTrigger)
-            print(req.identifier)
             UNUserNotificationCenter.current().add(req, withCompletionHandler: nil)
         }
     }
