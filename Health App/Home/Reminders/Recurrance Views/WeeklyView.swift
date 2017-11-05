@@ -41,7 +41,7 @@ class WeeklyView: RecurrenceView, CheckBoxProtocol {
         loadCheckBoxes()
         if let selectedDays = self.selectedDays {
             for days in selectedDays{
-                checkBoxes[days.rawValue].isSelected = true
+                checkBoxes[days.rawValue].set(selected: true)
             }
         }
     }

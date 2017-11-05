@@ -42,8 +42,7 @@ class MonthlyView: RecurrenceView, CheckBoxProtocol {
         loadCheckBoxes()
         if let selectedMonths = self.selectedMonths {
             for months in selectedMonths{
-                checkBoxes[months.rawValue].set(title: months.stringValue())
-                checkBoxes[months.rawValue].isSelected = true
+                checkBoxes[months.rawValue].set(selected: true)
             }
         }
     }
