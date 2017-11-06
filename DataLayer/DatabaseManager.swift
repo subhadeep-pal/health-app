@@ -169,6 +169,7 @@ open class DatabaseManager: NSObject {
         reminder.yearlyMonths = months
         reminder.identifierText = "\(Date())"
         dataSource.save()
+        RecurranceManager.shared.scheduleNotification(reminder: reminder)
     }
     
     open func update(reminder: Reminder){

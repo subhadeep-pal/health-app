@@ -82,15 +82,17 @@ open class RecurranceManager: NSObject {
             return Month.values[self] ?? ""
         }
     }
+    
+    static var shared = RecurranceManager()
 
     func scheduleNotification(reminder: Reminder) {
         guard let title = reminder.actionPlan?.title else {return}
         guard let message = reminder.title else {return}
         guard let startDate = reminder.startDate as Date? else {return}
-        
+        guard let identifierText = reminder.identifierText else {return}
         switch reminder.type {
         case .Once:
-            scheduleNotificationOnceType(title: title, messsage: message, date: startDate)
+            scheduleNotificationOnceType(title: title, messsage: message, identifierText: identifierText, date: startDate)
         case .Weekly:
             guard let days = reminder.weeklyDays else {
                 //show error
@@ -106,8 +108,31 @@ open class RecurranceManager: NSObject {
         }
     }
     
-    func scheduleNotificationOnceType(title: String, messsage: String, date: Date) {
-        
+    func scheduleNotificationOnceType(title: String, messsage: String, identifierText: String, date: Date) {
+        for i in stride(from: 0, to: 23, by: 1) {
+            let notificationContent = UNMutableNotificationContent()
+            
+            notificationContent.body = messsage
+            notificationContent.title = "\(title)"
+            notificationContent.sound = UNNotificationSound.default()
+            
+            let unitFlags : Set<Calendar.Component> = [.day, .month, .year]
+            let components = Calendar.current.dateComponents(unitFlags, from: date)
+
+            var dateComponent = DateComponents()
+            dateComponent.day = components.day
+            dateComponent.month = components.month
+            dateComponent.year = components.year
+            dateComponent.hour = i
+            
+            dateComponent.calendar = Calendar(identifier: .gregorian)
+            dateComponent.timeZone = NSTimeZone.default
+            
+            let notificationTrigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
+            
+            let req = UNNotificationRequest(identifier: "\(identifierText)_\(components.day!)_\(components.month!)_\(components.year!)_\(i)", content: notificationContent, trigger: notificationTrigger)
+            UNUserNotificationCenter.current().add(req, withCompletionHandler: nil)
+        }
     }
     
     func scheduleNotificationWeeklyType(startDate: Date, days: [Day]) {
@@ -118,5 +143,18 @@ open class RecurranceManager: NSObject {
         
     }
     
+    
+    func removeTodaysNotificationsFor(reminder: Reminder) {
+        let date = Date()
+        
+        guard let identifierText = reminder.identifierText else {return}
+        
+        let unitFlags : Set<Calendar.Component> = [.day, .month, .year]
+        let components = Calendar.current.dateComponents(unitFlags, from: date)
+        
+        for i in stride(from: 0, to: 23, by: 1) {
+            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(identifierText)_\(components.day!)_\(components.month!)_\(components.year!)_\(i)"])
+        }
+    }
     
 }
