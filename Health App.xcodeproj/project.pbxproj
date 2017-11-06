@@ -12,6 +12,8 @@
 		146C2EC21F83F39000E039AB /* Reminder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 146C2EC01F83F39000E039AB /* Reminder.storyboard */; };
 		146C2ECF1F83F3E800E039AB /* DataLayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 146C2EC81F83F3E800E039AB /* DataLayer.framework */; };
 		146C2ED01F83F3E800E039AB /* DataLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 146C2EC81F83F3E800E039AB /* DataLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1485D9811FAD68E7004D8D8D /* Reminder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1485D97F1FAD68E7004D8D8D /* Reminder+CoreDataClass.swift */; };
+		1485D9821FAD68E7004D8D8D /* Reminder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1485D9801FAD68E7004D8D8D /* Reminder+CoreDataProperties.swift */; };
 		14A2D55D1F9A6FD2000D4314 /* ActionPlanCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A2D55C1F9A6FD2000D4314 /* ActionPlanCategoryTableViewController.swift */; };
 		14A2D5611F9B003C000D4314 /* AddActionPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A2D5601F9B003C000D4314 /* AddActionPlanViewController.swift */; };
 		14A2D5641F9B1009000D4314 /* HealthApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 146C2ED71F83F4F900E039AB /* HealthApp.xcdatamodeld */; };
@@ -89,6 +91,8 @@
 		146C2ECB1F83F3E800E039AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		146C2ED51F83F3FD00E039AB /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		146C2ED81F83F4F900E039AB /* HealthApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HealthApp.xcdatamodel; sourceTree = "<group>"; };
+		1485D97F1FAD68E7004D8D8D /* Reminder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataClass.swift"; sourceTree = "<group>"; };
+		1485D9801FAD68E7004D8D8D /* Reminder+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		14A2D55C1F9A6FD2000D4314 /* ActionPlanCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionPlanCategoryTableViewController.swift; sourceTree = "<group>"; };
 		14A2D5601F9B003C000D4314 /* AddActionPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActionPlanViewController.swift; sourceTree = "<group>"; };
 		14A9F8961F9A030D0023451D /* ActionPlansTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionPlansTableViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +193,8 @@
 		146C2EC91F83F3E800E039AB /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
+				1485D97F1FAD68E7004D8D8D /* Reminder+CoreDataClass.swift */,
+				1485D9801FAD68E7004D8D8D /* Reminder+CoreDataProperties.swift */,
 				14C2DAC51F9B2B8600D6CDD3 /* HealthConcern+CoreDataClass.swift */,
 				14C2DAC61F9B2B8600D6CDD3 /* HealthConcern+CoreDataProperties.swift */,
 				146C2ED71F83F4F900E039AB /* HealthApp.xcdatamodeld */,
@@ -495,8 +501,10 @@
 				14CF8B6F1FA468FE0090FDA6 /* RecurranceManager.swift in Sources */,
 				14A9F8A11F9A0CB30023451D /* DatabaseManager.swift in Sources */,
 				14C2DAC71F9B2B8600D6CDD3 /* HealthConcern+CoreDataClass.swift in Sources */,
+				1485D9811FAD68E7004D8D8D /* Reminder+CoreDataClass.swift in Sources */,
 				14A2D5641F9B1009000D4314 /* HealthApp.xcdatamodeld in Sources */,
 				14C2DAC81F9B2B8600D6CDD3 /* HealthConcern+CoreDataProperties.swift in Sources */,
+				1485D9821FAD68E7004D8D8D /* Reminder+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

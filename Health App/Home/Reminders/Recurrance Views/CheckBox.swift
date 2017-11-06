@@ -24,6 +24,8 @@ class CheckBox: UIView {
         }
     }
     
+    var initialSelection : Bool = false
+    
     var delegate: CheckBoxProtocol?
     
     // Only override draw() if you perform custom drawing.
@@ -38,6 +40,8 @@ class CheckBox: UIView {
             if let label = subview as? UILabel {
                 title = label
             }
+            
+            isSelected = initialSelection
         }
         
         let tapGestureRecogniser = UITapGestureRecognizer(target: self, action: #selector(tapped(sender:)))
@@ -60,6 +64,10 @@ class CheckBox: UIView {
     
     func set(title: String) {
         self.titleText = title
+    }
+    
+    func set(selected: Bool) {
+        self.initialSelection = selected
     }
 
 }

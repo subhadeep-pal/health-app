@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 open class RecurranceManager: NSObject {
     
@@ -82,4 +83,40 @@ open class RecurranceManager: NSObject {
         }
     }
 
+    func scheduleNotification(reminder: Reminder) {
+        guard let title = reminder.actionPlan?.title else {return}
+        guard let message = reminder.title else {return}
+        guard let startDate = reminder.startDate as Date? else {return}
+        
+        switch reminder.type {
+        case .Once:
+            scheduleNotificationOnceType(title: title, messsage: message, date: startDate)
+        case .Weekly:
+            guard let days = reminder.weeklyDays else {
+                //show error
+                return
+            }
+            scheduleNotificationWeeklyType(startDate: startDate, days: days)
+        case .Monthly:
+            guard let months = reminder.yearlyMonths else {
+                // show error
+                return
+            }
+            scheduleNotificationMonthlyType(startDate: startDate, months: months)
+        }
+    }
+    
+    func scheduleNotificationOnceType(title: String, messsage: String, date: Date) {
+        
+    }
+    
+    func scheduleNotificationWeeklyType(startDate: Date, days: [Day]) {
+        
+    }
+    
+    func scheduleNotificationMonthlyType(startDate: Date, months: [Month]) {
+        
+    }
+    
+    
 }

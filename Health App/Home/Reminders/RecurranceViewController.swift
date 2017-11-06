@@ -18,9 +18,8 @@ protocol RecurranceSelectionProtocol: class {
 class RecurranceViewController: UIViewController {
 
     @IBOutlet var recurranceViews: [RecurrenceView]!
-    
     weak var delegate : RecurranceSelectionProtocol?
-    
+    var reminder : Reminder?
     var selectedRecurrance : RecurrenceView? {
         didSet {
             guard let view = selectedRecurrance else {return}
@@ -30,14 +29,40 @@ class RecurranceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        initView()
         // Do any additional setup after loading the view.
+    }
+    
+    func initView(){
+        if let reminder = reminder{
+            recurranceViews[reminder.recurranceType.hashValue].isSelected = true
+            recurranceViews[reminder.recurranceType.hashValue].startDateField.text = Utilities.shared.stringFromDate(date: reminder.startDate as Date!)
+            
+            if let days = reminder.days{
+                var daysArray : [RecurranceManager.Day] = []
+                let selectedDays = days.components(separatedBy: "-").flatMap { Int($0) }
+                for day in selectedDays{
+                    daysArray.append(RecurranceManager.Day(rawValue: day)!)
+                }
+                recurranceViews[reminder.recurranceType.hashValue].selectedDays = daysArray
+            }
+            
+            if let months = reminder.months{
+                var monthsArray : [RecurranceManager.Month] = []
+                let selectedMonths = months.components(separatedBy: "-").flatMap { Int($0) }
+                for month in selectedMonths{
+                    monthsArray.append(RecurranceManager.Month(rawValue: month)!)
+                }
+                recurranceViews[reminder.recurranceType.hashValue].selectedMonths = monthsArray
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
 
     /*
@@ -81,7 +106,7 @@ class RecurranceViewController: UIViewController {
                     // show error
                     return
             }
-            self.delegate?.selectedRecurrance(type: .Monthly, startDate: date, monthly: nil, weekly: days)
+            self.delegate?.selectedRecurrance(type: .Weekly, startDate: date, monthly: nil, weekly: days)
         case .none:
             // show error
             return

@@ -40,6 +40,11 @@ class MonthlyView: RecurrenceView, CheckBoxProtocol {
         super.draw(rect)
         titleTextLabel.text = recurranceType.stringValue()
         loadCheckBoxes()
+        if let selectedMonths = self.selectedMonths {
+            for months in selectedMonths{
+                checkBoxes[months.rawValue].set(selected: true)
+            }
+        }
     }
     
     func loadCheckBoxes() {

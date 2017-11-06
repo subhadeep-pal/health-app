@@ -22,6 +22,10 @@ class AddReminderViewController: UIViewController {
     var reminder : Reminder?
     var recurranceType : RecurranceManager.RecurranceType?
     var startDate : Date?
+    var days: [RecurranceManager.Day]?
+    var months: [RecurranceManager.Month]?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -76,11 +80,13 @@ class AddReminderViewController: UIViewController {
         if let reminder = reminder{
             reminder.title = titleTextField.text
             reminder.note = noteTextView.text
-            reminder.startDate = startDate
-            reminder.recurranceType = Int16(recurranceType.rawValue)
+            reminder.startDate = startDate as NSDate
+            reminder.type = recurranceType
+            reminder.weeklyDays = self.days
+            reminder.yearlyMonths = self.months
             DatabaseManager.shared.update(reminder: reminder)
         }else{
-            DatabaseManager.shared.createNewReminder(title: title, note: noteTextView.text, startDate: startDate, recurranceType: recurranceType, actionPlan: actionPlan)
+            DatabaseManager.shared.createNewReminder(title: title, note: noteTextView.text, startDate: startDate, recurranceType: recurranceType, actionPlan: actionPlan, days: self.days, months: self.months)
         }
         showSuccessMessage()
     }
@@ -95,7 +101,7 @@ class AddReminderViewController: UIViewController {
     }
     
     @IBAction func recurrenceTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "recurrence", sender: nil)
+        performSegue(withIdentifier: "recurrence", sender: reminder)
     }
     
     private func showSuccessMessage() {
@@ -115,6 +121,7 @@ class AddReminderViewController: UIViewController {
         if segue.identifier == "recurrence" {
             guard let destinationVC = segue.destination as? RecurranceViewController else {return}
             destinationVC.delegate = self
+            destinationVC.reminder = sender as? Reminder
         }
      }
     
@@ -140,6 +147,8 @@ extension AddReminderViewController: RecurranceSelectionProtocol {
     func selectedRecurrance(type: RecurranceManager.RecurranceType, startDate: Date, monthly: [RecurranceManager.Month]?, weekly: [RecurranceManager.Day]?) {
         self.startDate = startDate
         self.recurranceType = type
+        self.days = weekly
+        self.months = monthly
         self.navigationController?.popViewController(animated: true)
     }
     
