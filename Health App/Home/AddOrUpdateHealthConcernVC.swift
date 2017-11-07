@@ -33,9 +33,18 @@ class AddOrUpdateHealthConcernVC: UIViewController {
         self.statusTextField.inputView = statusPickerView
         self.scrollView.keyboardDismissMode = .onDrag
         
+        if #available(iOS 11.0, *) {
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+        }
+        
         fillData()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        if #available(iOS 11.0, *) {
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+        }
+    }
     
     private func fillData() {
         guard let healthConcern = self.healthConcern else {

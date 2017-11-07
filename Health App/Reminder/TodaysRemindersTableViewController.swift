@@ -21,6 +21,12 @@ class TodaysRemindersTableViewController: UITableViewController {
         super.viewDidLoad()
         headerView.sizeToFit()
         self.tableView.tableHeaderView = headerView
+        
+        if #available(iOS 11.0, *) {
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+        } else {
+            // Fallback on earlier versions
+        }
     }
     override func viewDidAppear(_ animated: Bool) {
         self.tableView.reloadData()
