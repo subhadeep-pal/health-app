@@ -56,7 +56,7 @@ class AddOrUpdateHealthConcernVC: UIViewController {
         titleTextField.text = healthConcern.title
         statusTextField.text = healthConcern.status
         noteTextView.text = healthConcern.note
-        createActionPlanViewHeightConstraint.constant = 36
+        createActionPlanViewHeightConstraint.constant = 44
     }
 
     // SAVE Button

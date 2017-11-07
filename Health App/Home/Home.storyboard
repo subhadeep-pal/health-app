@@ -411,7 +411,6 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nwg-92-b18">
                                 <rect key="frame" x="0.0" y="64" width="320" height="64"/>
-                                <color key="backgroundColor" red="0.58431372550000005" green="0.58823529409999997" blue="0.63137254899999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="3zC-nb-N9X"/>
                                 </constraints>
@@ -419,12 +418,12 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List your health issues and track their status" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WL8-1b-ZD8">
                                 <rect key="frame" x="40" y="74" width="240" height="44"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VXy-ne-tmA">
                                 <rect key="frame" x="0.0" y="128" width="320" height="391"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="healthConcernCell" id="Cue-2C-5IS">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
@@ -548,13 +547,13 @@
                                 </constraints>
                             </scrollView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ygd-EF-Iti">
-                                <rect key="frame" x="0.0" y="488" width="320" height="80"/>
+                                <rect key="frame" x="0.0" y="472" width="320" height="96"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6UJ-mL-JlB">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p4G-ZA-HlR" customClass="UIButtonX">
-                                            <rect key="frame" x="112" y="8" width="96" height="28"/>
+                                            <rect key="frame" x="112" y="8" width="96" height="36"/>
                                             <color key="backgroundColor" red="0.94901960780000005" green="0.38431372549999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                             <state key="normal" title="DELETE">
@@ -564,13 +563,14 @@
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                     <real key="value" value="8"/>
                                                 </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="deleteButtonClicked:" destination="gkt-Ta-BNs" eventType="touchUpInside" id="jmf-sS-xjI"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dpU-hD-LKb" customClass="UIButtonX">
-                                            <rect key="frame" x="216" y="8" width="96" height="28"/>
+                                            <rect key="frame" x="216" y="8" width="96" height="36"/>
                                             <color key="backgroundColor" red="0.94901960780000005" green="0.38431372549999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                             <state key="normal" title="CANCEL">
@@ -580,16 +580,17 @@
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                     <real key="value" value="8"/>
                                                 </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="cancelButtonClicked:" destination="gkt-Ta-BNs" eventType="touchUpInside" id="2sg-kd-cOn"/>
                                             </connections>
                                         </button>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82m-l8-1XL">
-                                            <rect key="frame" x="8" y="44" width="304" height="36"/>
+                                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="82m-l8-1XL">
+                                            <rect key="frame" x="8" y="52" width="304" height="44"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pf0-FT-adh" customClass="UIButtonX">
-                                                    <rect key="frame" x="0.0" y="0.0" width="304" height="28"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="304" height="36"/>
                                                     <color key="backgroundColor" red="0.94901960780000005" green="0.38431372549999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                     <state key="normal" title="ADD ACTION PLAN">
@@ -599,6 +600,7 @@
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                             <real key="value" value="8"/>
                                                         </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="addActionPlanTapped:" destination="gkt-Ta-BNs" eventType="touchUpInside" id="baW-RZ-G38"/>
@@ -610,13 +612,16 @@
                                                 <constraint firstItem="Pf0-FT-adh" firstAttribute="leading" secondItem="82m-l8-1XL" secondAttribute="leading" id="N9d-wT-OvC"/>
                                                 <constraint firstAttribute="bottom" secondItem="Pf0-FT-adh" secondAttribute="bottom" constant="8" id="O1u-dK-0A1"/>
                                                 <constraint firstItem="Pf0-FT-adh" firstAttribute="top" secondItem="82m-l8-1XL" secondAttribute="top" id="fyn-M6-mJO"/>
-                                                <constraint firstAttribute="height" constant="36" id="ggq-0p-I8e"/>
+                                                <constraint firstAttribute="height" constant="44" id="ggq-0p-I8e"/>
                                                 <constraint firstAttribute="trailing" secondItem="Pf0-FT-adh" secondAttribute="trailing" id="rz7-38-ThO"/>
                                             </constraints>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TqN-lv-VjH" customClass="UIButtonX">
-                                            <rect key="frame" x="8" y="8" width="96" height="28"/>
+                                            <rect key="frame" x="8" y="8" width="96" height="36"/>
                                             <color key="backgroundColor" red="0.94901960780000005" green="0.38431372549999998" blue="0.30980392159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="36" id="7Bh-Yx-WY5"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                             <state key="normal" title="SAVE">
                                                 <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -625,6 +630,7 @@
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                     <real key="value" value="8"/>
                                                 </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="dropShadow" value="YES"/>
                                             </userDefinedRuntimeAttributes>
                                             <connections>
                                                 <action selector="saveButtonClicked:" destination="gkt-Ta-BNs" eventType="touchUpInside" id="YNV-b9-E0r"/>
@@ -634,10 +640,13 @@
                                     <constraints>
                                         <constraint firstItem="TqN-lv-VjH" firstAttribute="width" secondItem="p4G-ZA-HlR" secondAttribute="width" id="FIP-gF-7hQ"/>
                                         <constraint firstItem="82m-l8-1XL" firstAttribute="top" secondItem="TqN-lv-VjH" secondAttribute="bottom" constant="8" id="Oad-bK-OFG"/>
+                                        <constraint firstItem="p4G-ZA-HlR" firstAttribute="height" secondItem="dpU-hD-LKb" secondAttribute="height" id="Pfg-Oz-Wrn"/>
                                         <constraint firstItem="dpU-hD-LKb" firstAttribute="leading" secondItem="p4G-ZA-HlR" secondAttribute="trailing" constant="8" id="QMD-Sf-7Tu"/>
                                         <constraint firstItem="82m-l8-1XL" firstAttribute="trailing" secondItem="6UJ-mL-JlB" secondAttribute="trailingMargin" id="QME-6n-Ofx"/>
+                                        <constraint firstItem="TqN-lv-VjH" firstAttribute="height" secondItem="p4G-ZA-HlR" secondAttribute="height" id="STp-np-Hea"/>
                                         <constraint firstItem="TqN-lv-VjH" firstAttribute="top" secondItem="6UJ-mL-JlB" secondAttribute="topMargin" id="Vpw-3M-Gkd"/>
                                         <constraint firstAttribute="bottom" secondItem="82m-l8-1XL" secondAttribute="bottom" id="a0N-SJ-qgc"/>
+                                        <constraint firstItem="TqN-lv-VjH" firstAttribute="height" secondItem="Pf0-FT-adh" secondAttribute="height" id="cCD-zT-2MS"/>
                                         <constraint firstItem="p4G-ZA-HlR" firstAttribute="width" secondItem="dpU-hD-LKb" secondAttribute="width" id="eIx-lb-Xjj"/>
                                         <constraint firstItem="dpU-hD-LKb" firstAttribute="top" secondItem="6UJ-mL-JlB" secondAttribute="topMargin" id="gCC-cI-Zsw"/>
                                         <constraint firstItem="TqN-lv-VjH" firstAttribute="leading" secondItem="6UJ-mL-JlB" secondAttribute="leadingMargin" id="gqM-ii-XpB"/>
@@ -647,10 +656,10 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="dpU-hD-LKb" secondAttribute="trailing" id="whZ-XF-sdg"/>
                                     </constraints>
                                 </view>
-                                <blurEffect style="light"/>
+                                <blurEffect style="extraLight"/>
                             </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ygd-EF-Iti" firstAttribute="leading" secondItem="k9i-Vk-DUL" secondAttribute="leading" id="6wb-sq-mDz"/>
                             <constraint firstItem="ygd-EF-Iti" firstAttribute="bottom" secondItem="k9i-Vk-DUL" secondAttribute="bottom" id="9ZK-l1-9a1"/>
@@ -1145,16 +1154,16 @@
                                                         <rect key="frame" x="40" y="94" width="311" height="164"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Fu-aN-Wzd">
-                                                                <rect key="frame" x="0.0" y="0.0" width="98.5" height="164"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="99" height="164"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xh0-Hm-rDZ" customClass="CheckBox" customModule="Health_App" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="98.5" height="35"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="99" height="35"/>
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="251" image="ic_check_box_outline_blank" translatesAutoresizingMaskIntoConstraints="NO" id="6gh-gq-MNt">
                                                                                 <rect key="frame" x="0.0" y="5.5" width="24" height="24"/>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="lQQ-aT-wgI">
-                                                                                <rect key="frame" x="32" y="0.0" width="66.5" height="35"/>
+                                                                                <rect key="frame" x="32" y="0.0" width="67" height="35"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1173,13 +1182,13 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvq-U0-bUn" customClass="CheckBox" customModule="Health_App" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="43" width="98" height="35"/>
+                                                                        <rect key="frame" x="0.0" y="43" width="98.5" height="35"/>
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="251" image="ic_check_box_outline_blank" translatesAutoresizingMaskIntoConstraints="NO" id="5nI-yS-bPX">
                                                                                 <rect key="frame" x="0.0" y="5.5" width="24" height="24"/>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apr" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="7sf-R0-RYH">
-                                                                                <rect key="frame" x="32" y="0.0" width="66" height="35"/>
+                                                                                <rect key="frame" x="32" y="0.0" width="66.5" height="35"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1198,13 +1207,13 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view tag="6" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QDv-pb-ZpR" customClass="CheckBox" customModule="Health_App" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="86" width="98" height="35"/>
+                                                                        <rect key="frame" x="0.0" y="86" width="98.5" height="35"/>
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="251" image="ic_check_box_outline_blank" translatesAutoresizingMaskIntoConstraints="NO" id="VrZ-I9-dr9">
                                                                                 <rect key="frame" x="0.0" y="5.5" width="24" height="24"/>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="July" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="On1-9L-ChK">
-                                                                                <rect key="frame" x="32" y="0.0" width="66" height="35"/>
+                                                                                <rect key="frame" x="32" y="0.0" width="66.5" height="35"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1223,13 +1232,13 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view tag="9" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4AU-84-Flw" customClass="CheckBox" customModule="Health_App" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="129" width="98" height="35"/>
+                                                                        <rect key="frame" x="0.0" y="129" width="98.5" height="35"/>
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="251" image="ic_check_box_outline_blank" translatesAutoresizingMaskIntoConstraints="NO" id="wBb-Y6-tdS">
                                                                                 <rect key="frame" x="0.0" y="5.5" width="24" height="24"/>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oct" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="c6S-Zf-nNu">
-                                                                                <rect key="frame" x="32" y="0.0" width="66" height="35"/>
+                                                                                <rect key="frame" x="32" y="0.0" width="66.5" height="35"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1266,7 +1275,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nho-Q3-P5L">
-                                                                <rect key="frame" x="106" y="0.0" width="98" height="164"/>
+                                                                <rect key="frame" x="106.5" y="0.0" width="98" height="164"/>
                                                                 <subviews>
                                                                     <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CJW-5d-GnE" customClass="CheckBox" customModule="Health_App" customModuleProvider="target">
                                                                         <rect key="frame" x="-0.5" y="0.0" width="98.5" height="35"/>
@@ -1387,16 +1396,16 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fGU-Nq-SXq">
-                                                                <rect key="frame" x="212" y="0.0" width="99" height="164"/>
+                                                                <rect key="frame" x="212.5" y="0.0" width="98.5" height="164"/>
                                                                 <subviews>
                                                                     <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3sT-4K-fHy" customClass="CheckBox" customModule="Health_App" customModuleProvider="target">
-                                                                        <rect key="frame" x="-0.5" y="0.0" width="99.5" height="35"/>
+                                                                        <rect key="frame" x="-0.5" y="0.0" width="99" height="35"/>
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="251" image="ic_check_box_outline_blank" translatesAutoresizingMaskIntoConstraints="NO" id="rCf-dr-8gb">
                                                                                 <rect key="frame" x="0.0" y="5.5" width="24" height="24"/>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="H6A-CT-H4B">
-                                                                                <rect key="frame" x="32" y="0.0" width="67.5" height="35"/>
+                                                                                <rect key="frame" x="32" y="0.0" width="67" height="35"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1415,13 +1424,13 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EKW-5L-x7J" customClass="CheckBox" customModule="Health_App" customModuleProvider="target">
-                                                                        <rect key="frame" x="-0.5" y="43" width="100" height="35"/>
+                                                                        <rect key="frame" x="-0.5" y="43" width="99.5" height="35"/>
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="251" image="ic_check_box_outline_blank" translatesAutoresizingMaskIntoConstraints="NO" id="psg-jA-BOb">
                                                                                 <rect key="frame" x="0.0" y="5.5" width="24" height="24"/>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jun" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="2pP-hh-AoI">
-                                                                                <rect key="frame" x="32" y="0.0" width="68" height="35"/>
+                                                                                <rect key="frame" x="32" y="0.0" width="67.5" height="35"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1440,13 +1449,13 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view tag="8" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fN9-AT-baR" customClass="CheckBox" customModule="Health_App" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="86" width="99" height="35"/>
+                                                                        <rect key="frame" x="0.0" y="86" width="98.5" height="35"/>
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="251" image="ic_check_box_outline_blank" translatesAutoresizingMaskIntoConstraints="NO" id="244-YO-Uhf">
                                                                                 <rect key="frame" x="0.0" y="5.5" width="24" height="24"/>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="3lh-oT-Nld">
-                                                                                <rect key="frame" x="32" y="0.0" width="67" height="35"/>
+                                                                                <rect key="frame" x="32" y="0.0" width="66.5" height="35"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1465,13 +1474,13 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view tag="11" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L9A-hm-2xS" customClass="CheckBox" customModule="Health_App" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="129" width="99" height="35"/>
+                                                                        <rect key="frame" x="0.0" y="129" width="98.5" height="35"/>
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="251" image="ic_check_box_outline_blank" translatesAutoresizingMaskIntoConstraints="NO" id="heZ-tW-Sml">
                                                                                 <rect key="frame" x="0.0" y="5.5" width="24" height="24"/>
                                                                             </imageView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dec" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="5uz-7b-E4p">
-                                                                                <rect key="frame" x="32" y="0.0" width="67" height="35"/>
+                                                                                <rect key="frame" x="32" y="0.0" width="66.5" height="35"/>
                                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1656,13 +1665,13 @@
         <scene sceneID="B78-Jy-R8b">
             <objects>
                 <tableViewController storyboardIdentifier="SetReminderTVC" id="ial-z5-tbK" customClass="SetReminderTableViewController" customModule="Health_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dat-vE-XlE">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="dat-vE-XlE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reminderCell" id="spn-bZ-dKf">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="spn-bZ-dKf" id="h9k-GK-bKY">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
