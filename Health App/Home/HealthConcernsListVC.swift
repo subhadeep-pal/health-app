@@ -31,9 +31,9 @@ class HealthConcernsListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = type.stringValue().capitalized
-//        if #available(iOS 11.0, *) {
-//            self.navigationController?.navigationBar.prefersLargeTitles = true
-//        }
+        if #available(iOS 11.0, *) {
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

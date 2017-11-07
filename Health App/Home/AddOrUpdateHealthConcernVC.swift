@@ -33,9 +33,18 @@ class AddOrUpdateHealthConcernVC: UIViewController {
         self.statusTextField.inputView = statusPickerView
         self.scrollView.keyboardDismissMode = .onDrag
         
+        if #available(iOS 11.0, *) {
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+        }
+        
         fillData()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        if #available(iOS 11.0, *) {
+            self.navigationController?.navigationBar.prefersLargeTitles = true
+        }
+    }
     
     private func fillData() {
         guard let healthConcern = self.healthConcern else {
@@ -47,7 +56,7 @@ class AddOrUpdateHealthConcernVC: UIViewController {
         titleTextField.text = healthConcern.title
         statusTextField.text = healthConcern.status
         noteTextView.text = healthConcern.note
-        createActionPlanViewHeightConstraint.constant = 36
+        createActionPlanViewHeightConstraint.constant = 44
     }
 
     // SAVE Button

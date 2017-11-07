@@ -14,6 +14,20 @@
 		146C2ED01F83F3E800E039AB /* DataLayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 146C2EC81F83F3E800E039AB /* DataLayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1485D9811FAD68E7004D8D8D /* Reminder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1485D97F1FAD68E7004D8D8D /* Reminder+CoreDataClass.swift */; };
 		1485D9821FAD68E7004D8D8D /* Reminder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1485D9801FAD68E7004D8D8D /* Reminder+CoreDataProperties.swift */; };
+		14964BE81FB18E19001C844B /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14964BE71FB18E19001C844B /* HomeTableViewController.swift */; };
+		14964BE91FB18F8F001C844B /* UIViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADE91F86A97C00C839AA /* UIViewX.swift */; };
+		14964BEA1FB18F94001C844B /* UIButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADEB1F86A97C00C839AA /* UIButtonX.swift */; };
+		14964BEB1FB18F94001C844B /* UIImageViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADED1F86A97C00C839AA /* UIImageViewX.swift */; };
+		14964BEC1FB18F94001C844B /* UILabelX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADEE1F86A97C00C839AA /* UILabelX.swift */; };
+		14964BED1FB18F94001C844B /* UISliderX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADF01F86A97D00C839AA /* UISliderX.swift */; };
+		14964BEE1FB18F94001C844B /* UITextFieldX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADE81F86A97C00C839AA /* UITextFieldX.swift */; };
+		14964BEF1FB18F94001C844B /* UIViewAnchorPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADEC1F86A97C00C839AA /* UIViewAnchorPoint.swift */; };
+		14964BF01FB18F94001C844B /* UIViewControllerX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADEF1F86A97C00C839AA /* UIViewControllerX.swift */; };
+		14964BF11FB18F94001C844B /* UIViewXRadialGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADEA1F86A97C00C839AA /* UIViewXRadialGradient.swift */; };
+		14964BF21FB18F94001C844B /* UIVisualEffectViewX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADF11F86A97D00C839AA /* UIVisualEffectViewX.swift */; };
+		14964BF31FB18F94001C844B /* UIViewShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1433ADFD1F86A9E700C839AA /* UIViewShadow.swift */; };
+		14964BF51FB190ED001C844B /* GradientUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14964BF41FB190ED001C844B /* GradientUIView.swift */; };
+		14964BF71FB1931B001C844B /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14964BF61FB1931B001C844B /* HomeTableViewCell.swift */; };
 		14A2D55D1F9A6FD2000D4314 /* ActionPlanCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A2D55C1F9A6FD2000D4314 /* ActionPlanCategoryTableViewController.swift */; };
 		14A2D5611F9B003C000D4314 /* AddActionPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A2D5601F9B003C000D4314 /* AddActionPlanViewController.swift */; };
 		14A2D5641F9B1009000D4314 /* HealthApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 146C2ED71F83F4F900E039AB /* HealthApp.xcdatamodeld */; };
@@ -93,6 +107,9 @@
 		146C2ED81F83F4F900E039AB /* HealthApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HealthApp.xcdatamodel; sourceTree = "<group>"; };
 		1485D97F1FAD68E7004D8D8D /* Reminder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1485D9801FAD68E7004D8D8D /* Reminder+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		14964BE71FB18E19001C844B /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
+		14964BF41FB190ED001C844B /* GradientUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientUIView.swift; sourceTree = "<group>"; };
+		14964BF61FB1931B001C844B /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		14A2D55C1F9A6FD2000D4314 /* ActionPlanCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionPlanCategoryTableViewController.swift; sourceTree = "<group>"; };
 		14A2D5601F9B003C000D4314 /* AddActionPlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActionPlanViewController.swift; sourceTree = "<group>"; };
 		14A9F8961F9A030D0023451D /* ActionPlansTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionPlansTableViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +181,7 @@
 				1433ADF11F86A97D00C839AA /* UIVisualEffectViewX.swift */,
 				1433ADFD1F86A9E700C839AA /* UIViewShadow.swift */,
 				707496911F8D4B8000227953 /* UICustomisedTextView.swift */,
+				14964BF41FB190ED001C844B /* GradientUIView.swift */,
 			);
 			path = Deisgnables;
 			sourceTree = "<group>";
@@ -181,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				146C2EBF1F83F39000E039AB /* Home.storyboard */,
+				14964BF81FB19326001C844B /* Home */,
 				70B60C4E1F88091900F83AA2 /* AddOrUpdateHealthConcernVC.swift */,
 				70B60C4C1F8808DF00F83AA2 /* HealthConcernsListVC.swift */,
 				70B60C4A1F88089E00F83AA2 /* HomeViewController.swift */,
@@ -206,6 +225,15 @@
 				14CF8B6E1FA468FE0090FDA6 /* RecurranceManager.swift */,
 			);
 			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		14964BF81FB19326001C844B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				14964BE71FB18E19001C844B /* HomeTableViewController.swift */,
+				14964BF61FB1931B001C844B /* HomeTableViewCell.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		14A2D55E1F9A6FD8000D4314 /* Action Plan Type */ = {
@@ -513,24 +541,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				14CF8B6D1FA468660090FDA6 /* RecurrenceView.swift in Sources */,
+				14964BF51FB190ED001C844B /* GradientUIView.swift in Sources */,
+				14964BF01FB18F94001C844B /* UIViewControllerX.swift in Sources */,
+				14964BEA1FB18F94001C844B /* UIButtonX.swift in Sources */,
 				709C2CB01F895FE30095D3E7 /* HealthConcernsListVC.swift in Sources */,
+				14964BEE1FB18F94001C844B /* UITextFieldX.swift in Sources */,
 				14CF8B731FA46C550090FDA6 /* WeeklyView.swift in Sources */,
 				14A2D5611F9B003C000D4314 /* AddActionPlanViewController.swift in Sources */,
 				14E2EDAE1F83E37800656014 /* AppDelegate.swift in Sources */,
+				14964BF11FB18F94001C844B /* UIViewXRadialGradient.swift in Sources */,
 				14CF8B7B1FA4773F0090FDA6 /* RecurranceViewController.swift in Sources */,
+				14964BEF1FB18F94001C844B /* UIViewAnchorPoint.swift in Sources */,
+				14964BED1FB18F94001C844B /* UISliderX.swift in Sources */,
+				14964BF31FB18F94001C844B /* UIViewShadow.swift in Sources */,
 				70B60C4B1F88089F00F83AA2 /* HomeViewController.swift in Sources */,
 				14CF8B691FA45EEB0090FDA6 /* UIView+Designable.swift in Sources */,
+				14964BEB1FB18F94001C844B /* UIImageViewX.swift in Sources */,
 				701088EE1FA626B70036557E /* SetReminderTableViewController.swift in Sources */,
 				14AE60B11FA9FE62008A71FC /* TodaysRemindersTableViewController.swift in Sources */,
 				14A9F8971F9A030D0023451D /* ActionPlansTableViewController.swift in Sources */,
 				14CF8B751FA46C630090FDA6 /* OneTimeView.swift in Sources */,
+				14964BF21FB18F94001C844B /* UIVisualEffectViewX.swift in Sources */,
 				14A2D55D1F9A6FD2000D4314 /* ActionPlanCategoryTableViewController.swift in Sources */,
+				14964BE91FB18F8F001C844B /* UIViewX.swift in Sources */,
 				14CF8B6B1FA45FDA0090FDA6 /* CheckBox.swift in Sources */,
+				14964BEC1FB18F94001C844B /* UILabelX.swift in Sources */,
 				14CF8B711FA46C4A0090FDA6 /* MonthlyView.swift in Sources */,
 				14E49A121F83F12C0043C753 /* MasterSideMenuViewController.swift in Sources */,
 				707496921F8D4B8000227953 /* UICustomisedTextView.swift in Sources */,
 				701088F01FA626F00036557E /* AddReminderViewController.swift in Sources */,
+				14964BE81FB18E19001C844B /* HomeTableViewController.swift in Sources */,
 				14AE60B31FAA0888008A71FC /* Utilities.swift in Sources */,
+				14964BF71FB1931B001C844B /* HomeTableViewCell.swift in Sources */,
 				709C2CAD1F894AB20095D3E7 /* AddOrUpdateHealthConcernVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

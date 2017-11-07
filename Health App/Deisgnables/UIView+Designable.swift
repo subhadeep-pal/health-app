@@ -11,7 +11,7 @@ import UIKit
 extension UIView {
     
     @IBInspectable
-    var borderWidth: CGFloat {
+    var borderWdt: CGFloat {
         get{
             return layer.borderWidth
         }
@@ -22,7 +22,7 @@ extension UIView {
     }
     
     @IBInspectable
-    var borderColor: UIColor? {
+    var borderClr: UIColor? {
         get{
             return layer.borderColor != nil ? UIColor(cgColor:  layer.borderColor!) : nil
         }
@@ -34,13 +34,13 @@ extension UIView {
     
     
     @IBInspectable
-    var cornerRadius: CGFloat {
+    var cornerRad: CGFloat {
         get{
             return layer.cornerRadius
         }
         
         set{
-            if !makeCircular {
+            if !makeCirle {
                 layer.cornerRadius = newValue
                 layer.masksToBounds = newValue != 0
             }
@@ -48,7 +48,7 @@ extension UIView {
     }
     
     @IBInspectable
-    var makeCircular: Bool {
+    var makeCirle: Bool {
         get{
             return (layer.cornerRadius == self.frame.height)
         }
@@ -56,9 +56,9 @@ extension UIView {
         set{
             if newValue {
                 layer.cornerRadius = self.frame.height < self.frame.width ? (self.frame.height / 2) : (self.frame.width / 2)
-                self.cornerRadius = layer.cornerRadius
+                self.cornerRad = layer.cornerRadius
             } else {
-                layer.cornerRadius = self.cornerRadius
+                layer.cornerRadius = self.cornerRad
             }
             layer.masksToBounds = true
         }
