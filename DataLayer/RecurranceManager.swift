@@ -109,30 +109,30 @@ open class RecurranceManager: NSObject {
     }
     
     func scheduleNotificationOnceType(title: String, messsage: String, identifierText: String, date: Date) {
-        for i in stride(from: 0, to: 23, by: 1) {
-            let notificationContent = UNMutableNotificationContent()
-            
-            notificationContent.body = messsage
-            notificationContent.title = "\(title)"
-            notificationContent.sound = UNNotificationSound.default()
-            
-            let unitFlags : Set<Calendar.Component> = [.day, .month, .year]
-            let components = Calendar.current.dateComponents(unitFlags, from: date)
-
-            var dateComponent = DateComponents()
-            dateComponent.day = components.day
-            dateComponent.month = components.month
-            dateComponent.year = components.year
-            dateComponent.hour = i
-            
-            dateComponent.calendar = Calendar(identifier: .gregorian)
-            dateComponent.timeZone = NSTimeZone.default
-            
-            let notificationTrigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
-            
-            let req = UNNotificationRequest(identifier: "\(identifierText)_\(components.day!)_\(components.month!)_\(components.year!)_\(i)", content: notificationContent, trigger: notificationTrigger)
-            UNUserNotificationCenter.current().add(req, withCompletionHandler: nil)
-        }
+        let notificationContent = UNMutableNotificationContent()
+        
+        notificationContent.body = messsage
+        notificationContent.title = "\(title)"
+        notificationContent.sound = UNNotificationSound.default()
+        
+        let unitFlags : Set<Calendar.Component> = [.day, .month, .year]
+        let components = Calendar.current.dateComponents(unitFlags, from: date)
+        
+        var dateComponent = DateComponents()
+        dateComponent.day = components.day
+        dateComponent.month = components.month
+        dateComponent.year = components.year
+        dateComponent.minute = 0
+        dateComponent.second = 0
+        
+        
+        dateComponent.calendar = Calendar(identifier: .gregorian)
+        dateComponent.timeZone = NSTimeZone.default
+        
+        let notificationTrigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
+        
+        let req = UNNotificationRequest(identifier: "\(identifierText)_\(components.day!)_\(components.month!)_\(components.year!)", content: notificationContent, trigger: notificationTrigger)
+        UNUserNotificationCenter.current().add(req, withCompletionHandler: nil)
     }
     
     func scheduleNotificationWeeklyType(startDate: Date, days: [Day]) {

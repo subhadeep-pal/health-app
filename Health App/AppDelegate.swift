@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().getPendingNotificationRequests { (requests) in
             for item in requests{
                 print(item.content.title)
-                print((item.trigger as? UNCalendarNotificationTrigger)?.dateComponents)
+                print((item.trigger as? UNCalendarNotificationTrigger)?.dateComponents ?? "this is null")
             }
         }
         return true
