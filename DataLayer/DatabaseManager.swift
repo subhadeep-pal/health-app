@@ -40,7 +40,7 @@ open class DatabaseManager: NSObject {
         case healthConcern = 0
         case fitnessGoals
         static let values = [
-            healthConcern : "Health Concern",
+            healthConcern : "Health Concerns",
             fitnessGoals: "Fitness Goals"
         ]
         public func stringValue() -> String {

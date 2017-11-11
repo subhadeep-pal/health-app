@@ -50,6 +50,7 @@ class AddOrUpdateHealthConcernVC: UIViewController {
         guard let healthConcern = self.healthConcern else {
             deleteButton.isEnabled = false
             createActionPlanViewHeightConstraint.constant = 0
+            self.title = type.stringValue().capitalized
             return
         }
         self.title = healthConcern.title

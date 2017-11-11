@@ -61,17 +61,21 @@ class TodaysRemindersTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "currentReminder", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "currentReminder", for: indexPath) as? TodaysRemindersTableViewCell else { return UITableViewCell()}
         guard let reminderType = DatabaseManager.ReminderType(rawValue: indexPath.section) else {return cell}
         switch reminderType {
         case .medicalReminder:
-            cell.textLabel?.text = medicalReminders[indexPath.row].title
+            cell.reminderTitleLabel.text = medicalReminders[indexPath.row].title
+//            cell.textLabel?.text = medicalReminders[indexPath.row].title
         case .lifestyleReminder :
-            cell.textLabel?.text = lifestyleReminders[indexPath.row].title
+            cell.reminderTitleLabel.text = lifestyleReminders[indexPath.row].title
+//            cell.textLabel?.text = lifestyleReminders[indexPath.row].title
         }
         return cell
     }
-
+ 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
     
     /*
     // MARK: - Navigation
