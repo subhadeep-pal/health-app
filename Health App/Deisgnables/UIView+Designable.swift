@@ -71,7 +71,7 @@ extension UIView {
             return self.dropShadow
         }
         set {
-            self.dropShadowOnVIew(size: 5, x: 0, y: 0, opacity: 0.5)
+            self.dropShadowOnVIew(size: 3, x: 0, y: 0, opacity: 0.5)
         }
     }
     
