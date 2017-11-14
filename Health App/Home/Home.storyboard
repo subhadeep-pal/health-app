@@ -147,7 +147,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uvy-X1-7BY">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="496"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="532"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SH8-lA-oya">
                                                 <rect key="frame" x="20" y="8" width="280" height="30"/>
@@ -188,7 +188,7 @@
                                             <constraint firstItem="laE-DQ-SEq" firstAttribute="top" secondItem="Vfn-eG-zqC" secondAttribute="bottom" constant="20" id="gJE-HE-JQf"/>
                                             <constraint firstItem="SH8-lA-oya" firstAttribute="leading" secondItem="uvy-X1-7BY" secondAttribute="leading" constant="20" id="kq2-2T-cXu"/>
                                             <constraint firstAttribute="trailing" secondItem="laE-DQ-SEq" secondAttribute="trailing" constant="20" id="q07-G9-Vbp"/>
-                                            <constraint firstAttribute="bottom" secondItem="laE-DQ-SEq" secondAttribute="bottom" constant="88" id="r6m-8j-cGW"/>
+                                            <constraint firstAttribute="bottom" secondItem="laE-DQ-SEq" secondAttribute="bottom" constant="124" id="r6m-8j-cGW"/>
                                             <constraint firstItem="w2C-wm-mBP" firstAttribute="top" secondItem="SH8-lA-oya" secondAttribute="bottom" constant="20" id="vcv-ie-h1q"/>
                                             <constraint firstItem="SH8-lA-oya" firstAttribute="top" secondItem="uvy-X1-7BY" secondAttribute="top" constant="8" id="xbF-xW-Gto"/>
                                         </constraints>
@@ -202,17 +202,17 @@
                                     <constraint firstItem="uvy-X1-7BY" firstAttribute="leading" secondItem="PKH-YX-aGQ" secondAttribute="leading" id="64M-RM-SH1"/>
                                     <constraint firstItem="uvy-X1-7BY" firstAttribute="top" secondItem="PKH-YX-aGQ" secondAttribute="top" id="76a-xK-aYz"/>
                                     <constraint firstAttribute="trailing" secondItem="uvy-X1-7BY" secondAttribute="trailing" id="bIa-yv-JQV"/>
-                                    <constraint firstAttribute="bottom" secondItem="uvy-X1-7BY" secondAttribute="bottom" id="hZh-xn-2qs"/>
+                                    <constraint firstAttribute="bottom" secondItem="uvy-X1-7BY" secondAttribute="bottom" constant="-8" id="hZh-xn-2qs"/>
                                 </constraints>
                             </scrollView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGV-Xs-xdf">
-                                <rect key="frame" x="0.0" y="488" width="320" height="80"/>
+                                <rect key="frame" x="0.0" y="472" width="320" height="96"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5lR-7i-2mS">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gq-si-Ra3" customClass="UIButtonX">
-                                            <rect key="frame" x="112" y="8" width="96" height="28"/>
+                                            <rect key="frame" x="112" y="8" width="96" height="36"/>
                                             <color key="backgroundColor" red="0.43861529230000001" green="0.97117286920000001" blue="0.78576296570000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                             <state key="normal" title="DELETE">
@@ -229,7 +229,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mEP-f9-ohY" customClass="UIButtonX">
-                                            <rect key="frame" x="216" y="8" width="96" height="28"/>
+                                            <rect key="frame" x="216" y="8" width="96" height="36"/>
                                             <color key="backgroundColor" red="0.43861529230000001" green="0.97117286920000001" blue="0.78576296570000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                             <state key="normal" title="CANCEL">
@@ -247,10 +247,10 @@
                                             </connections>
                                         </button>
                                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xsc-xg-Hui">
-                                            <rect key="frame" x="8" y="44" width="304" height="36"/>
+                                            <rect key="frame" x="8" y="52" width="304" height="44"/>
                                             <subviews>
                                                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hyy-vX-jPU" customClass="UIButtonX">
-                                                    <rect key="frame" x="0.0" y="0.0" width="304" height="28"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="304" height="36"/>
                                                     <color key="backgroundColor" red="0.43861529230000001" green="0.97117286920000001" blue="0.78576296570000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                     <state key="normal" title="CREATE A REMINDER">
@@ -269,16 +269,19 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="36" id="08X-D6-ONU"/>
                                                 <constraint firstItem="Hyy-vX-jPU" firstAttribute="top" secondItem="xsc-xg-Hui" secondAttribute="top" id="Axr-Dy-Ird"/>
                                                 <constraint firstAttribute="bottom" secondItem="Hyy-vX-jPU" secondAttribute="bottom" constant="8" id="Hcq-d5-iQU"/>
                                                 <constraint firstItem="Hyy-vX-jPU" firstAttribute="leading" secondItem="xsc-xg-Hui" secondAttribute="leading" id="bRq-9D-PCc"/>
+                                                <constraint firstAttribute="height" constant="44" id="jTy-n2-Mkz"/>
                                                 <constraint firstAttribute="trailing" secondItem="Hyy-vX-jPU" secondAttribute="trailing" id="qNX-SC-h9Y"/>
                                             </constraints>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xX6-Mp-BUB" customClass="UIButtonX">
-                                            <rect key="frame" x="8" y="8" width="96" height="28"/>
+                                            <rect key="frame" x="8" y="8" width="96" height="36"/>
                                             <color key="backgroundColor" red="0.43861529230000001" green="0.97117286920000001" blue="0.78576296570000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="36" id="CFa-2N-s5u"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                             <state key="normal" title="SAVE">
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -298,8 +301,11 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="xX6-Mp-BUB" firstAttribute="top" secondItem="5lR-7i-2mS" secondAttribute="topMargin" id="6Dg-hA-jfW"/>
+                                        <constraint firstItem="xX6-Mp-BUB" firstAttribute="height" secondItem="0gq-si-Ra3" secondAttribute="height" id="72i-TX-NVO"/>
+                                        <constraint firstItem="xX6-Mp-BUB" firstAttribute="height" secondItem="Hyy-vX-jPU" secondAttribute="height" id="IfQ-qb-ARs"/>
                                         <constraint firstItem="xX6-Mp-BUB" firstAttribute="width" secondItem="0gq-si-Ra3" secondAttribute="width" id="U1E-RD-3t1"/>
                                         <constraint firstItem="xsc-xg-Hui" firstAttribute="leading" secondItem="5lR-7i-2mS" secondAttribute="leadingMargin" id="XzA-pN-WHk"/>
+                                        <constraint firstItem="0gq-si-Ra3" firstAttribute="height" secondItem="mEP-f9-ohY" secondAttribute="height" id="drN-fJ-RvB"/>
                                         <constraint firstItem="xsc-xg-Hui" firstAttribute="trailing" secondItem="5lR-7i-2mS" secondAttribute="trailingMargin" id="h8A-S4-Jca"/>
                                         <constraint firstItem="xX6-Mp-BUB" firstAttribute="leading" secondItem="5lR-7i-2mS" secondAttribute="leadingMargin" id="lb6-bv-CNu"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="mEP-f9-ohY" secondAttribute="trailing" id="los-H9-2gQ"/>
@@ -333,7 +339,7 @@
                     <connections>
                         <outlet property="categoryTextField" destination="Vfn-eG-zqC" id="ddN-34-3qe"/>
                         <outlet property="concernTextField" destination="w2C-wm-mBP" id="Zti-Xd-FPF"/>
-                        <outlet property="createReminderViewHeightConstraint" destination="08X-D6-ONU" id="SZI-Op-j8F"/>
+                        <outlet property="createReminderViewHeightConstraint" destination="jTy-n2-Mkz" id="gDm-fT-gFv"/>
                         <outlet property="deleteButton" destination="0gq-si-Ra3" id="faY-mQ-iby"/>
                         <outlet property="emptyView" destination="uvy-X1-7BY" id="fKI-2k-VPm"/>
                         <outlet property="noteTextView" destination="laE-DQ-SEq" id="nRG-dp-ynw"/>
@@ -699,7 +705,7 @@
             </objects>
             <point key="canvasLocation" x="4670.625" y="-201.7605633802817"/>
         </scene>
-        <!--Recurrance View Controller-->
+        <!--Recurrence-->
         <scene sceneID="QG7-3g-yHr">
             <objects>
                 <viewController hidesBottomBarWhenPushed="YES" id="amn-O9-Gs5" customClass="RecurranceViewController" customModule="Health_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -1656,6 +1662,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="d5s-Qg-ZtE"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Recurrence" id="0IV-ZN-pl5">
+                        <barButtonItem key="backBarButtonItem" title="   " id="xOD-CW-b5w"/>
+                    </navigationItem>
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outletCollection property="recurranceViews" destination="Ahc-sJ-VQj" collectionClass="NSMutableArray" id="Rmk-lO-rmP"/>
@@ -1731,7 +1740,7 @@
             </objects>
             <point key="canvasLocation" x="4337" y="1508"/>
         </scene>
-        <!--Add Reminder View Controller-->
+        <!--Set Reminder-->
         <scene sceneID="SDR-BO-rOW">
             <objects>
                 <viewController storyboardIdentifier="AddReminderVC" hidesBottomBarWhenPushed="YES" id="CGl-WT-bVl" customClass="AddReminderViewController" customModule="Health_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -1787,21 +1796,21 @@
                                     <constraint firstAttribute="trailing" secondItem="xQy-ge-RF3" secondAttribute="trailing" id="EJE-od-ude"/>
                                     <constraint firstItem="xQy-ge-RF3" firstAttribute="top" secondItem="DOM-p8-IgO" secondAttribute="top" id="OE4-Uv-Aq9"/>
                                     <constraint firstItem="xQy-ge-RF3" firstAttribute="width" secondItem="DOM-p8-IgO" secondAttribute="width" id="hkh-Wq-bTA"/>
-                                    <constraint firstAttribute="bottom" secondItem="xQy-ge-RF3" secondAttribute="bottom" id="lro-cH-ioA"/>
+                                    <constraint firstAttribute="bottom" secondItem="xQy-ge-RF3" secondAttribute="bottom" constant="140" id="lro-cH-ioA"/>
                                     <constraint firstItem="xQy-ge-RF3" firstAttribute="leading" secondItem="DOM-p8-IgO" secondAttribute="leading" id="p8D-yi-PvY"/>
                                 </constraints>
                             </scrollView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X3s-YC-Mhb">
-                                <rect key="frame" x="0.0" y="488" width="320" height="80"/>
+                                <rect key="frame" x="0.0" y="473" width="320" height="96"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="TNy-gC-I32">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="96"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VKx-JO-5Fc">
-                                            <rect key="frame" x="8" y="44" width="304" height="36"/>
+                                            <rect key="frame" x="8" y="52" width="304" height="44"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBp-JX-SUa" customClass="UIButtonX">
-                                                    <rect key="frame" x="0.0" y="0.0" width="304" height="28"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="304" height="36"/>
                                                     <color key="backgroundColor" red="0.43861529230000001" green="0.97117286920000001" blue="0.78576296570000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                     <state key="normal" title="RECURRENCE">
@@ -1829,7 +1838,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K34-qj-OxG" customClass="UIButtonX">
-                                            <rect key="frame" x="112" y="8" width="96" height="28"/>
+                                            <rect key="frame" x="112" y="8" width="96" height="36"/>
                                             <color key="backgroundColor" red="0.43861529230000001" green="0.97117286920000001" blue="0.78576296570000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                             <state key="normal" title="DELETE">
@@ -1846,7 +1855,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rio-92-QTv" customClass="UIButtonX">
-                                            <rect key="frame" x="216" y="8" width="96" height="28"/>
+                                            <rect key="frame" x="216" y="8" width="96" height="36"/>
                                             <color key="backgroundColor" red="0.43861529230000001" green="0.97117286920000001" blue="0.78576296570000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                             <state key="normal" title="CANCEL">
@@ -1863,8 +1872,11 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSe-J3-CpO" customClass="UIButtonX">
-                                            <rect key="frame" x="8" y="8" width="96" height="28"/>
+                                            <rect key="frame" x="8" y="8" width="96" height="36"/>
                                             <color key="backgroundColor" red="0.43861529230000001" green="0.97117286920000001" blue="0.78576296570000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="36" id="kK2-6L-84f"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                             <state key="normal" title="SAVE">
                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -1884,17 +1896,20 @@
                                     <constraints>
                                         <constraint firstItem="Rio-92-QTv" firstAttribute="top" secondItem="TNy-gC-I32" secondAttribute="topMargin" id="0cF-9B-0eB"/>
                                         <constraint firstItem="K34-qj-OxG" firstAttribute="top" secondItem="TNy-gC-I32" secondAttribute="topMargin" id="85p-4m-RlM"/>
+                                        <constraint firstItem="XSe-J3-CpO" firstAttribute="height" secondItem="uBp-JX-SUa" secondAttribute="height" id="9nq-nN-TG4"/>
                                         <constraint firstItem="VKx-JO-5Fc" firstAttribute="leading" secondItem="TNy-gC-I32" secondAttribute="leadingMargin" id="BTt-E9-RiX"/>
                                         <constraint firstItem="Rio-92-QTv" firstAttribute="leading" secondItem="K34-qj-OxG" secondAttribute="trailing" constant="8" id="QvE-vn-bv6"/>
                                         <constraint firstItem="XSe-J3-CpO" firstAttribute="leading" secondItem="TNy-gC-I32" secondAttribute="leadingMargin" id="Th3-nT-Pcw"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Rio-92-QTv" secondAttribute="trailing" id="Uux-DU-nxn"/>
                                         <constraint firstItem="K34-qj-OxG" firstAttribute="leading" secondItem="XSe-J3-CpO" secondAttribute="trailing" constant="8" id="XOq-Ug-5DU"/>
+                                        <constraint firstItem="K34-qj-OxG" firstAttribute="height" secondItem="Rio-92-QTv" secondAttribute="height" id="XSO-R4-1Hi"/>
                                         <constraint firstItem="VKx-JO-5Fc" firstAttribute="top" secondItem="XSe-J3-CpO" secondAttribute="bottom" constant="8" id="dHR-eb-9ud"/>
                                         <constraint firstAttribute="bottom" secondItem="VKx-JO-5Fc" secondAttribute="bottom" id="dbM-sO-NSX"/>
                                         <constraint firstItem="VKx-JO-5Fc" firstAttribute="trailing" secondItem="TNy-gC-I32" secondAttribute="trailingMargin" id="nok-A2-c7Q"/>
                                         <constraint firstItem="XSe-J3-CpO" firstAttribute="top" secondItem="TNy-gC-I32" secondAttribute="topMargin" id="usv-R5-igB"/>
                                         <constraint firstItem="XSe-J3-CpO" firstAttribute="width" secondItem="K34-qj-OxG" secondAttribute="width" id="wTo-yQ-cVu"/>
                                         <constraint firstItem="K34-qj-OxG" firstAttribute="width" secondItem="Rio-92-QTv" secondAttribute="width" id="zFQ-Yz-E8d"/>
+                                        <constraint firstItem="XSe-J3-CpO" firstAttribute="height" secondItem="K34-qj-OxG" secondAttribute="height" id="zKl-cd-xjr"/>
                                     </constraints>
                                 </view>
                                 <blurEffect style="dark"/>
@@ -1908,12 +1923,12 @@
                             <constraint firstItem="DOM-p8-IgO" firstAttribute="top" secondItem="y3b-HZ-b5q" secondAttribute="top" id="e7X-oL-8DL"/>
                             <constraint firstItem="DOM-p8-IgO" firstAttribute="leading" secondItem="y3b-HZ-b5q" secondAttribute="leading" id="oaO-tw-KIE"/>
                             <constraint firstItem="DOM-p8-IgO" firstAttribute="bottom" secondItem="y3b-HZ-b5q" secondAttribute="bottom" id="rEA-C5-pZQ"/>
-                            <constraint firstItem="X3s-YC-Mhb" firstAttribute="bottom" secondItem="y3b-HZ-b5q" secondAttribute="bottom" id="wJt-Tf-lqe"/>
+                            <constraint firstItem="X3s-YC-Mhb" firstAttribute="bottom" secondItem="y3b-HZ-b5q" secondAttribute="bottom" constant="1" id="wJt-Tf-lqe"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="y3b-HZ-b5q"/>
                     </view>
-                    <navigationItem key="navigationItem" id="s0J-qd-etY">
-                        <barButtonItem key="backBarButtonItem" title="  " id="eLS-Wx-b5v"/>
+                    <navigationItem key="navigationItem" title="Set Reminder" id="LSQ-Bu-ymA">
+                        <barButtonItem key="backBarButtonItem" title="  " id="Lby-2n-e3X"/>
                     </navigationItem>
                     <connections>
                         <outlet property="actionPlanTextField" destination="7Pd-AP-w7c" id="KdK-og-yYu"/>
@@ -1928,7 +1943,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5uJ-Bh-Hnc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5173" y="1507"/>
+            <point key="canvasLocation" x="5171.25" y="1506.338028169014"/>
         </scene>
     </scenes>
     <resources>

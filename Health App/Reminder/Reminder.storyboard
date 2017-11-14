@@ -20,10 +20,10 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="currentReminder" id="3u5-3d-GI7" customClass="TodaysRemindersTableViewCell" customModule="Health_App" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3u5-3d-GI7" id="txG-sd-NxU">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ey7-2O-hXu" customClass="CheckBox" customModule="Health_App" customModuleProvider="target">
@@ -64,10 +64,13 @@
                             <outlet property="delegate" destination="rKL-sc-2ZD" id="8fz-qS-0iy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Daily Reminder" id="nH6-oJ-g8g"/>
+                    <navigationItem key="navigationItem" title="Daily Reminder" id="nH6-oJ-g8g">
+                        <barButtonItem key="leftBarButtonItem" title="Date" id="aSz-ao-xYc"/>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <connections>
+                        <outlet property="dateBarButtonItem" destination="aSz-ao-xYc" id="9Zr-Gp-epa"/>
                         <outlet property="headerView" destination="BCD-t3-5vn" id="YZV-wU-xyv"/>
                     </connections>
                 </tableViewController>

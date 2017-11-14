@@ -203,11 +203,9 @@
 			children = (
 				146C2EBF1F83F39000E039AB /* Home.storyboard */,
 				14964BF81FB19326001C844B /* Home */,
-				70B60C4E1F88091900F83AA2 /* AddOrUpdateHealthConcernVC.swift */,
-				70B60C4C1F8808DF00F83AA2 /* HealthConcernsListVC.swift */,
-				70B60C4A1F88089E00F83AA2 /* HomeViewController.swift */,
+				5288664D1FBAD08D005522CC /* Health Concerns & Fitness Goals */,
 				14A9F8981F9A03120023451D /* Action Plan */,
-				14CF8B761FA46C6B0090FDA6 /* Reminders */,
+				14CF8B761FA46C6B0090FDA6 /* Set Reminders */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -235,6 +233,7 @@
 			children = (
 				14964BE71FB18E19001C844B /* HomeTableViewController.swift */,
 				14964BF61FB1931B001C844B /* HomeTableViewCell.swift */,
+				70B60C4A1F88089E00F83AA2 /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -265,7 +264,7 @@
 			path = "Action Plan";
 			sourceTree = "<group>";
 		};
-		14CF8B761FA46C6B0090FDA6 /* Reminders */ = {
+		14CF8B761FA46C6B0090FDA6 /* Set Reminders */ = {
 			isa = PBXGroup;
 			children = (
 				701088ED1FA626B70036557E /* SetReminderTableViewController.swift */,
@@ -273,7 +272,7 @@
 				14CF8B7A1FA4773F0090FDA6 /* RecurranceViewController.swift */,
 				14CF8B771FA46C740090FDA6 /* Recurrance Views */,
 			);
-			path = Reminders;
+			path = "Set Reminders";
 			sourceTree = "<group>";
 		};
 		14CF8B771FA46C740090FDA6 /* Recurrance Views */ = {
@@ -324,6 +323,15 @@
 				1433ADFF1F86AC9B00C839AA /* Health App-Bridging-Header.h */,
 			);
 			path = "Health App";
+			sourceTree = "<group>";
+		};
+		5288664D1FBAD08D005522CC /* Health Concerns & Fitness Goals */ = {
+			isa = PBXGroup;
+			children = (
+				70B60C4E1F88091900F83AA2 /* AddOrUpdateHealthConcernVC.swift */,
+				70B60C4C1F8808DF00F83AA2 /* HealthConcernsListVC.swift */,
+			);
+			path = "Health Concerns & Fitness Goals";
 			sourceTree = "<group>";
 		};
 		6A01C171A66A67481B6A9EC7 /* Pods */ = {

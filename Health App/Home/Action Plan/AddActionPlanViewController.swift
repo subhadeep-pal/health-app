@@ -101,7 +101,7 @@ class AddActionPlanViewController: UIViewController {
             self.noteTextView.text = actionPlan.notes
             self.healthConcern = actionPlan.concern
             self.deleteButton.isEnabled = true
-            createReminderViewHeightConstraint.constant = 36
+            createReminderViewHeightConstraint.constant = 44
         } else {
             self.deleteButton.isEnabled = false
             createReminderViewHeightConstraint.constant = 0
