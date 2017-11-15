@@ -10,7 +10,6 @@ import UIKit
 import DataLayer
 class TodaysRemindersTableViewController: UITableViewController {
     
-    @IBOutlet weak var dateBarButtonItem: UIBarButtonItem!
     @IBOutlet var headerView: UIView!
     var medicalReminders : [Reminder] {
         return DatabaseManager.shared.fetchReminderBasedOnCurrentDate(andActionPlanType: ActionPlanManager.ActionPlansType.MedicalIntervention.stringValue())
@@ -28,10 +27,6 @@ class TodaysRemindersTableViewController: UITableViewController {
         } else {
             // Fallback on earlier versions
         }
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE, MMMM d"
-        let dateString = dateFormatter.string(from: Date())
-        self.dateBarButtonItem.title = dateString
     }
     
     override func viewDidAppear(_ animated: Bool) {
