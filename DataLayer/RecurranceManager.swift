@@ -10,6 +10,7 @@ import UIKit
 import UserNotifications
 
 open class RecurranceManager: NSObject {
+    open static var shared = RecurranceManager()
     
     public enum RecurranceType: Int {
         case Once = 0
@@ -82,10 +83,8 @@ open class RecurranceManager: NSObject {
             return Month.values[self] ?? ""
         }
     }
-    
-    static var shared = RecurranceManager()
 
-    func scheduleNotification(reminder: Reminder) {
+   open func scheduleNotification(reminder: Reminder) {
         guard let title = reminder.actionPlan?.title else {return}
         guard let message = reminder.title else {return}
         guard let startDate = reminder.startDate as Date? else {return}
@@ -144,7 +143,7 @@ open class RecurranceManager: NSObject {
     }
     
     
-    func removeTodaysNotificationsFor(reminder: Reminder) {
+   open func removeTodaysNotificationsFor(reminder: Reminder) {
         let date = Date()
         
         guard let identifierText = reminder.identifierText else {return}
@@ -153,7 +152,7 @@ open class RecurranceManager: NSObject {
         let components = Calendar.current.dateComponents(unitFlags, from: date)
         
         for i in stride(from: 0, to: 23, by: 1) {
-            UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(identifierText)_\(components.day!)_\(components.month!)_\(components.year!)_\(i)"])
+    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(identifierText)_\(components.day!)_\(components.month!)_\(components.year!)_\(i)"])
         }
     }
     

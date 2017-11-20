@@ -41,7 +41,7 @@ open class ActionPlanManager: NSObject {
         return dict
     } ()
     
-    public func getActionPlanCategories(forType type: ActionPlansType) -> [ActionPlanCategory] {
+    open func getActionPlanCategories(forType type: ActionPlansType) -> [ActionPlanCategory] {
         guard let dictionary = self.dictionary else {return []}
         guard let arrayOfCategories = dictionary[type.stringValue()] else {return []}
         
