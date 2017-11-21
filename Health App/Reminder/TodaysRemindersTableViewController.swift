@@ -63,16 +63,12 @@ class TodaysRemindersTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: "currentReminder", for: indexPath)
-//            as? TodaysRemindersTableViewCell else { return UITableViewCell()}
+        let cell = tableView.dequeueReusableCell(withIdentifier: "currentReminder", for: indexPath)
         guard let reminderType = DatabaseManager.ReminderType(rawValue: indexPath.section) else {return cell}
         switch reminderType {
         case .medicalReminder:
-//            cell.reminderTitleLabel.text = medicalReminders[indexPath.row].title
-           cell.textLabel?.text = medicalReminders[indexPath.row].title
+            cell.textLabel?.text = medicalReminders[indexPath.row].title
         case .lifestyleReminder :
-//            cell.reminderTitleLabel.text = lifestyleReminders[indexPath.row].title
             cell.textLabel?.text = lifestyleReminders[indexPath.row].title
         }
         return cell
@@ -80,6 +76,7 @@ class TodaysRemindersTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let cell = tableView.cellForRow(at: indexPath){
+//            cell.tintColor = UIColor.init(red: 112/255, green: 245/255, blue: 200/255, alpha: 1.0)
         let alert = UIAlertController(title: "Confirm", message: "Do you really want to remove the pending notifications for this reminder?", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default){UIAlertAction in
                 cell.accessoryType = .checkmark
