@@ -48,7 +48,7 @@ class WeeklyView: RecurrenceView, CheckBoxProtocol {
     
     func loadCheckBoxes() {
         for item in checkBoxes {
-            item.set(title: (RecurranceManager.Day(rawValue: item.tag)?.stringValue()) ?? "Error")
+            item.set(title: (RecurranceManager.Day(rawValue: (item.tag + 1))?.stringValue()) ?? "Error")
             item.delegate = self
         }
     }
