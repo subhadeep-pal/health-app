@@ -19,6 +19,7 @@ class TodaysRemindersTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.allowsMultipleSelection = true
         headerView.sizeToFit()
         self.tableView.tableHeaderView = headerView
         
@@ -28,6 +29,7 @@ class TodaysRemindersTableViewController: UITableViewController {
             // Fallback on earlier versions
         }
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         self.tableView.reloadData()
     }
@@ -71,7 +73,42 @@ class TodaysRemindersTableViewController: UITableViewController {
         }
         return cell
     }
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath){
+//            cell.tintColor = UIColor.init(red: 112/255, green: 245/255, blue: 200/255, alpha: 1.0)
+        let alert = UIAlertController(title: "Confirm", message: "Do you really want to remove the pending notifications for this reminder?", preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default){UIAlertAction in
+                cell.accessoryType = .checkmark
+                cell.selectionStyle = .none
+                guard let reminderType = DatabaseManager.ReminderType(rawValue: indexPath.section) else {return}
+                switch reminderType {
+                case .medicalReminder:
+                    RecurranceManager.shared.removeTodaysNotificationsFor(reminder: self.medicalReminders[indexPath.row] )
+                case .lifestyleReminder :
+                    RecurranceManager.shared.removeTodaysNotificationsFor(reminder: self.lifestyleReminders[indexPath.row] )
+                }
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default){UIAlertAction in
+           cell.isSelected = false
+        })
+        self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath){
+            cell.accessoryType = .none
+             cell.selectionStyle = .default
+//            guard let reminderType = DatabaseManager.ReminderType(rawValue: indexPath.section) else {return}
+//            switch reminderType {
+//            case .medicalReminder:
+//                RecurranceManager.shared.scheduleNotification(reminder: medicalReminders[indexPath.row])
+//            case .lifestyleReminder :
+//                RecurranceManager.shared.scheduleNotification(reminder: lifestyleReminders[indexPath.row])
+//            }
+        }
+    }
     
     /*
     // MARK: - Navigation
