@@ -195,6 +195,10 @@ open class DatabaseManager: NSObject {
         return reminders ?? []
     }
     open func fetchReminderBasedOnCurrentDate(andActionPlanType type: String) -> [Reminder]{
+        var reminders : [Reminder] = []
+        var remindersOnce : [Reminder]?
+        var remindersWeekly : [Reminder]?
+        var remindersMonthly : [Reminder]?
         let fetchReq : NSFetchRequest<Reminder> = Reminder.fetchRequest()
         // Get the current calendar with local time zone
         var calendar = Calendar.current
@@ -202,7 +206,7 @@ open class DatabaseManager: NSObject {
         
         // Get today's beginning & end
         let dateFrom = calendar.startOfDay(for: Date()) // eg. 2016-10-10 00:00:00
-        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute],from: dateFrom)
+        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .weekday],from: dateFrom)
         components.day! += 1
         let dateTo = calendar.date(from: components)! // eg. 2016-10-11 00:00:00
         // Note: Times are printed in UTC. Depending on where you live it won't print 00:00:00 but it will work with UTC times which can be converted to local time
@@ -211,8 +215,37 @@ open class DatabaseManager: NSObject {
         let datePredicate = NSPredicate(format: "(%@ <= startDate) AND (startDate < %@)", argumentArray: [dateFrom, dateTo])
         let typePredicate = NSPredicate(format: "actionPlan.categoryType == %@", type )
         fetchReq.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [datePredicate, typePredicate])
-        let reminders : [Reminder]? = try? dataSource.context.fetch(fetchReq)
-        return reminders ?? []
+        remindersOnce = try? dataSource.context.fetch(fetchReq)
+        
+        let allReminders = fetchAllReminders()
+        
+        for reminder in allReminders{
+            if let date = reminder.startDate, dateFrom > date as Date{
+                if let days = reminder.weeklyDays{
+                    for day in days{
+                        if(components.weekday == day.rawValue){
+                            let predicate = NSPredicate(format: "actionPlan.categoryType == %@", type )
+                            fetchReq.predicate = predicate
+                            remindersWeekly = try? self.dataSource.context.fetch(fetchReq)
+                        }
+                    }
+                }
+                else if let months = reminder.yearlyMonths{
+                    let dayComponent = calendar.dateComponents([.day],from: date as Date)
+                    for month in months{
+                        if(components.month == month.rawValue && dayComponent.day == components.day){
+                            let predicate = NSPredicate(format: "actionPlan.categoryType == %@", type )
+                            fetchReq.predicate = predicate
+                            remindersMonthly = try? self.dataSource.context.fetch(fetchReq)
+                        }
+                    }
+                }
+            }
+        }
+        reminders.append(contentsOf: remindersOnce ?? [])
+        reminders.append(contentsOf: remindersWeekly ?? [])
+        reminders.append(contentsOf: remindersMonthly ?? [])
+        return reminders
     }
 
 }
