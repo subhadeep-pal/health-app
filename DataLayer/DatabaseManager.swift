@@ -217,34 +217,59 @@ open class DatabaseManager: NSObject {
         fetchReq.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [datePredicate, typePredicate])
         remindersOnce = try? dataSource.context.fetch(fetchReq)
         
-        let allReminders = fetchAllReminders()
+        // to fetch weekly reminders
+        let weeklyStartDatePredicate = NSPredicate(format:"%@ > startDate", dateFrom as CVarArg)
+        let weekdayNumberPredicate = NSPredicate(format: "days contains %@","\(components.weekday!)")
+        let weeklyCategoryTypepredicate = NSPredicate(format: "actionPlan.categoryType == %@", type)
+        fetchReq.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [weeklyStartDatePredicate, weekdayNumberPredicate, weeklyCategoryTypepredicate])
+        remindersWeekly = try? self.dataSource.context.fetch(fetchReq)
         
-        for reminder in allReminders{
-            if let date = reminder.startDate, dateFrom > date as Date{
-                if let days = reminder.weeklyDays{
-                    for day in days{
-                        if(components.weekday == day.rawValue){
-                            let predicate = NSPredicate(format: "actionPlan.categoryType == %@", type )
-                            fetchReq.predicate = predicate
-                            remindersWeekly = try? self.dataSource.context.fetch(fetchReq)
-                        }
-                    }
-                }
-                else if let months = reminder.yearlyMonths{
-                    let dayComponent = calendar.dateComponents([.day],from: date as Date)
-                    for month in months{
-                        if(components.month == month.rawValue && dayComponent.day == components.day){
-                            let predicate = NSPredicate(format: "actionPlan.categoryType == %@", type )
-                            fetchReq.predicate = predicate
-                            remindersMonthly = try? self.dataSource.context.fetch(fetchReq)
-                        }
-                    }
+        // to fetch monthly reminders
+        let monthlyStartDatePredicate = NSPredicate(format:"%@ > startDate", dateFrom as CVarArg)
+        let monthNumberPredicate = NSPredicate(format: "months contains %@","\(components.month!)")
+        let monthlyCategoryTypepredicate = NSPredicate(format: "actionPlan.categoryType == %@", type)
+        fetchReq.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [monthlyStartDatePredicate, monthNumberPredicate, monthlyCategoryTypepredicate])
+        remindersMonthly = try? self.dataSource.context.fetch(fetchReq)
+        
+        for reminder in remindersMonthly ?? []{
+            if let date = reminder.startDate{
+                let dayComponent = calendar.dateComponents([.day],from: date as Date)
+                if(dayComponent.day == components.day! - 1){
+                    reminders.append(reminder)
                 }
             }
         }
+//        let allReminders = fetchAllReminders()
+//        for reminder in allReminders{
+//            if let date = reminder.startDate, dateFrom > date as Date{
+//                // to fetch weekly reminders
+//                if let days = reminder.weeklyDays{
+//                    for day in days{
+//                        if(components.weekday == day.rawValue){
+//                            let predicate1 = NSPredicate(format: "title == %@", reminder.title ?? "")
+//                            let predicate2 = NSPredicate(format: "actionPlan.categoryType == %@", type)
+//                            fetchReq.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2])
+//                            remindersWeekly = try? self.dataSource.context.fetch(fetchReq)
+//                        }
+//                    }
+//                }
+//                // to fetch monthly reminders
+//                else if let months = reminder.yearlyMonths{
+//                    let dayComponent = calendar.dateComponents([.day],from: date as Date)
+//                    for month in months{
+//                        if(components.month == month.rawValue && dayComponent.day == components.day){
+//                            let predicate1 = NSPredicate(format: "title == %@", reminder.title ?? "")
+//                            let predicate2 = NSPredicate(format: "actionPlan.categoryType == %@", type)
+//                            fetchReq.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2])
+//                            remindersMonthly = try? self.dataSource.context.fetch(fetchReq)
+//                        }
+//                    }
+//                }
+//            }
+//        }
         reminders.append(contentsOf: remindersOnce ?? [])
         reminders.append(contentsOf: remindersWeekly ?? [])
-        reminders.append(contentsOf: remindersMonthly ?? [])
+//        reminders.append(contentsOf: remindersMonthly ?? [])
         return reminders
     }
 

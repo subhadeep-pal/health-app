@@ -38,22 +38,11 @@ class RecurranceViewController: UIViewController {
             recurranceViews[reminder.recurranceType.hashValue].isSelected = true
             recurranceViews[reminder.recurranceType.hashValue].startDateField.text = Utilities.shared.stringFromDate(date: reminder.startDate as Date!)
             
-            if let days = reminder.days{
-                var daysArray : [RecurranceManager.Day] = []
-                let selectedDays = days.components(separatedBy: "-").flatMap { Int($0) }
-                for day in selectedDays{
-                    daysArray.append(RecurranceManager.Day(rawValue: day)!)
-                }
-                recurranceViews[reminder.recurranceType.hashValue].selectedDays = daysArray
+            if let days = reminder.weeklyDays {
+               recurranceViews[reminder.recurranceType.hashValue].selectedDays = days
             }
-            
-            if let months = reminder.months{
-                var monthsArray : [RecurranceManager.Month] = []
-                let selectedMonths = months.components(separatedBy: "-").flatMap { Int($0) }
-                for month in selectedMonths{
-                    monthsArray.append(RecurranceManager.Month(rawValue: month)!)
-                }
-                recurranceViews[reminder.recurranceType.hashValue].selectedMonths = monthsArray
+            if let months = reminder.yearlyMonths{
+                recurranceViews[reminder.recurranceType.hashValue].selectedMonths = months
             }
         }
     }
