@@ -28,13 +28,13 @@ open class RecurranceManager: NSObject {
     }
     
     public enum Day: Int {
-        case Sunday = 0
-        case Monday
-        case Tuesday
-        case Wednesday
-        case Thursday
-        case Friday
-        case Saturday
+        case Sunday = 1
+        case Monday = 2
+        case Tuesday = 3
+        case Wednesday = 4
+        case Thursday = 5
+        case Friday = 6
+        case Saturday = 7
         
         static let values = [
             Monday : "Monday",
@@ -108,7 +108,7 @@ open class RecurranceManager: NSObject {
     }
     
     func scheduleNotificationOnceType(title: String, messsage: String, identifierText: String, date: Date) {
-        for i in stride(from: 0, to: 23, by: 1) {
+        for i in stride(from: 0, to: 23, by: 2) {
             let notificationContent = UNMutableNotificationContent()
             
             notificationContent.body = messsage
@@ -138,10 +138,37 @@ open class RecurranceManager: NSObject {
     }
     
     func scheduleNotificationWeeklyType(title: String, messsage: String, identifierText: String, startDate: Date, days: [Day]) {
+        
+        var startDates = [Date]()
+        
+        //find the dates
         for day in days {
-            
-            
-            
+            for i in 0...6{
+                var dayComponent = DateComponents()
+                dayComponent.day = i
+                
+                guard let date = Calendar.current.date(byAdding: dayComponent, to: startDate) else {continue}
+                
+                let unitFlags : Set<Calendar.Component> = [.weekday]
+                let components = Calendar.current.dateComponents(unitFlags, from: date)
+                
+                if components.weekday == day.rawValue {
+                    startDates.append(date)
+                }
+            }
+        }
+        
+        // Loop for one year
+        for start in startDates {
+            var date = start
+            for _ in 0..<10 {
+                var dayComponent = DateComponents()
+                dayComponent.day = 7
+                
+                guard let nextDate = Calendar.current.date(byAdding: dayComponent, to: date) else {continue}
+                scheduleNotificationOnceType(title: title, messsage: messsage, identifierText: identifierText, date: nextDate)
+                date = nextDate
+            }
         }
     }
     
@@ -169,7 +196,7 @@ open class RecurranceManager: NSObject {
         let unitFlags : Set<Calendar.Component> = [.day, .month, .year]
         let components = Calendar.current.dateComponents(unitFlags, from: date)
 
-        for i in stride(from: 0, to: 23, by: 1) {
+        for i in stride(from: 0, to: 23, by: 2) {
     UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(identifierText)_\(components.day!)_\(components.month!)_\(components.year!)_\(i)"])
         }
     }

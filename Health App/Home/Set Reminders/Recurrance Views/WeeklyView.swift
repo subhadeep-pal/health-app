@@ -54,7 +54,7 @@ class WeeklyView: RecurrenceView, CheckBoxProtocol {
     }
     
     func tappedCheckbox(withTag tag: Int) {
-        guard let day = RecurranceManager.Day(rawValue: tag) else {return}
+        guard let day = RecurranceManager.Day(rawValue: (tag + 1)) else {return}
         if selectedDaysSet.contains(day) {
             selectedDaysSet.remove(day)
         } else {
