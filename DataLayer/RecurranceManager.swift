@@ -28,13 +28,13 @@ open class RecurranceManager: NSObject {
     }
     
     public enum Day: Int {
-        case Sunday = 1
-        case Monday = 2
-        case Tuesday = 3
-        case Wednesday = 4
-        case Thursday = 5
-        case Friday = 6
-        case Saturday = 7
+        case Sunday = 0
+        case Monday
+        case Tuesday
+        case Wednesday
+        case Thursday
+        case Friday
+        case Saturday
         
         static let values = [
             Monday : "Monday",
@@ -103,7 +103,7 @@ open class RecurranceManager: NSObject {
                 // show error
                 return
             }
-            scheduleNotificationMonthlyType(startDate: startDate, months: months)
+            scheduleNotificationMonthlyType(title: title, messsage: message, identifierText: identifierText, startDate: startDate, months: months)
         }
     }
     
@@ -139,48 +139,41 @@ open class RecurranceManager: NSObject {
     
     func scheduleNotificationWeeklyType(title: String, messsage: String, identifierText: String, startDate: Date, days: [Day]) {
         for day in days {
-            for i in stride(from: 0, to: 23, by: 1) {
-                let notificationContent = UNMutableNotificationContent()
+            
+            
+            
+        }
+    }
+    
+    func scheduleNotificationMonthlyType(title: String, messsage: String, identifierText: String, startDate: Date, months: [Month]) {
+        for month in months {
+            for yearIncrement in 0..<2 {
+                let unitFlags : Set<Calendar.Component> = [.day, .year]
+                let components = Calendar.current.dateComponents(unitFlags, from: startDate)
                 
-                notificationContent.body = messsage
-                notificationContent.title = "\(title)"
-                notificationContent.sound = UNNotificationSound.default()
+                let dateString = "\(components.day!)/\(month)/\(components.year! + yearIncrement)"
                 
-                var dateComponent = DateComponents()
-                dateComponent.weekday =  day.rawValue // sunday = 1 ... saturday = 7
-                dateComponent.weekdayOrdinal = 10
-                dateComponent.hour = i
-                dateComponent.minute = 0
-                dateComponent.second = 0
+                guard let date = Utilities.shared.dateFromString(str: dateString) else {continue}
                 
-                
-                dateComponent.calendar = Calendar(identifier: .gregorian)
-                dateComponent.timeZone = .current
-                
-                let notificationTrigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
-                
-                let req = UNNotificationRequest(identifier: "\(identifierText)_\(i)", content: notificationContent, trigger: notificationTrigger)
-                UNUserNotificationCenter.current().add(req, withCompletionHandler: nil)
+                scheduleNotificationOnceType(title: title, messsage: messsage, identifierText: identifierText, date: date)
             }
         }
     }
     
-    func scheduleNotificationMonthlyType(startDate: Date, months: [Month]) {
-        
-    }
-    
     
    open func removeTodaysNotificationsFor(reminder: Reminder) {
-//        let date = Date()
-//
-//        guard let identifierText = reminder.identifierText else {return}
-//
-//        let unitFlags : Set<Calendar.Component> = [.day, .month, .year]
-//        let components = Calendar.current.dateComponents(unitFlags, from: date)
-//
-//        for i in stride(from: 0, to: 23, by: 1) {
-//    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(identifierText)_\(components.day!)_\(components.month!)_\(components.year!)_\(i)"])
-//        }
+        let date = Date()
+
+        guard let identifierText = reminder.identifierText else {return}
+
+        let unitFlags : Set<Calendar.Component> = [.day, .month, .year]
+        let components = Calendar.current.dateComponents(unitFlags, from: date)
+
+        for i in stride(from: 0, to: 23, by: 1) {
+    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(identifierText)_\(components.day!)_\(components.month!)_\(components.year!)_\(i)"])
+        }
     }
+    
+    
     
 }

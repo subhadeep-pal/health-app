@@ -52,6 +52,7 @@
 		14E2EDB51F83E37800656014 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14E2EDB41F83E37800656014 /* Assets.xcassets */; };
 		14E2EDB81F83E37800656014 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14E2EDB61F83E37800656014 /* LaunchScreen.storyboard */; };
 		14E49A121F83F12C0043C753 /* MasterSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E49A111F83F12C0043C753 /* MasterSideMenuViewController.swift */; };
+		14EEAD191FD4529100D74BA3 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AE60B21FAA0888008A71FC /* Utilities.swift */; };
 		701088EE1FA626B70036557E /* SetReminderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701088ED1FA626B70036557E /* SetReminderTableViewController.swift */; };
 		701088F01FA626F00036557E /* AddReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701088EF1FA626F00036557E /* AddReminderViewController.swift */; };
 		707496921F8D4B8000227953 /* UICustomisedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707496911F8D4B8000227953 /* UICustomisedTextView.swift */; };
@@ -539,6 +540,7 @@
 				14C2DAC71F9B2B8600D6CDD3 /* HealthConcern+CoreDataClass.swift in Sources */,
 				1485D9811FAD68E7004D8D8D /* Reminder+CoreDataClass.swift in Sources */,
 				14A2D5641F9B1009000D4314 /* HealthApp.xcdatamodeld in Sources */,
+				14EEAD191FD4529100D74BA3 /* Utilities.swift in Sources */,
 				14C2DAC81F9B2B8600D6CDD3 /* HealthConcern+CoreDataProperties.swift in Sources */,
 				1485D9821FAD68E7004D8D8D /* Reminder+CoreDataProperties.swift in Sources */,
 			);

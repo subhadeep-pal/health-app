@@ -19,5 +19,11 @@ class Utilities: NSObject {
         let dateString = dateFormatter.string(from: date)
         return dateString
     }
+    
+    func dateFromString(str: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        return dateFormatter.date(from: str)
+    }
 
 }
