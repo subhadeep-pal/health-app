@@ -16,6 +16,8 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    let center = UNUserNotificationCenter.current()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -26,6 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarStyle = .lightContent
         
         DatabaseManager.shared.dataSource = self
+        
+        notificationPermission()
+        
+        
 //        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         UNUserNotificationCenter.current().getPendingNotificationRequests { (requests) in
             for item in requests{
@@ -38,21 +44,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func notificationPermission() {
         // Request Notification Settings
-        UNUserNotificationCenter.current().getNotificationSettings { (notificationSettings) in
-            switch notificationSettings.authorizationStatus {
-            case .notDetermined:
-                self.requestAuthorization(completionHandler: { (success) in
-                    guard success else {
-                        print("Error in permission")
-                        return
-                    }
-                    // Schedule Local Notification
-                })
-            case .authorized:
-                // Schedule Local Notification
-                break
-            case .denied:
-                print("Application Not Allowed to Display Notifications")
+        let options: UNAuthorizationOptions = [.alert, .sound]
+        center.requestAuthorization(options: options) {
+            (granted, error) in
+            if !granted {
+                print("Something went wrong")
+            }
+        }
+        
+        center.getNotificationSettings { (settings) in
+            if settings.authorizationStatus != .authorized {
+                // Notifications not allowed
             }
         }
     }
@@ -86,7 +88,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        notificationPermission()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
