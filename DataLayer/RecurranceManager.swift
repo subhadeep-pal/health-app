@@ -124,7 +124,7 @@ open class RecurranceManager: NSObject {
             dateComponent.year = components.year
             dateComponent.hour = i
             dateComponent.minute = 0
-            dateComponent.second = 0
+            dateComponent.second = Int(arc4random_uniform(59))
             
             
             dateComponent.calendar = Calendar(identifier: .gregorian)
