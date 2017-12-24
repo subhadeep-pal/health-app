@@ -103,12 +103,12 @@ open class RecurranceManager: NSObject {
                 // show error
                 return
             }
-            scheduleNotificationMonthlyType(startDate: startDate, months: months)
+            scheduleNotificationMonthlyType(title: title, messsage: message, identifierText: identifierText, startDate: startDate, months: months)
         }
     }
     
     func scheduleNotificationOnceType(title: String, messsage: String, identifierText: String, date: Date) {
-        for i in stride(from: 0, to: 23, by: 1) {
+        for i in stride(from: 0, to: 23, by: 2) {
             let notificationContent = UNMutableNotificationContent()
             
             notificationContent.body = messsage
@@ -124,7 +124,7 @@ open class RecurranceManager: NSObject {
             dateComponent.year = components.year
             dateComponent.hour = i
             dateComponent.minute = 0
-            dateComponent.second = 0
+            dateComponent.second = Int(arc4random_uniform(59))
             
             
             dateComponent.calendar = Calendar(identifier: .gregorian)
@@ -138,49 +138,69 @@ open class RecurranceManager: NSObject {
     }
     
     func scheduleNotificationWeeklyType(title: String, messsage: String, identifierText: String, startDate: Date, days: [Day]) {
+        
+        var startDates = [Date]()
+        
+        //find the dates
         for day in days {
-            for i in stride(from: 0, to: 23, by: 1) {
-                let notificationContent = UNMutableNotificationContent()
+            for i in 0...6{
+                var dayComponent = DateComponents()
+                dayComponent.day = i
                 
-                notificationContent.body = messsage
-                notificationContent.title = "\(title)"
-                notificationContent.sound = UNNotificationSound.default()
+                guard let date = Calendar.current.date(byAdding: dayComponent, to: startDate) else {continue}
                 
-                var dateComponent = DateComponents()
-                dateComponent.weekday =  day.rawValue // sunday = 1 ... saturday = 7
-                dateComponent.weekdayOrdinal = 10
-                dateComponent.hour = i
-                dateComponent.minute = 0
-                dateComponent.second = 0
+                let unitFlags : Set<Calendar.Component> = [.weekday]
+                let components = Calendar.current.dateComponents(unitFlags, from: date)
                 
+                if components.weekday == day.rawValue {
+                    startDates.append(date)
+                }
+            }
+        }
+        
+        // Loop for one year
+        for start in startDates {
+            var date = start
+            for _ in 0..<10 {
+                var dayComponent = DateComponents()
+                dayComponent.day = 7
                 
-                dateComponent.calendar = Calendar(identifier: .gregorian)
-                dateComponent.timeZone = .current
-                
-                let notificationTrigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
-                
-                let req = UNNotificationRequest(identifier: "\(identifierText)_\(i)", content: notificationContent, trigger: notificationTrigger)
-                UNUserNotificationCenter.current().add(req, withCompletionHandler: nil)
+                guard let nextDate = Calendar.current.date(byAdding: dayComponent, to: date) else {continue}
+                scheduleNotificationOnceType(title: title, messsage: messsage, identifierText: identifierText, date: nextDate)
+                date = nextDate
             }
         }
     }
     
-    func scheduleNotificationMonthlyType(startDate: Date, months: [Month]) {
-        
+    func scheduleNotificationMonthlyType(title: String, messsage: String, identifierText: String, startDate: Date, months: [Month]) {
+        for month in months {
+            for yearIncrement in 0..<2 {
+                let unitFlags : Set<Calendar.Component> = [.day, .year]
+                let components = Calendar.current.dateComponents(unitFlags, from: startDate)
+                
+                let dateString = "\(components.day!)/\(month)/\(components.year! + yearIncrement)"
+                
+                guard let date = Utilities.shared.dateFromString(str: dateString) else {continue}
+                
+                scheduleNotificationOnceType(title: title, messsage: messsage, identifierText: identifierText, date: date)
+            }
+        }
     }
     
     
    open func removeTodaysNotificationsFor(reminder: Reminder) {
-//        let date = Date()
-//
-//        guard let identifierText = reminder.identifierText else {return}
-//
-//        let unitFlags : Set<Calendar.Component> = [.day, .month, .year]
-//        let components = Calendar.current.dateComponents(unitFlags, from: date)
-//
-//        for i in stride(from: 0, to: 23, by: 1) {
-//    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(identifierText)_\(components.day!)_\(components.month!)_\(components.year!)_\(i)"])
-//        }
+        let date = Date()
+
+        guard let identifierText = reminder.identifierText else {return}
+
+        let unitFlags : Set<Calendar.Component> = [.day, .month, .year]
+        let components = Calendar.current.dateComponents(unitFlags, from: date)
+
+        for i in stride(from: 0, to: 23, by: 2) {
+    UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["\(identifierText)_\(components.day!)_\(components.month!)_\(components.year!)_\(i)"])
+        }
     }
+    
+    
     
 }
